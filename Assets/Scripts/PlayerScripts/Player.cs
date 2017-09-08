@@ -147,9 +147,10 @@ public class Player : MonoBehaviour {
 
 		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborn);		//Calculating velocity x both airborn and on ground with smoothing
 
-//		animator.SetFloat("Speed", Mathf.Abs(velocity.x));			//ANIMATION
+		animator.SetFloat("speed", Mathf.Abs(velocity.x));			//ANIMATION
 		animator.SetBool("ground", controller.collisions.below);	//ANIMATION
-//		animator.SetFloat("vSpeed", velocity.y);					//ANIMATION
+		animator.SetBool("transforming", intoLine.transforming);
+		animator.SetFloat("vSpeed", velocity.y);					//ANIMATION
 		//animator.SetBool("OnWall", wallSliding);
 		//animator.SetBool("Dashing", abilities.isDashing);
 		//animator.SetBool ("Soaring", abilities.soaring);

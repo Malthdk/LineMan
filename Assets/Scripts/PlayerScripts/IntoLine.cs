@@ -8,13 +8,14 @@ public class IntoLine : MonoBehaviour {
 	public Direction direction;
 	public float yOffsetRightLeft = 0.3f;
 	public float yOffsetUpDown = -0.8f;
+	[HideInInspector]
+	public bool transforming;
 
 	//Privates
 	private Player player;
 	private Controller2D controller;
 	private Animator animator;
 	private bool special, downArrow, upArrow, rightArrow, leftArrow;
-	private bool transformIn;
 	private bool inputLocked;
 	private bool cannotTransform;
 	[HideInInspector]
@@ -178,6 +179,7 @@ public class IntoLine : MonoBehaviour {
 
 	public IEnumerator TransformPlayer(Vector3 transformation, Direction directionState)
 	{
+		transforming = true;
 		inputLocked = true; 
 		player.movementUnlocked = false;
 		player.velocity.x = 0;
@@ -198,5 +200,6 @@ public class IntoLine : MonoBehaviour {
 		particleEffect.Stop();
 		inputLocked = false;
 		player.movementUnlocked = true;
+		transforming = false;
 	}
 }
