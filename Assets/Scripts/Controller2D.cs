@@ -49,7 +49,7 @@ public class Controller2D : RaycastController {
 		collisions.faceDir = 1;					//Face direction set to 1
 		levelmanager = FindObjectOfType<LevelManager>();
 		checkpoint = FindObjectOfType<Checkpoint>();
-		graphicsTransform = gameObject.transform.FindChild("Graphics").transform;
+		graphicsTransform = gameObject.transform.FindChild("Graphics").GetComponent<Transform>();
 	}
 
 	public override void Update()
@@ -76,17 +76,11 @@ public class Controller2D : RaycastController {
 
 			if (collisions.faceDir == -1 && facingRight)
 			{
-				if (!Player.instance.wallSliding)
-				{
-					Flip ();
-				}
+				Flip ();
 			}
 			if (collisions.faceDir == 1 && !facingRight)
 			{
-				if (!Player.instance.wallSliding)
-				{
-					Flip ();
-				}
+				Flip ();
 			}
 		}
 
@@ -177,7 +171,7 @@ public class Controller2D : RaycastController {
 			}
 			else if (onCieling)
 			{
-				horizontalRayOrigin = (directionX == -1)?raycastOrigins.topLeft:raycastOrigins.topRight;	
+				horizontalRayOrigin = (directionX == -1)?raycastOrigins.topRight:raycastOrigins.topLeft;	
 				horizontalRayOrigin += Vector2.down * (horizontalRaySpacing * i);
 			}
 			else if (onFloor)
@@ -257,7 +251,7 @@ public class Controller2D : RaycastController {
 			}
 			else if (onCieling)
 			{
-				verticalRayOrigin = (directionY == -1)?raycastOrigins.bottomLeft:raycastOrigins.topLeft;
+				verticalRayOrigin = (directionY == -1)?raycastOrigins.topLeft:raycastOrigins.bottomLeft;
 				verticalRayOrigin += Vector2.right * (verticalRaySpacing * i + velocity.x);	
 			}	
 			else if (onFloor)
@@ -366,14 +360,15 @@ public class Controller2D : RaycastController {
 	// FLIPS PLAYER
 	private void Flip()
 	{
+		Debug.Log("flipped");
 		// Switch the way the player is labelled as facing.
 		facingRight = !facingRight;
 				
 		// Multiply the player's x local scale by -1.
 		Vector3 theScale = graphicsTransform.localScale;
 		theScale.x *= -1;
+		Debug.Log(theScale);
 		graphicsTransform.localScale = theScale;
-
 		//Flip the paint particle aswell
 //		Vector3 particleScale = paintParticleGO.transform.localPosition;
 //		particleScale.x *= -1;

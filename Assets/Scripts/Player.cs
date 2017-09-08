@@ -80,9 +80,13 @@ public class Player : MonoBehaviour {
 	private ParticleSystem tripleJumpParticle;
 
 	//Can the character be moved on X or Y axis. 
-	//[HideInInspector]
+	[HideInInspector]
 	public bool movementUnlocked;
+	private float targetVelocityX;
 
+	//Is the controlls inverse
+	[HideInInspector]
+	public bool inverseControlX;
 	[HideInInspector]
 	public static Player _instance;
 
@@ -101,7 +105,7 @@ public class Player : MonoBehaviour {
 //		jumpSoundSource = gameObject.transform.GetChild(9).GetComponent<AudioSource>();
 		controller = GetComponent<Controller2D>();
 		intoLine = GetComponent<IntoLine>();
-		animator = GetComponent<Animator>();		//ANIMATION
+		animator = transform.GetComponentInChildren<Animator>();		//ANIMATION
 	}
 
 	void Update () 
@@ -113,9 +117,24 @@ public class Player : MonoBehaviour {
 
 		input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));		//Input from player
 
+		if (inverseControlX)
+		{
+			if (input.x > 0 || input.y > 0)
+			{
+				input.x = -input.x;
+				input.y = -input.y;
+			}
+			else if (input.x < 0 || input.y < 0)
+			{
+				input.x = Mathf.Abs(input.x);
+				input.y = Mathf.Abs(input.y);
+			}
+				
+		}
 		wallDirX = (controller.collisions.left)? -1:1;											//wall direction left or right
 
-		float targetVelocityX = input.x * moveSpeed;							//velocity on x axis
+		targetVelocityX = (controller.playerOnLeftWall || controller.playerOnRightWall)?input.y * moveSpeed:input.x * moveSpeed;
+
 
 		if (input.x == 1 || input.x == -1) //[BUG REPORT] Minor problem with changing direction and keeping same speed
 		{
@@ -126,10 +145,10 @@ public class Player : MonoBehaviour {
 			accelerationTimeGrounded = 0.05f; //0.05
 		}
 
-		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below || controller.playerOnCieling && controller.collisions.above)?accelerationTimeGrounded:accelerationTimeAirborn);		//Calculating velocity x both airborn and on ground with smoothing
+		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborn);		//Calculating velocity x both airborn and on ground with smoothing
 
 //		animator.SetFloat("Speed", Mathf.Abs(velocity.x));			//ANIMATION
-//		animator.SetBool("Ground", controller.collisions.below);	//ANIMATION
+		animator.SetBool("ground", controller.collisions.below);	//ANIMATION
 //		animator.SetFloat("vSpeed", velocity.y);					//ANIMATION
 		//animator.SetBool("OnWall", wallSliding);
 		//animator.SetBool("Dashing", abilities.isDashing);
@@ -145,11 +164,7 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetButtonDown("Jump"))
 		{
-			if (controller.collisions.below && !controller.playerOnCieling)
-			{
-				FirstJump();
-			}
-			else if (controller.collisions.above && controller.playerOnCieling)
+			if (controller.collisions.below)
 			{
 				FirstJump();
 			}
@@ -173,13 +188,13 @@ public class Player : MonoBehaviour {
 //			}
 		}
 
-		if (!controller.collisions.below && !controller.playerOnCieling|| !controller.collisions.above && controller.playerOnCieling)
+		if (!controller.collisions.below)
 		{
 			landed = false;
 			moveSpeed = airSpeed;
 			volLanding = (velocity.y / -30);
 		}
-		else if (controller.collisions.below && landed == false  && !controller.playerOnCieling || controller.collisions.above && controller.playerOnCieling)
+		else if (controller.collisions.below && landed == false)
 		{
 //			jumpSoundSource.PlayOneShot(jumpSoundLanding, volLanding);
 //			hasTripleJumped = false;

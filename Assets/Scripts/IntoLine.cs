@@ -6,6 +6,8 @@ public class IntoLine : MonoBehaviour {
 	
 	//Publics
 	public Direction direction;
+	public float yOffsetRightLeft = 0.3f;
+	public float yOffsetUpDown = -0.8f;
 
 	//Privates
 	private Player player;
@@ -13,8 +15,8 @@ public class IntoLine : MonoBehaviour {
 	private Animator animator;
 	private bool special, downArrow, upArrow, rightArrow, leftArrow;
 	private bool transformIn;
-	private bool shiftUnlocked;
-
+	private bool inputLocked;
+	private bool cannotTransform;
 	[HideInInspector]
 	public static IntoLine _instance;
 
@@ -42,160 +44,116 @@ public class IntoLine : MonoBehaviour {
 		direction = Direction.Floor;
 		animator = transform.GetComponentInChildren<Animator>();
 
-		shiftUnlocked = true;
+		inputLocked = false;
 	}
 
 	void Update () 
 	{
 		//Input variables
 		special = Input.GetKeyDown(KeyCode.LeftShift);
-		downArrow = Input.GetKey(KeyCode.DownArrow);
-		upArrow = Input.GetKey(KeyCode.UpArrow);
-		rightArrow = Input.GetKey(KeyCode.RightArrow);
-		leftArrow = Input.GetKey(KeyCode.LeftArrow);
+		downArrow = Input.GetKeyDown(KeyCode.DownArrow);
+		upArrow = Input.GetKeyDown(KeyCode.UpArrow);
+		rightArrow = Input.GetKeyDown(KeyCode.RightArrow);
+		leftArrow = Input.GetKeyDown(KeyCode.LeftArrow);
 			
 		//Direction states for the player
 		switch(direction)
 		{
 		case Direction.Floor:
 			//INPUT
-			if (special && shiftUnlocked)
+			if (inputLocked == false && cannotTransform == false)
 			{
 				if (downArrow && controller.collisions.below)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, -2.8f, 0f), Direction.Cieling));
-					//direction = Direction.Cieling;
-					//transform.Translate(0, -2.8f, 0);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Cieling));
 				}
 				else if (rightArrow && controller.collisions.right)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, 0.3f, 0f), Direction.Rightwall));
-					//direction = Direction.Rightwall;
-					//transform.Translate(0f, 0f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Rightwall));
 				}
 				else if (leftArrow  && controller.collisions.left)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, 0.3f, 0f), Direction.Leftwall));
-					//direction = Direction.Leftwall;
-					//transform.Translate(0f, 0f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Leftwall));
 				}
 			}
-
 			//TRANSFORMATIONS
 			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-			ResetGravity();
 			controller.playerOnground = true;
-			controller.playerOnCieling = controller.playerOnRightWall = controller.playerOnLeftWall = false;
+			controller.playerOnCieling = controller.playerOnRightWall = controller.playerOnLeftWall = player.inverseControlX = false;
 			break;
 
 		case Direction.Cieling:
 			//INPUT
-			if (special && shiftUnlocked)
+			if (inputLocked == false && cannotTransform == false)
 			{
-				if (upArrow && controller.collisions.above)
+				if (upArrow && controller.collisions.below)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, 2.8f, 0f), Direction.Floor));
-					//direction = Direction.Floor;
-					//transform.Translate(0, 2.8f, 0);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Floor));
 				}
-				else if (rightArrow && controller.collisions.right)
+				else if (rightArrow && controller.collisions.left)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, 0f, 0f), Direction.Rightwall));
-					//direction = Direction.Rightwall;
-					//transform.Translate(0f, 0f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Rightwall));
 				}
-				else if (leftArrow && controller.collisions.left)
+				else if (leftArrow && controller.collisions.right)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, 0f, 0f), Direction.Leftwall));
-					//direction = Direction.Leftwall;
-					//transform.Translate(0f, 0f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Leftwall));
 				}
 			}
 
 			//TRANSFORMATIONS
-			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-			ReverseGravity();
-			controller.playerOnCieling = true;
+			transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+			controller.playerOnCieling = player.inverseControlX = true;
 			controller.playerOnground = controller.playerOnRightWall = controller.playerOnLeftWall = false;
 			break;
 
 		case Direction.Rightwall:
 			//INPUT
-			if (special && shiftUnlocked)
+			if (inputLocked == false && cannotTransform == false)
 			{
-				if (downArrow && controller.collisions.below)
+				if (rightArrow && controller.collisions.below)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, -1f, 0f), Direction.Leftwall));
-					//direction = Direction.Leftwall;
-					//transform.Translate(0, -1f, 0);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Leftwall));
 				}
-				else if (rightArrow && controller.collisions.right)
+				else if (upArrow && controller.collisions.right)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(-1.5f, 0.3f, 0f), Direction.Cieling));
-					//direction = Direction.Cieling;
-					//transform.Translate(-1.5f, 0.5f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Cieling));
 				}
-				else if (leftArrow && controller.collisions.left)
+				else if (downArrow && controller.collisions.left)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, 0.3f, 0f), Direction.Floor));
-					//direction = Direction.Floor;
-					//transform.Translate(0f, 0f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Floor));
 				}
 			}
 
 			//TRANSFORMATIONS
 			transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-			ResetGravity();
 			controller.playerOnRightWall = true;
-			controller.playerOnground = controller.playerOnCieling = controller.playerOnLeftWall = false;
+			controller.playerOnground = controller.playerOnCieling = controller.playerOnLeftWall = player.inverseControlX = false;
 			break;
 
 		case Direction.Leftwall:
 			//INPUT
-			if (special && shiftUnlocked)
+			if (inputLocked == false && cannotTransform == false)
 			{
-				if (downArrow && controller.collisions.below)
+				if (leftArrow && controller.collisions.below)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, -1f, 0f), Direction.Rightwall));
-					//direction = Direction.Rightwall;
-					//transform.Translate(0, -1f, 0);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Rightwall));
 				}
-				else if (rightArrow && controller.collisions.right)
+				else if (downArrow && controller.collisions.right)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, 0.3f, 0f), Direction.Floor));
-					//direction = Direction.Floor;
-					//transform.Translate(0f, 0f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Floor));
 				}
-				else if (leftArrow && controller.collisions.left)
+				else if (upArrow && controller.collisions.left)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(1.5f, 0.3f, 0f), Direction.Cieling));
-					//direction = Direction.Cieling;
-					//transform.Translate(1.5f, 0.5f, 0f);
+					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Cieling));
 				}
 			}
 
 			//TRANSFORMATIONS
 			transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-			ResetGravity();
-			controller.playerOnLeftWall = true;
+			controller.playerOnLeftWall = player.inverseControlX = true;
 			controller.playerOnground = controller.playerOnCieling = controller.playerOnRightWall = false;
 			break;
-
 		}
-	}
-
-	void ResetGravity()
-	{
-		player.maxJumpHeight = 3.5f;		
-		player.timeToJumpApex = 0.65f;		
-		player.minJumpHeight = 0.5f;
-	}
-
-	void ReverseGravity()
-	{
-		player.maxJumpHeight = -3.5f;
-		player.timeToJumpApex = -0.65f;
-		player.minJumpHeight = -0.5f;
 	}
 
 	public void ResetDirection(Direction directionState)
@@ -203,23 +161,42 @@ public class IntoLine : MonoBehaviour {
 		direction = directionState;
 	}
 
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "deadZone")
+		{
+			cannotTransform = true;
+		}
+	}
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.tag == "deadZone")
+		{
+			cannotTransform = false;
+		}
+	}
+
 	public IEnumerator TransformPlayer(Vector3 transformation, Direction directionState)
 	{
-		shiftUnlocked = false; 
+		inputLocked = true; 
 		player.movementUnlocked = false;
 		player.velocity.x = 0;
 		player.velocity.y = 0;
+		ParticleSystem particleEffect = player.gameObject.transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>();
+		particleEffect.Play();
 		animator.SetTrigger("goDown");
 
-		yield return new WaitForSeconds(0.4f);
+		yield return new WaitForSeconds(0.8f);
+		particleEffect.Stop();
 		transform.Translate(transformation);
 		direction = directionState;
 
 		yield return new WaitForSeconds(0.1f);
 		animator.SetTrigger("goUp");
-
-		yield return new WaitForSeconds(0.3f);
-		shiftUnlocked = true;
+		particleEffect.Play();
+		yield return new WaitForSeconds(0.8f);
+		particleEffect.Stop();
+		inputLocked = false;
 		player.movementUnlocked = true;
 	}
 }
