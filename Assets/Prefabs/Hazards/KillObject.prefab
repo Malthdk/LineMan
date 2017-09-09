@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4779572660822184}
   - component: {fileID: 212443341992709536}
-  - component: {fileID: 61420339731360808}
   - component: {fileID: 50494852196921930}
+  - component: {fileID: 61193811272256572}
   m_Layer: 8
   m_Name: KillObject
   m_TagString: killTag
@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546978778444458}
-  m_LocalRotation: {x: -5.487019e-10, y: -0.0033475247, z: 0.9999944, w: 0.00000016391184}
-  m_LocalPosition: {x: 12.79, y: 0.75, z: -0.24}
-  m_LocalScale: {x: 0.27798185, y: 0.2156266, z: 1}
+  m_LocalRotation: {x: 0.0033475247, y: -2.9103828e-10, z: -0.00000013411041, w: 0.9999944}
+  m_LocalPosition: {x: -0.35, y: -16.85, z: -0.3}
+  m_LocalScale: {x: 3.202361, y: 0.2200342, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.384, y: 0, z: 180.00002}
+  m_LocalEulerAnglesHint: {x: 0.384, y: 0, z: 0}
 --- !u!50 &50494852196921930
 Rigidbody2D:
   serializedVersion: 4
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61420339731360808
+--- !u!61 &61193811272256572
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,7 +75,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 20.335001, y: 3.5}
+  m_Size: {x: 20.335001, y: 3.4999995}
 --- !u!212 &212443341992709536
 SpriteRenderer:
   m_ObjectHideFlags: 1

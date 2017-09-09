@@ -30,7 +30,6 @@ public class RevealButton : MonoBehaviour {
 		{
 			spriteRend.enabled = false;
 			StartCoroutine("HideOrShow");
-			Debug.Log("yoyo");
 		}
 	}
 
@@ -39,7 +38,7 @@ public class RevealButton : MonoBehaviour {
 	{
 		FLipState(revealObjects);
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 		while (color.a > 0)
 		{
@@ -54,7 +53,7 @@ public class RevealButton : MonoBehaviour {
 		{
 			Debug.Log("Fading Color");
 			color = theList[i].material.color;
-			color.a -= 0.01f;
+			color.a -= 0.05f;
 			theList[i].material.color = color;
 		}
 	}
