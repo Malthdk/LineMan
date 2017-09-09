@@ -360,14 +360,12 @@ public class Controller2D : RaycastController {
 	// FLIPS PLAYER
 	private void Flip()
 	{
-		Debug.Log("flipped");
 		// Switch the way the player is labelled as facing.
 		facingRight = !facingRight;
 				
 		// Multiply the player's x local scale by -1.
 		Vector3 theScale = graphicsTransform.localScale;
 		theScale.x *= -1;
-		Debug.Log(theScale);
 		graphicsTransform.localScale = theScale;
 		//Flip the paint particle aswell
 //		Vector3 particleScale = paintParticleGO.transform.localPosition;
