@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour {
 
 	private Scene scene;
 
+	public bool respawning;
+
 	[HideInInspector]
 	public static LevelManager _instance;
 
@@ -84,6 +86,7 @@ public class LevelManager : MonoBehaviour {
 	//Handles all player respawning
 	IEnumerator Respawned() 
 	{
+		respawning = true;
 		GameObject graphics = player.gameObject.transform.GetChild(0).gameObject;
 		ParticleSystem particleEffect = player.gameObject.transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
 		BoxCollider2D boxCol = player.gameObject.GetComponent<BoxCollider2D>();
@@ -102,14 +105,6 @@ public class LevelManager : MonoBehaviour {
 		player.velocity.x = 0f;
 		player.velocity.y = 0f;
 
-//		ResetFallingPlatforms(fallingPlatforms);
-//		ResetStates(stateObjects);
-//		ResetPlatforms(platforms);
-//		ResetLevers(levers);
-//		ResetParticles();
-//		ResetOrbs(orbs);
-//		ResetSeOrbs(secrets);
-//		numberOrbs = orbs.Count;
 		yield return new WaitForSeconds(respawnTime);
 
 		player.enabled = true;
@@ -117,6 +112,7 @@ public class LevelManager : MonoBehaviour {
 		boxCol.enabled = true;
 		Debug.Log ("Respawned!");
 	}
+
 	public void Respawn()
 	{
 		StartCoroutine(Respawned());
