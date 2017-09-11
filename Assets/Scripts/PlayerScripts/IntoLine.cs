@@ -10,13 +10,15 @@ public class IntoLine : MonoBehaviour {
 	public float yOffsetUpDown = -0.8f;
 	[HideInInspector]
 	public bool transforming;
+	[HideInInspector]
+	public bool inputLocked;
+	[HideInInspector]
+	public bool downArrow, upArrow, rightArrow, leftArrow;
 
 	//Privates
 	private Player player;
 	private Controller2D controller;
 	private Animator animator;
-	private bool special, downArrow, upArrow, rightArrow, leftArrow;
-	private bool inputLocked;
 	private bool cannotTransform;
 	[HideInInspector]
 	public static IntoLine _instance;
@@ -51,7 +53,6 @@ public class IntoLine : MonoBehaviour {
 	void Update () 
 	{
 		//Input variables
-		special = Input.GetKeyDown(KeyCode.LeftShift);
 		downArrow = Input.GetKeyDown(KeyCode.DownArrow);
 		upArrow = Input.GetKeyDown(KeyCode.UpArrow);
 		rightArrow = Input.GetKeyDown(KeyCode.RightArrow);
