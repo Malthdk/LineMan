@@ -4291,23 +4291,52 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4535665047735678, guid: fa19c0bc1f06a4158959b0d30fa9e52c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4535665047735678, guid: fa19c0bc1f06a4158959b0d30fa9e52c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4535665047735678, guid: fa19c0bc1f06a4158959b0d30fa9e52c, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.015275362
       objectReference: {fileID: 0}
     - target: {fileID: 4535665047735678, guid: fa19c0bc1f06a4158959b0d30fa9e52c, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99988335
       objectReference: {fileID: 0}
     - target: {fileID: 4535665047735678, guid: fa19c0bc1f06a4158959b0d30fa9e52c, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 20603312682097050, guid: fa19c0bc1f06a4158959b0d30fa9e52c,
+        type: 2}
+      propertyPath: orthographic size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535665047735678, guid: fa19c0bc1f06a4158959b0d30fa9e52c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 1.7500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 20603312682097050, guid: fa19c0bc1f06a4158959b0d30fa9e52c,
+        type: 2}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20603312682097050, guid: fa19c0bc1f06a4158959b0d30fa9e52c,
+        type: 2}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20603312682097050, guid: fa19c0bc1f06a4158959b0d30fa9e52c,
+        type: 2}
+      propertyPath: m_OcclusionCulling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20603312682097050, guid: fa19c0bc1f06a4158959b0d30fa9e52c,
+        type: 2}
+      propertyPath: m_HDR
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa19c0bc1f06a4158959b0d30fa9e52c, type: 2}

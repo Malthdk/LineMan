@@ -13,7 +13,7 @@ public class AiPatrolling : MonoBehaviour {
 	public bool mimic;
 
 	//Privates
-	private bool isGrounded, isBlocked, isMoving, shootRays, transforming;
+	private bool isGrounded, isBlocked, isMoving, shootRays, transforming, canTransform;
 	public bool faceingLeft = true;
 	float myWidth, myHeight;
 	private Vector3 edgeOffset = new Vector3(-0.8f, -0.8f, 0f);
@@ -42,6 +42,7 @@ public class AiPatrolling : MonoBehaviour {
 	{
 		isMoving = true;
 		shootRays = true;
+		canTransform = true; 
 
 		animator = this.transform.GetComponentInChildren<Animator>();
 		myTrans = this.transform;
@@ -248,7 +249,7 @@ public class AiPatrolling : MonoBehaviour {
 		}
 		if (mimic)
 		{
-			if ((IntoLine.instance.downArrow || IntoLine.instance.upArrow || IntoLine.instance.rightArrow || IntoLine.instance.leftArrow) && IntoLine.instance.transforming)
+			if (IntoLine.instance.transforming && canTransform)
 			{
 				if (aiDirection == AiDirection.Floor)
 				{
@@ -335,6 +336,7 @@ public class AiPatrolling : MonoBehaviour {
 
 	public IEnumerator TransformAI(Vector3 transformation, AiDirection directionState,  float yRotation, float zRotation)
 	{
+		canTransform = false;
 		transforming = true;						//Needed for animation
 		isMoving = false;							//Shouldnt be moving
 		isGrounded = true;							//Grounded is set to true to keep Ai in place
@@ -360,6 +362,7 @@ public class AiPatrolling : MonoBehaviour {
 		particleEffect.Stop();
 		transforming = false;
 		isMoving = true;							//start moving again
+		canTransform = true;
 
 	}
 }

@@ -6,26 +6,42 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level1.unity
+    path: Assets/Scenes/InitialLevels/_MainMenu/StartMenu.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level2.unity
+    path: Assets/Scenes/InitialLevels/Act1/Act1Intro.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level3.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level4.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level2.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level5.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level3.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level6.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level4.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level6.5.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level5.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level7.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level6.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level8.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level6.5.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level9.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level7.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level10.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level8.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Level11.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level9.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act1/Level10.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act1/Level11.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Act2Intro.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.1.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.2.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.3.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.4.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.5.unity

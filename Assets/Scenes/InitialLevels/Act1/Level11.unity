@@ -609,7 +609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -103, y: 385}
+  m_AnchoredPosition: {x: -103, y: 39.1}
   m_SizeDelta: {x: 562.5, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960169077
@@ -644,7 +644,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You never quite know what the future might bring...
+  m_Text: 'You never quite know what the future might bring...
+
+    Taking new oppotunities leads to new possibilities...'
 --- !u!222 &960169078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -765,7 +767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1218771349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,7 +1610,7 @@ Prefab:
     - target: {fileID: 114540162071938554, guid: 389a2378ad87744c0ac30b7755374867,
         type: 2}
       propertyPath: nextLevelName
-      value: Level11
+      value: Act2Intro
       objectReference: {fileID: 0}
     - target: {fileID: 1905445462162616, guid: 389a2378ad87744c0ac30b7755374867, type: 2}
       propertyPath: m_IsActive
