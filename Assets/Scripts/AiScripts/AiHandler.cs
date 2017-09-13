@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class AiHandler : MonoBehaviour {
 
+	//Publics
 	public AiBehaviour behaviour;
 
+
+	//Privates
 	AiPatrolling patrollingScript;
 //	HeatSeeking heatSeekingScript;
 
@@ -58,7 +61,4 @@ public class AiHandler : MonoBehaviour {
 			//If it collides with walls - Destroy it.
 //		}
 	}
-
-	//Enemy1 - small - fast - dies on paint and walls
-	//Enemy2 - large - slow - only dies on walls
 }

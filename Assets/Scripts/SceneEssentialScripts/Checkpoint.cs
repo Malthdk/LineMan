@@ -7,7 +7,7 @@ public class Checkpoint : MonoBehaviour {
 	//public string tempTag;
 	private Player player;
 
-	public List<GameObject> objectsToRemove;
+//	public List<GameObject> objectsToRemove;
 //	public List<PlatformController> platformsToRemove;
 //	public List<Lever> leversToRemove;
 //	public List<FallingPlatform> fallingToRemove;
@@ -45,10 +45,10 @@ public class Checkpoint : MonoBehaviour {
 			LevelManager.instance.currentCheckpoint = gameObject;
 //			LevelManager.instance.currentTag = player.tag;
 
-			foreach(GameObject stateObj in objectsToRemove) 
-			{
-				LevelManager.instance.stateObjects.Remove(stateObj);
-			}
+//			foreach(GameObject stateObj in objectsToRemove) 
+//			{
+//				LevelManager.instance.stateObjects.Remove(stateObj);
+//			}
 //			foreach(PlatformController platformObj in platformsToRemove) 
 //			{
 //				LevelManager.instance.platforms.Remove(platformObj);

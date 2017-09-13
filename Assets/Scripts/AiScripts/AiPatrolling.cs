@@ -18,16 +18,23 @@ public class AiPatrolling : MonoBehaviour {
 	float myWidth, myHeight;
 	private Vector3 edgeOffset = new Vector3(-0.8f, -0.8f, 0f);
 	private Vector3 wallOffset = new Vector3(0f, 0f, 0f);
+	private Coroutine co;
 
 	//For lineCasting
 	private Vector2 lineCastPos;
 	private Vector2 wallCheck;
 	private Vector2 startPos;
 	private Vector2 groundCheck;
+
 	//Components
 	Transform myTrans;
 	BoxCollider2D myBoxCol;
 	Animator animator;
+
+	//For resetting
+	private Vector3 startPosition;
+	private Quaternion startRotation;
+	private AiDirection startDirection;
 
 	public enum AiDirection
 	{
@@ -40,6 +47,10 @@ public class AiPatrolling : MonoBehaviour {
 
 	void Start ()
 	{
+		startPosition = transform.position;
+		startRotation = transform.rotation;
+		startDirection = aiDirection;
+
 		isMoving = true;
 		shootRays = true;
 		canTransform = true; 
@@ -48,26 +59,7 @@ public class AiPatrolling : MonoBehaviour {
 		myTrans = this.transform;
 		myBoxCol = this.GetComponent<BoxCollider2D>();
 
-		if (aiDirection == AiDirection.Rightwall || aiDirection == AiDirection.Leftwall)
-		{
-			myWidth = myBoxCol.bounds.extents.y;
-			myHeight = myBoxCol.bounds.extents.x;
-
-			//This is so we can have the AI move in different direction from beginning
-			if (flipAtStart)
-			{
-				Flip(true);
-			}
-		}
-		else if (aiDirection == AiDirection.Floor || aiDirection == AiDirection.Cieling)
-		{
-			myWidth = myBoxCol.bounds.extents.x;
-			myHeight = myBoxCol.bounds.extents.y;	
-			if (flipAtStart)
-			{
-				Flip(false);
-			}
-		}
+		InitiateAi();
 	}
 
 	void FixedUpdate ()
@@ -99,11 +91,11 @@ public class AiPatrolling : MonoBehaviour {
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Leftwall, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Leftwall, 0f, -90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Rightwall, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Rightwall, 0f, -90f));
 						}
 
 					}
@@ -112,11 +104,11 @@ public class AiPatrolling : MonoBehaviour {
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
 						}
 					}
 					//This flips the AI in the opposite direction - for back and forth patrolling.
@@ -142,22 +134,22 @@ public class AiPatrolling : MonoBehaviour {
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Rightwall, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Rightwall, 0f, -90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Leftwall, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Leftwall, 0f, -90f));
 						}
 					}
 					else if (aroundEdge && !isGrounded)
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
 						}
 					}
 					else 
@@ -182,22 +174,22 @@ public class AiPatrolling : MonoBehaviour {
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Cieling, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Cieling, 0f, -90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Floor, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Floor, 0f, -90f));
 						}
 					}
 					else if (aroundEdge && !isGrounded)
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
 						}
 					}
 					else
@@ -221,22 +213,22 @@ public class AiPatrolling : MonoBehaviour {
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Floor, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Floor, 0f, -90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(wallOffset, AiDirection.Cieling, 0f, -90f));
+							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Cieling, 0f, -90f));
 						}
 					}
 					else if (aroundEdge && !isGrounded)
 					{
 						if(faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
 						}
 						else if (!faceingLeft)
 						{
-							StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
+							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
 						}
 					}
 					else
@@ -271,6 +263,30 @@ public class AiPatrolling : MonoBehaviour {
 			}	
 		}
 
+	}
+
+	void InitiateAi()
+	{
+		if (aiDirection == AiDirection.Rightwall || aiDirection == AiDirection.Leftwall)
+		{
+			myWidth = myBoxCol.bounds.extents.y;
+			myHeight = myBoxCol.bounds.extents.x;
+
+			//This is so we can have the AI move in different direction from beginning
+			if (flipAtStart)
+			{
+				Flip(true);
+			}
+		}
+		else if (aiDirection == AiDirection.Floor || aiDirection == AiDirection.Cieling)
+		{
+			myWidth = myBoxCol.bounds.extents.x;
+			myHeight = myBoxCol.bounds.extents.y;	
+			if (flipAtStart)
+			{
+				Flip(false);
+			}
+		}
 	}
 
 	//This function shoots lines for collision detection
@@ -336,33 +352,70 @@ public class AiPatrolling : MonoBehaviour {
 
 	public IEnumerator TransformAI(Vector3 transformation, AiDirection directionState,  float yRotation, float zRotation)
 	{
-		canTransform = false;
 		transforming = true;						//Needed for animation
-		isMoving = false;							//Shouldnt be moving
-		isGrounded = true;							//Grounded is set to true to keep Ai in place
-		isBlocked =	false;							//isBlocked is set to true to keep Ai in place
-		shootRays = false;							//shootRays is set to false to stop detecting collisions while transforming
+		DisableAiFunctionality();
 		aiDirection = directionState;				//Changing directionState before transforming in order to too shoot new correct collision rays.
 		ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
 		particleEffect.Play();
 		animator.SetTrigger("goDown");				//animate go down
-
 		yield return new WaitForSeconds(0.8f);
+
 		particleEffect.Stop();
 		transform.Translate(transformation); 		//translate splace
 		transform.Rotate(0f, yRotation, zRotation);	//rotate 180 on y-axis
-
-
 		yield return new WaitForSeconds(0.1f);
+
 		animator.SetTrigger("goUp");				//animate go up
 		particleEffect.Play();
-		shootRays = true;
-
 		yield return new WaitForSeconds(0.8f);
+
+		EnableAiFunctionality();
 		particleEffect.Stop();
 		transforming = false;
-		isMoving = true;							//start moving again
-		canTransform = true;
 
+	}
+
+	public IEnumerator ResetAi()
+	{
+		if(co == null)
+		{
+			yield return new WaitForEndOfFrame();
+		}
+		else
+		{
+			StopCoroutine(co);	
+		}
+		DisableAiFunctionality();
+		animator.ResetTrigger("goDown"); //stopping Animation
+		animator.ResetTrigger("goUp");	//stopping Animation
+		yield return new WaitForEndOfFrame();
+	
+		transform.position = startPosition;
+		transform.rotation = startRotation;
+		aiDirection = startDirection;
+		yield return new WaitForEndOfFrame();
+
+		transforming = false;
+		EnableAiFunctionality();
+		InitiateAi();
+		if (flipAtStart)
+		{
+			faceingLeft = false;
+		}
+	}
+
+	void DisableAiFunctionality()
+	{
+		canTransform = false;						//Mimic cannot transform
+		isMoving = false;							//Shouldnt be moving
+		isGrounded = true;							//Grounded is set to true to keep Ai in place
+		isBlocked =	false;							//isBlocked is set to false to keep Ai in place
+		shootRays = false;							//shootRays is set to false to stop detecting collisions while transforming
+	}
+	void EnableAiFunctionality()
+	{
+		shootRays = true;							//start shooting rays
+		isMoving = true;							//start moving again
+		canTransform = true;						//Mimic can transform again
 	}
 }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114435066039224568}
   m_Layer: 0
   m_Name: Ai_Mimic
-  m_TagString: killTag
+  m_TagString: ai
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

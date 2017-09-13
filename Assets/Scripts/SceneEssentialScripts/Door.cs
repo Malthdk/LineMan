@@ -56,7 +56,7 @@ public class Door : MonoBehaviour {
 //		{
 //			source.PlayOneShot(completeSound, 0.8f);
 //			yield return new WaitForSeconds(completeSound.length);
-			LevelManager.instance.NextLevel(nextLevelName);	
+		StartCoroutine(LevelManager.instance.NextLevel(nextLevelName));	
 //		}
 	}
 }

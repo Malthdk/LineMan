@@ -18,7 +18,9 @@ public class LevelManager : MonoBehaviour {
 
 	public int coinCount;
 
-	public List<GameObject> stateObjects;
+	public List<AiPatrolling> ais;
+	public List<RevealButton> revButtons;
+//	public List<GameObject> stateObjects;
 //	public List<PlatformController> platforms;
 //	public List<Lever> levers;
 //	public List<FallingPlatform> fallingPlatforms;
@@ -64,7 +66,7 @@ public class LevelManager : MonoBehaviour {
 //			GameObject instance = (GameObject)Instantiate(Resources.Load("Music")); // Instantiates music if none is found
 //		}
 		player = FindObjectOfType<Player>();
-//		FillLists();
+		FillLists();
 	}
 
 	void Update()
@@ -97,6 +99,8 @@ public class LevelManager : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.9f);
 
+		ResetAis(ais);				//Resetting AIs
+		ResetReveals(revButtons);	//Resetting Reveal Buttons
 		particleEffect.Stop();
 		player.transform.position = currentCheckpoint.transform.position;
 //		player.tag = currentTag;
@@ -118,14 +122,20 @@ public class LevelManager : MonoBehaviour {
 		StartCoroutine(Respawned());
 	}
 
-	public void NextLevel(string myLevel)
+	public IEnumerator NextLevel(string myLevel)
 	{
 		Destroy(player.gameObject);
 		Destroy (this.gameObject);
+		yield return new WaitForEndOfFrame();
+
+		//fade out the level and load next
+		float fadeTime = GameObject.Find("_GM").GetComponent<Fading>().BeginFade(1);
+		yield return new WaitForSeconds(fadeTime);
+
 		Application.LoadLevel(myLevel);
 	}
 
-	void ResetStates(List<GameObject> theList)
+	void ResetAis(List<AiPatrolling> theList)
 	{
 		if (theList.Count == 0)
 		{
@@ -135,11 +145,40 @@ public class LevelManager : MonoBehaviour {
 		{
 			for (int i = 0; i < theList.Count; i++)
 			{
-				theList[i].SetActive(true);
+				theList[i].StartCoroutine("ResetAi");
 			}	
 		}
 	}
-		
+
+
+	void ResetReveals(List<RevealButton> theList)
+	{
+		if (theList.Count == 0)
+		{
+			return;
+		}
+		else 
+		{
+			for (int i = 0; i < theList.Count; i++)
+			{
+				theList[i].StartCoroutine("ResetRevealButton");
+			}	
+		}
+	}
+//	void ResetStates(List<GameObject> theList)
+//	{
+//		if (theList.Count == 0)
+//		{
+//			return;
+//		}
+//		else 
+//		{
+//			for (int i = 0; i < theList.Count; i++)
+//			{
+//				theList[i].SetActive(true);
+//			}	
+//		}
+//	}		
 //	void ResetFallingPlatforms(List<FallingPlatform> theList)
 //	{
 //		if (theList.Count == 0)
@@ -236,7 +275,18 @@ public class LevelManager : MonoBehaviour {
 		return all.ToArray() ;
 	}
 
-//	void FillLists() {
+	void FillLists() {
+
+		foreach(GameObject aiObject in GameObject.FindGameObjectsWithTag("ai"))
+		{
+			AiPatrolling aiPatrol = aiObject.GetComponent<AiPatrolling>();
+			ais.Add(aiPatrol);
+		}
+		foreach(GameObject reObject in GameObject.FindGameObjectsWithTag("revealButton"))
+		{
+			RevealButton revBut = reObject.GetComponent<RevealButton>();
+			revButtons.Add(revBut);
+		}
 //		foreach(GameObject oObject in GameObject.FindGameObjectsWithTag("orb")) 
 //		{
 //			PickUpGlobe oOrb = oObject.GetComponent<PickUpGlobe>();
@@ -270,5 +320,5 @@ public class LevelManager : MonoBehaviour {
 //			Lever lever = lObject.GetComponent<Lever>();
 //			levers.Add(lever);
 //		}
-//	}
+	}
 }

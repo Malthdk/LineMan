@@ -63,7 +63,7 @@ public class RevealButton : MonoBehaviour {
 		Debug.Log("Showing or hiding");
 		for (int i = 0; i < theList.Count; i++)
 		{
-//			if (!isEnabled)
+//			if (!isEnabled)					//this is for if we want it to be hidden again - could be an interesting mechanic
 //			{
 			theList[i].SetActive(true);
 //				isEnabled = true;
@@ -73,6 +73,28 @@ public class RevealButton : MonoBehaviour {
 //				theList[i].SetActive(false);
 //				isEnabled = true;
 //			}
+		}
+	}
+
+	public IEnumerator ResetRevealButton()
+	{
+		spriteRend.enabled = true;
+		ResetRevealObjects(revealObjects, fadeObjects);
+		yield return new WaitForEndOfFrame();
+	}
+
+	void ResetRevealObjects(List<GameObject> revealList, List<SpriteRenderer> fadeList)
+	{
+		for (int i = 0; i < fadeList.Count; i++)
+		{
+			color = fadeList[i].material.color;
+			color.a = 1f;
+			fadeList[i].material.color = color;
+		}
+
+		for (int i = 0; i < revealList.Count; i++)
+		{
+			revealList[i].SetActive(false);
 		}
 	}
 }
