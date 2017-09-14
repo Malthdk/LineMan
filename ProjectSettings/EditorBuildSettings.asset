@@ -10,29 +10,29 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Act1Intro.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level1.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.1.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level2.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.2.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level3.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.3.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level4.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.4.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level5.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.5.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level6.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.6.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level6.5.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.7.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level7.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.8.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level8.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.9.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level9.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.10.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level10.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.11.unity
   - enabled: 1
-    path: Assets/Scenes/InitialLevels/Act1/Level11.unity
+    path: Assets/Scenes/InitialLevels/Act1/Level1.12.unity
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Act2Intro.unity
   - enabled: 1
@@ -45,3 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/InitialLevels/Act2/Level2.4.unity
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Level2.5.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/_MainMenu/LevelSelectAct1.unity
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/_MainMenu/LevelSelectAct2.unity

@@ -358,7 +358,7 @@ MonoBehaviour:
   actText: {fileID: 349871723}
   quoteText: {fileID: 1396744197}
   personText: {fileID: 457421374}
-  nextLevel: Level1
+  nextLevel: Level1.1
 --- !u!4 &697722889
 Transform:
   m_ObjectHideFlags: 0
