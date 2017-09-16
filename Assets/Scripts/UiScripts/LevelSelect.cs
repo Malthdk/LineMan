@@ -21,8 +21,8 @@ public class LevelSelect : MonoBehaviour {
 	private float gridBoxHeight = Screen.height / numRows;
 
 	private static int numLevels = 12;
-	private static int completedLevelsAct1 = 4; //this probably have to be divided into acts
-	private static int completedLevelsAct2 = 0;
+	public static int completedLevelsAct1 = 12; //this probably have to be divided into acts
+	public static int completedLevelsAct2 = 12;
 
 	private string levelName;
 
@@ -32,7 +32,7 @@ public class LevelSelect : MonoBehaviour {
 		{
 
 			int buttonRow = (int)i / buttonsPerRow;
-			int gridRow = 2 * buttonRow + 5;
+			int gridRow = 2 * buttonRow + 3;
 			float top = gridBoxHeight * gridRow;
 
 			int buttonIndex = i % buttonsPerRow;

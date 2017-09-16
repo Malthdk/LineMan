@@ -6,7 +6,7 @@ public class IntoLine : MonoBehaviour {
 	
 	//Publics
 	public Direction direction;
-	public float yOffsetRightLeft = 0.3f;
+	public float yOffsetRightLeft = 0.2f;
 	public float yOffsetUpDown = -0.8f;
 	[HideInInspector]
 	public bool transforming;
@@ -53,10 +53,10 @@ public class IntoLine : MonoBehaviour {
 	void Update () 
 	{
 		//Input variables
-		downArrow = Input.GetKeyDown(KeyCode.DownArrow);
-		upArrow = Input.GetKeyDown(KeyCode.UpArrow);
-		rightArrow = Input.GetKeyDown(KeyCode.RightArrow);
-		leftArrow = Input.GetKeyDown(KeyCode.LeftArrow);
+		downArrow = Input.GetKey(KeyCode.DownArrow);
+		upArrow = Input.GetKey(KeyCode.UpArrow);
+		rightArrow = Input.GetKey(KeyCode.RightArrow);
+		leftArrow = Input.GetKey(KeyCode.LeftArrow);
 			
 		//Direction states for the player
 		switch(direction)
@@ -180,8 +180,10 @@ public class IntoLine : MonoBehaviour {
 
 	public IEnumerator TransformPlayer(Vector3 transformation, Direction directionState)
 	{
-		transforming = true;
 		inputLocked = true; 
+		yield return new WaitForEndOfFrame();
+		transforming = true;
+		//inputLocked = true; 
 		player.movementUnlocked = false;
 		player.velocity.x = 0;
 		player.velocity.y = 0;
@@ -199,8 +201,10 @@ public class IntoLine : MonoBehaviour {
 		particleEffect.Play();
 		yield return new WaitForSeconds(0.8f);
 		particleEffect.Stop();
-		inputLocked = false;
 		player.movementUnlocked = true;
 		transforming = false;
+
+		yield return new WaitForEndOfFrame();
+		inputLocked = false;
 	}
 }

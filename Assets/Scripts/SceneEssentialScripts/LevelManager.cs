@@ -71,6 +71,11 @@ public class LevelManager : MonoBehaviour {
 
 	void Update()
 	{
+		//Temporary oppotunity to get out of levels.
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			SceneManager.LoadScene("StartMenu");
+		}
 		//spawnPoint = GameObject.FindGameObjectWithTag("spawnpoint");
 
 		if (player == null)
