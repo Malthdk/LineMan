@@ -11,9 +11,11 @@ public class AiPatrolling : MonoBehaviour {
 	public int speed = 1;
 	public float raylength;
 	public bool mimic;
+	[HideInInspector]
+	public bool isMoving;
 
 	//Privates
-	private bool isGrounded, isBlocked, isMoving, shootRays, transforming, canTransform;
+	private bool isGrounded, isBlocked, shootRays, transforming, canTransform;
 	public bool faceingLeft = true;
 	float myWidth, myHeight;
 	private Vector3 edgeOffset = new Vector3(-0.8f, -0.8f, 0f);

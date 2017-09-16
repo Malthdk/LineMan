@@ -10,13 +10,15 @@ public class AiHandler : MonoBehaviour {
 
 	//Privates
 	AiPatrolling patrollingScript;
+	AiGrumpy grumpyScript;
 //	HeatSeeking heatSeekingScript;
 
 	public enum AiBehaviour
 	{
 		Patrol,
 		Agro,
-		Chase
+		Chase,
+		Neutralised
 	}
 
 	void Start () 
@@ -29,6 +31,15 @@ public class AiHandler : MonoBehaviour {
 		{
 			patrollingScript = gameObject.GetComponent<AiPatrolling>();
 //			heatSeekingScript = gameObject.GetComponent<HeatSeeking>();
+		}
+
+		if (transform.GetComponentInChildren<AiGrumpy>() == null)
+		{
+			return;
+		}
+		else
+		{
+			grumpyScript = transform.GetComponentInChildren<AiGrumpy>();
 		}
 	}
 	
@@ -50,6 +61,10 @@ public class AiHandler : MonoBehaviour {
 		case AiBehaviour.Chase:
 			patrollingScript.isPatrolling = false;
 //			heatSeekingScript.isSeeking = true;
+			break;
+
+		case AiBehaviour.Neutralised:
+			patrollingScript.isPatrolling = false;
 			break;
 		}
 	}
