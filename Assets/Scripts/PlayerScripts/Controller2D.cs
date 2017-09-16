@@ -49,7 +49,7 @@ public class Controller2D : RaycastController {
 		collisions.faceDir = 1;					//Face direction set to 1
 		levelmanager = FindObjectOfType<LevelManager>();
 		checkpoint = FindObjectOfType<Checkpoint>();
-		graphicsTransform = gameObject.transform.FindChild("Graphics").GetComponent<Transform>();
+		graphicsTransform = gameObject.transform.Find("Graphics").GetComponent<Transform>();
 	}
 
 	public override void Update()

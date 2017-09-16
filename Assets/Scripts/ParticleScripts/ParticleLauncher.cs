@@ -11,6 +11,7 @@ public class ParticleLauncher : MonoBehaviour {
 
 	List<ParticleCollisionEvent> collisionEvents;
 
+	[HideInInspector]
 	public LevelManager lvlManager;
 
 	void Start () 
@@ -36,9 +37,8 @@ public class ParticleLauncher : MonoBehaviour {
 		splatterParticles.transform.position = particleCollisionEvent.intersection;
 		splatterParticles.transform.rotation = Quaternion.LookRotation (particleCollisionEvent.normal);
 		ParticleSystem.MainModule psMain = splatterParticles.main;
-		psMain.startColor = particleColorGradient.Evaluate (Random.Range (0f, 1f));
-
-		splatterParticles.Emit (1);
+		psMain.startColor = particleColorGradient.Evaluate (Random.Range (0.6f, 0.8f));
+		splatterParticles.Emit (40);
 	}
 
 	void Update () 
@@ -46,7 +46,7 @@ public class ParticleLauncher : MonoBehaviour {
 		if (lvlManager.respawning) 
 		{
 			ParticleSystem.MainModule psMain = particleLauncher.main;
-			psMain.startColor = particleColorGradient.Evaluate (Random.Range (0f, 1f));
+			psMain.startColor = particleColorGradient.Evaluate (Random.Range (0f, .8f));
 			particleLauncher.Emit (1);
 			lvlManager.respawning = false;
 		}

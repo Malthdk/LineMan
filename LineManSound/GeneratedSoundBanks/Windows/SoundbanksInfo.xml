@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="125">
+	<RootPaths>
+		<ProjectRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineManSound/</ProjectRoot>
+		<SourceFilesRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineManSound/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineManSound/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineManSound/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
