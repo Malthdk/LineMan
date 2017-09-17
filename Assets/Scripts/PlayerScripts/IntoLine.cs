@@ -15,12 +15,16 @@ public class IntoLine : MonoBehaviour {
 	[HideInInspector]
 	public bool downArrow, upArrow, rightArrow, leftArrow;
 
+	//This is for LovedOne mechanic
+	public bool LovedOne;
+
 	//Privates
 	private Player player;
 	private Controller2D controller;
 	private Animator animator;
 	private bool cannotTransform;
 	[HideInInspector]
+
 	public static IntoLine _instance;
 
 	public static IntoLine instance {	// Makes it possible to call script easily from other scripts
@@ -81,7 +85,11 @@ public class IntoLine : MonoBehaviour {
 			//TRANSFORMATIONS
 			transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 			controller.playerOnground = true;
-			controller.playerOnCieling = controller.playerOnRightWall = controller.playerOnLeftWall = player.inverseControlX = false;
+			controller.playerOnCieling = controller.playerOnRightWall = controller.playerOnLeftWall = false;
+
+			//This is for inverse control on LovedOne
+			player.inverseControlX = (LovedOne)?true:false;
+
 			break;
 
 		case Direction.Cieling:
@@ -104,8 +112,11 @@ public class IntoLine : MonoBehaviour {
 
 			//TRANSFORMATIONS
 			transform.rotation = Quaternion.Euler(0f, 0f, 180f);
-			controller.playerOnCieling = player.inverseControlX = true;
+			controller.playerOnCieling = true;
 			controller.playerOnground = controller.playerOnRightWall = controller.playerOnLeftWall = false;
+
+			//This is for inverse control on LovedOne
+			player.inverseControlX = (LovedOne)?false:true;
 			break;
 
 		case Direction.Rightwall:
@@ -129,7 +140,10 @@ public class IntoLine : MonoBehaviour {
 			//TRANSFORMATIONS
 			transform.rotation = Quaternion.Euler(0f, 0f, 90f);
 			controller.playerOnRightWall = true;
-			controller.playerOnground = controller.playerOnCieling = controller.playerOnLeftWall = player.inverseControlX = false;
+			controller.playerOnground = controller.playerOnCieling = controller.playerOnLeftWall = false;
+
+			//This is for inverse control on LovedOne
+			player.inverseControlX = (LovedOne)?true:false;
 			break;
 
 		case Direction.Leftwall:
@@ -152,8 +166,12 @@ public class IntoLine : MonoBehaviour {
 
 			//TRANSFORMATIONS
 			transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-			controller.playerOnLeftWall = player.inverseControlX = true;
+			controller.playerOnLeftWall = true;
 			controller.playerOnground = controller.playerOnCieling = controller.playerOnRightWall = false;
+
+			//This is for inverse control on LovedOne
+			player.inverseControlX = (LovedOne)?false:true;
+
 			break;
 		}
 	}

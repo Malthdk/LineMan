@@ -70,10 +70,10 @@ public class AiPatrolling : MonoBehaviour {
 		//Animations
 		animator.SetBool("isMoving", isMoving);
 		animator.SetBool("transforming", transforming);
-		Move();
 
 		if (isPatrolling)
 		{
+			Move();
 			switch(aiDirection)
 			{
 			//When the AI is walking on the floor

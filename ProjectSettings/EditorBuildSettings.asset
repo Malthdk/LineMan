@@ -7,45 +7,76 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/InitialLevels/_MainMenu/StartMenu.unity
+    guid: e22873d3650ac43acb12ebe3d99be2e5
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Act1Intro.unity
+    guid: c4eb256a862294ea08a599033c5f9b84
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.1.unity
+    guid: 6313f718d62734c958f49b23c020e081
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.2.unity
+    guid: c6f93be9a83c64183b0515169bcd12ad
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.3.unity
+    guid: 71366f97edd8c411eaed028d9b70529a
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.4.unity
+    guid: 2f167ac17bf014a3799b3acb42a26b08
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.5.unity
+    guid: 3bddb764a76234a3791a0603fb536dcf
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.6.unity
+    guid: beb451b2fae194d29b96e920abbc14b3
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.7.unity
+    guid: e0199c860aa0c423db46d8489b251f44
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.8.unity
+    guid: e47857724e8954634a90d44d992eaa1a
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.9.unity
+    guid: a35fcbd79fbaf418c9db252414bf7f2e
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.10.unity
+    guid: 11eeea443aaa64f51ad86115b979f1ce
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.11.unity
+    guid: 153287dc0d96242619a974f14f4fe422
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act1/Level1.12.unity
+    guid: 91eeb6f1d150a435f97251a0d39f697b
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Act2Intro.unity
+    guid: 4e1f442105e214e108c3393e1a1e77f5
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Level2.1.unity
+    guid: 70e8340ca3cb749d5966b20a47998fe7
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Level2.2.unity
+    guid: edfead749b47f47df8b59acd233ccb20
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Level2.3.unity
+    guid: a9026012b1edd486280c95182f55aefb
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Level2.4.unity
+    guid: d7fce59e8f6ea40c6bc2ed135d306791
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act2/Level2.5.unity
+    guid: 1aaeaafc1e12e4e82aeaede3f8e2cf5b
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act3/Act3Intro.unity
+    guid: 8913ca5b425244dfeb14d3324bf059c1
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act3/Level3.1.unity
+    guid: a2151ff2cc8224a0bb9f3cd484d246d6
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act3/Level3.2.unity
+    guid: 305f24ea729f748908fc4c82b3baa2aa
   - enabled: 1
     path: Assets/Scenes/InitialLevels/_MainMenu/LevelSelectAct1.unity
+    guid: b5c53ed7ecdfc401ca09957abf031e11
   - enabled: 1
     path: Assets/Scenes/InitialLevels/_MainMenu/LevelSelectAct2.unity
+    guid: 800dd9c6c5b9c4cb69afb90585b87254

@@ -2,50 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AiBehaviour
+{
+	Patrol,
+	Agro,
+	Chase,
+	Neutralised
+}
+
 public class AiHandler : MonoBehaviour {
 
 	//Publics
 	public AiBehaviour behaviour;
-
+	[HideInInspector]
+	public SpriteRenderer sRenderer; //This should be referenced by all children instead of making their own call individually
+	public GameObject graphics;
 
 	//Privates
-	AiPatrolling patrollingScript;
-	AiGrumpy grumpyScript;
-//	HeatSeeking heatSeekingScript;
+	public bool neutralised;
+	public AiPatrolling patrollingScript;
+	public AiGrumpy grumpyScript;
+	public AiTurncoat turncoatScript;
 
-	public enum AiBehaviour
+	void Awake () 
 	{
-		Patrol,
-		Agro,
-		Chase,
-		Neutralised
-	}
+		neutralised = false;
+		graphics = transform.GetChild(0).gameObject;
+		sRenderer = graphics.GetComponent<SpriteRenderer>();
 
-	void Start () 
-	{
-		if (gameObject.GetComponent<AiPatrolling>() == null) //|| gameObject.GetComponent<HeatSeeking>() == null)
+		if (gameObject.GetComponent<AiPatrolling>() == null) 
 		{
-			return;
 		}
-		else
+		else 
 		{
 			patrollingScript = gameObject.GetComponent<AiPatrolling>();
-//			heatSeekingScript = gameObject.GetComponent<HeatSeeking>();
 		}
 
-		if (transform.GetComponentInChildren<AiGrumpy>() == null)
+		if (gameObject.GetComponent<AiTurncoat>() == null) 
 		{
-			return;
 		}
-		else
+		else 
 		{
-			grumpyScript = transform.GetComponentInChildren<AiGrumpy>();
+			turncoatScript = gameObject.GetComponent<AiTurncoat>();
 		}
+
+		if (gameObject.GetComponent<AiGrumpy>() == null) 
+		{
+		}
+		else 
+		{
+			grumpyScript = gameObject.GetComponent<AiGrumpy>();
+		}
+
 	}
 	
 
 	void Update () 
 	{
+
 		switch(behaviour)
 		{
 		case AiBehaviour.Patrol:
@@ -54,26 +68,50 @@ public class AiHandler : MonoBehaviour {
 
 		case AiBehaviour.Agro:
 			patrollingScript.isPatrolling = false;
-			Debug.Log("Agroed!");
-			behaviour = AiBehaviour.Chase;
 			break;
 
 		case AiBehaviour.Chase:
 			patrollingScript.isPatrolling = false;
-//			heatSeekingScript.isSeeking = true;
 			break;
 
 		case AiBehaviour.Neutralised:
-			patrollingScript.isPatrolling = false;
+			if (!neutralised)
+			{
+				NeutraliseAI();	
+				neutralised = true;
+			}
 			break;
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void NeutraliseAI()
 	{
-//		if(heatSeekingScript.isSeeking == true)
-//		{
-			//If it collides with walls - Destroy it.
-//		}
+		patrollingScript.speed = 2;
+		sRenderer.color = Color.white;
+		graphics.tag = "Untagged";
+
+		Debug.Log("Numnber of neutralised AIs");
+
+		if (patrollingScript.mimic == true)
+		{
+			patrollingScript.mimic = false;
+		}
+		if (grumpyScript == null) 
+		{
+			Debug.Log("Number of AIs with no GrumpyScript");
+		}
+		else  if (grumpyScript != null)
+		{
+			Debug.Log("Number of AIs with GrumpyScript");
+			grumpyScript.enabled = false;
+		}
+
+		if (turncoatScript == null) 
+		{
+		}
+		else 
+		{
+			turncoatScript.enabled = false;
+		}
 	}
 }
