@@ -39,7 +39,7 @@ public class CameraFollow : MonoBehaviour {
 
 	void Start()
 	{
-		target = FindObjectOfType<Controller2D>();
+		target = GameObject.Find("Player").GetComponent<Controller2D>();
 		focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
 
 		foreach(Vector3 boundary in localBoundaries) 
@@ -57,7 +57,7 @@ public class CameraFollow : MonoBehaviour {
 	{
 		if(target == null)
 		{
-			target = FindObjectOfType<Controller2D>();
+			target = GameObject.Find("Player").GetComponent<Controller2D>();
 		}
 			
 	}

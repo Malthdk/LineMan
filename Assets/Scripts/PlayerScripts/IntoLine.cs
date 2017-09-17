@@ -22,7 +22,7 @@ public class IntoLine : MonoBehaviour {
 	private Player player;
 	private Controller2D controller;
 	private Animator animator;
-	private bool cannotTransform;
+	public bool cannotTransform;
 	[HideInInspector]
 
 	public static IntoLine _instance;
@@ -73,13 +73,13 @@ public class IntoLine : MonoBehaviour {
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Cieling));
 				}
-				else if (rightArrow && controller.collisions.right)
+				else if (((LovedOne)?leftArrow:rightArrow) && controller.collisions.right)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Rightwall));
 				}
-				else if (leftArrow  && controller.collisions.left)
+				else if (((LovedOne)?rightArrow:leftArrow)  && controller.collisions.left)
 				{
-					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Leftwall));
+					StartCoroutine(TransformPlayer(new Vector3(0, yOffsetRightLeft, 0f), Direction.Leftwall));
 				}
 			}
 			//TRANSFORMATIONS
@@ -100,11 +100,11 @@ public class IntoLine : MonoBehaviour {
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Floor));
 				}
-				else if (rightArrow && controller.collisions.left)
+				else if (((LovedOne)?leftArrow:rightArrow) && controller.collisions.left)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Rightwall));
 				}
-				else if (leftArrow && controller.collisions.right)
+				else if (((LovedOne)?rightArrow:leftArrow) && controller.collisions.right)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Leftwall));
 				}
@@ -127,11 +127,11 @@ public class IntoLine : MonoBehaviour {
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Leftwall));
 				}
-				else if (upArrow && controller.collisions.right)
+				else if (((LovedOne)?downArrow:upArrow) && controller.collisions.right)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Cieling));
 				}
-				else if (downArrow && controller.collisions.left)
+				else if (((LovedOne)?upArrow:downArrow) && controller.collisions.left)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Floor));
 				}
@@ -154,11 +154,11 @@ public class IntoLine : MonoBehaviour {
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Rightwall));
 				}
-				else if (downArrow && controller.collisions.right)
+				else if (((LovedOne)?upArrow:downArrow) && controller.collisions.right)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Floor));
 				}
-				else if (upArrow && controller.collisions.left)
+				else if (((LovedOne)?downArrow:upArrow) && controller.collisions.left)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Cieling));
 				}
@@ -198,7 +198,7 @@ public class IntoLine : MonoBehaviour {
 
 	public IEnumerator TransformPlayer(Vector3 transformation, Direction directionState)
 	{
-		inputLocked = true; 
+		inputLocked = true;
 		yield return new WaitForEndOfFrame();
 		transforming = true;
 		//inputLocked = true; 
@@ -208,6 +208,7 @@ public class IntoLine : MonoBehaviour {
 		ParticleSystem particleEffect = player.gameObject.transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>();
 		particleEffect.Play();
 		animator.SetTrigger("goDown");
+		controller.collisions.left = controller.collisions.right = false; //Quick fix for at sørge for at den ikke fortsat tror er er collisions. Dette gjorde at man kunne transforme lige efter en transform.
 
 		yield return new WaitForSeconds(0.8f);
 		particleEffect.Stop();
@@ -219,10 +220,11 @@ public class IntoLine : MonoBehaviour {
 		particleEffect.Play();
 		yield return new WaitForSeconds(0.8f);
 		particleEffect.Stop();
-		player.movementUnlocked = true;
 		transforming = false;
 
 		yield return new WaitForEndOfFrame();
 		inputLocked = false;
+		player.movementUnlocked = true;
+		yield return new WaitForEndOfFrame();
 	}
 }

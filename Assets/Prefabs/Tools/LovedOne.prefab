@@ -89,12 +89,11 @@ GameObject:
   - component: {fileID: 114024319116997730}
   - component: {fileID: 114644813777922920}
   - component: {fileID: 114019340432123912}
-  - component: {fileID: 114769534691071432}
   - component: {fileID: 114607663130504240}
   - component: {fileID: 50844018744938298}
   m_Layer: 10
   m_Name: LovedOne
-  m_TagString: Untagged
+  m_TagString: lovedOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,19 +425,6 @@ MonoBehaviour:
   jumpSoundSource: {fileID: 0}
   movementUnlocked: 0
   inverseControlX: 0
---- !u!114 &114769534691071432
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1691883602631188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ee99b81bc4d4603b28bc6bd10815b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  killSoundClip: {fileID: 0}
-  killSound: {fileID: 0}
 --- !u!198 &198192625358895152
 ParticleSystem:
   m_ObjectHideFlags: 1

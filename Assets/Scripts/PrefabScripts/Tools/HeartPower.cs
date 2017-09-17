@@ -50,7 +50,7 @@ public class HeartPower : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.name == "Player")	
+		if (other.name == "Player" || other.name == "LovedOne")	
 		{
 			NeutraliseAI(aiHandlers);
 			sRenderer.enabled = false;

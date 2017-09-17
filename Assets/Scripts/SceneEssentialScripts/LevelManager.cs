@@ -7,17 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+	//Publics
 	public static LevelManager lManager;
-
 	public GameObject currentCheckpoint;
 //	public string currentTag;
-
 	public float respawnTime = 0.5f;
 	public Player player;
-	private Checkpoint check;
-
 	public int coinCount;
-
 	public List<AiPatrolling> ais;
 	public List<RevealButton> revButtons;
 //	public List<GameObject> stateObjects;
@@ -26,12 +22,14 @@ public class LevelManager : MonoBehaviour {
 //	public List<FallingPlatform> fallingPlatforms;
 //	public List<PickUpGlobe> orbs;
 //	public List<PickUpSecret> secrets;
-
 	public int numberOrbs;
-
-	private Scene scene;
-
 	public bool respawning;
+
+	//Privates
+	private LovedOne lovedOne;
+	private IntoLine intoLine;
+	private Scene scene;
+	private Checkpoint check;
 
 	[HideInInspector]
 	public static LevelManager _instance;
@@ -56,6 +54,8 @@ public class LevelManager : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
+
+
 	}
 
 	void Start () 
@@ -65,7 +65,9 @@ public class LevelManager : MonoBehaviour {
 //			Debug.Log("StartMusic");
 //			GameObject instance = (GameObject)Instantiate(Resources.Load("Music")); // Instantiates music if none is found
 //		}
-		player = FindObjectOfType<Player>();
+		lovedOne = ((GameObject.FindGameObjectWithTag("lovedOne") == null)?null:GameObject.FindGameObjectWithTag("lovedOne").GetComponent<LovedOne>());
+		player = GameObject.Find("Player").GetComponent<Player>();
+		intoLine = player.gameObject.GetComponent<IntoLine>();
 		FillLists();
 	}
 
@@ -93,6 +95,7 @@ public class LevelManager : MonoBehaviour {
 	//Handles all player respawning
 	IEnumerator Respawned() 
 	{
+		lovedOne.StartCoroutine("ResetLovedOne");	//Reset LovedOne
 		respawning = true;
 		GameObject graphics = player.gameObject.transform.GetChild(0).gameObject;
 		ParticleSystem particleEffect = player.gameObject.transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
@@ -100,7 +103,6 @@ public class LevelManager : MonoBehaviour {
 		player.enabled = false;
 		graphics.SetActive(false);
 		particleEffect.Play();
-		//Abilities.instance.Reset();
 
 		yield return new WaitForSeconds(0.9f);
 
@@ -109,7 +111,7 @@ public class LevelManager : MonoBehaviour {
 		particleEffect.Stop();
 		player.transform.position = currentCheckpoint.transform.position;
 //		player.tag = currentTag;
-		IntoLine.instance.ResetDirection(IntoLine.Direction.Floor);
+		intoLine.ResetDirection(IntoLine.Direction.Floor);
 //		StartCoroutine(	ColorStates.instance.ChangeColor(Color.white, 1f));
 		player.velocity.x = 0f;
 		player.velocity.y = 0f;

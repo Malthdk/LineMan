@@ -8,6 +8,7 @@ TagManager:
   - deadZone
   - ai
   - revealButton
+  - lovedOne
   layers:
   - Default
   - TransparentFX
