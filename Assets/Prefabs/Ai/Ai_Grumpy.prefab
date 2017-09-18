@@ -102,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 1598727478189572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.52999973, z: 0}
-  m_LocalScale: {x: 1.4, y: 1, z: 1}
+  m_LocalScale: {x: 2.8, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 4815946948833174}
   m_RootOrder: 0
@@ -114,7 +114,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1892481054306000}
   m_LocalRotation: {x: -0, y: -0, z: 0.000000104308114, w: 1}
-  m_LocalPosition: {x: 2, y: -7.17, z: 0.1875}
+  m_LocalPosition: {x: 1, y: -7.17, z: 0.1875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4521729853981314}
@@ -215,7 +215,7 @@ Animator:
   m_GameObject: {fileID: 1598727478189572}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe02b4b7029664ddb9010d3455cced59, type: 2}
+  m_Controller: {fileID: 9100000, guid: 007f00492bd4c4f6f95be2f406be5d97, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -245,7 +245,10 @@ MonoBehaviour:
   raylength: 1
   mimic: 0
   isMoving: 0
+  isMimic: 0
   faceingLeft: 1
+  startDirection: 0
+  startSpeed: 0
 --- !u!114 &114304841133034446
 MonoBehaviour:
   m_ObjectHideFlags: 1

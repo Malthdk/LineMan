@@ -33,17 +33,7 @@ public class AiTurncoat : MonoBehaviour {
 		}
 
 		//THIS AI DONT WANT TO SEE YOUR FEET OFF THE GROUND. HE WANTS YOU TO REMAIN GROUNDED OR HE IS JEALOUX OF YOU JUMPING.
-//		if (!Controller2D.instance.collisions.below)
-//		{
-//			turncoat = Turncoat.Hate;
-//		}
-//		else
-//		{
-//			turncoat = Turncoat.Like;
-//		}
-
-		//THIS AI WANTS YOU TO REMAIN COMPLETELY STILL IN HIS PRESENCE. PERHAPS HE IS SO VAIN THAT HE HATES YOUR ATTEMPT AT BEING AS FAST AS HIM.
-		if (Mathf.Abs(Player.instance.velocity.x) > 2)
+		if (!Controller2D.instance.collisions.below)
 		{
 			turncoat = Turncoat.Hate;
 		}
@@ -51,6 +41,16 @@ public class AiTurncoat : MonoBehaviour {
 		{
 			turncoat = Turncoat.Like;
 		}
+
+		//THIS AI WANTS YOU TO REMAIN COMPLETELY STILL IN HIS PRESENCE. PERHAPS HE IS SO VAIN THAT HE HATES YOUR ATTEMPT AT BEING AS FAST AS HIM.
+//		if (Mathf.Abs(Player.instance.velocity.x) > 2)
+//		{
+//			turncoat = Turncoat.Hate;
+//		}
+//		else
+//		{
+//			turncoat = Turncoat.Like;
+//		}
 		switch (turncoat)
 		{
 		case Turncoat.Hate:

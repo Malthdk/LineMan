@@ -25,6 +25,8 @@ public class AiGrumpy : MonoBehaviour {
 	private ParticleSystem.MainModule pSystem;
 	private SpriteRenderer sRenderer;
 	private GameObject parent;
+	private Animator animator;
+	private bool spookedAnimation;
 
 	public enum Grumpy
 	{
@@ -42,10 +44,13 @@ public class AiGrumpy : MonoBehaviour {
 		bCollider = gameObject.GetComponent<BoxCollider2D>();
 		sRenderer = transform.GetComponentInChildren<SpriteRenderer>();
 		pSystem = transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>().main;
+		animator = this.transform.GetComponentInChildren<Animator>();
 	}
 
 	void Update () 
 	{
+		animator.SetBool("aggro", spookedAnimation);
+
 		PlaceRayOrigin();
 
 		switch(grumpy)
@@ -92,8 +97,9 @@ public class AiGrumpy : MonoBehaviour {
 		
 	IEnumerator SpookToStress()
 	{
-		//play some spooked animation
+		spookedAnimation = true;
 		yield return new WaitForSeconds(spookedTime);
+		spookedAnimation = false;
 		relaxing = true;
 		if (!aiHandler.neutralised)
 		{

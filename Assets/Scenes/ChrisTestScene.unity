@@ -1483,10 +1483,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 31
       objectReference: {fileID: 0}
-    - target: {fileID: 1892481054306000, guid: 773e30e71c608432d95b7bcbef4b41f0, type: 2}
-      propertyPath: m_Name
-      value: Ai_Grumpy (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 773e30e71c608432d95b7bcbef4b41f0, type: 2}
   m_IsPrefabParent: 0
@@ -2290,11 +2286,6 @@ Prefab:
     - target: {fileID: 4533621210790364, guid: e0683b8e3e0944e20adb81e80500b190, type: 2}
       propertyPath: m_RootOrder
       value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 114925854534551266, guid: e0683b8e3e0944e20adb81e80500b190,
-        type: 2}
-      propertyPath: speed
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0683b8e3e0944e20adb81e80500b190, type: 2}
