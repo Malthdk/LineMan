@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1865857008	Transition			\Default Work Unit\Transition	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	631598015	transform	Y:\Documents\LineMan\LineAudio\.cache\Mac\SFX\transform_3775F3B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\transform		507140
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="125">
+	<RootPaths>
+		<ProjectRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/</ProjectRoot>
+		<SourceFilesRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="445985469" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Die</ObjectPath>
+			<ShortName>Die</ShortName>
+			<Path>Die.bnk</Path>
+			<IncludedEvents>
+				<Event Id="445985469" Name="Die" ObjectPath="\Events\Default Work Unit\Die"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="323755438" Language="SFX">
+					<ShortName>explosion.wav</ShortName>
+					<Path>SFX/explosion_1C9C67B2.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1865857008" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Transition</ObjectPath>
+			<ShortName>Transition</ShortName>
+			<Path>Transition.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1865857008" Name="Transition" ObjectPath="\Events\Default Work Unit\Transition"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="631598015" Language="SFX">
+					<ShortName>transform.wav</ShortName>
+					<Path>SFX/transform_3775F3B2.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3650723969" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Background</ObjectPath>
+			<ShortName>Background</ShortName>
+			<Path>Background.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3650723969" Name="Background" ObjectPath="\Events\Default Work Unit\Background"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="374406819" Language="SFX">
+					<ShortName>ambient_electro.wav</ShortName>
+					<Path>SFX/ambient_electro_F17FB28C.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

@@ -185,6 +185,7 @@ public class IntoLine : MonoBehaviour {
 	{
 		inputLocked = true;
 		yield return new WaitForEndOfFrame();
+		AkSoundEngine.PostEvent ("Transition", gameObject);
 		transforming = true;
 		//inputLocked = true; 
 		player.movementUnlocked = false;

@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour {
 	public void KillPlayer()
 	{
 //		killSound.PlayOneShot(killSoundClip, 0.8f);
+		AkSoundEngine.PostEvent ("Die", gameObject);
 		LevelManager.lManager.Respawn();
 	}
 }

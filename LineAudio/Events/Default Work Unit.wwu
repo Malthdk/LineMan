@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" SchemaVersion="80">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Transition" ID="{9CBCFFE7-0423-4E80-B660-752C5EFB98A4}">
+					<ChildrenList>
+						<Action Name="" ID="{EE338795-35A1-4FC3-931D-2B8FD6BE45B7}" ShortID="654956599">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="transform" ID="{8E5C463C-3E3D-4703-8E84-CD288A87D1EE}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Background" ID="{D113F437-E329-4563-AB77-0BE4DF8B91C1}">
+					<ChildrenList>
+						<Action Name="" ID="{78ABA0C8-1CAE-448F-8DF4-BF9777801B67}" ShortID="533064469">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ambient_electro" ID="{54EBC4B6-92F9-4905-A44B-FBB90AB08D59}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Die" ID="{C0CE4E01-CC9E-4704-84DF-483D629C4153}">
+					<ChildrenList>
+						<Action Name="" ID="{54C5B3D2-DB32-47E9-A93F-01B6755A9360}" ShortID="1022158391">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="explosion" ID="{B593C426-46D1-4A6C-9444-CCAC2343E90B}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
