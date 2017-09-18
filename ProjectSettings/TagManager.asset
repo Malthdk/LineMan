@@ -9,6 +9,8 @@ TagManager:
   - ai
   - revealButton
   - lovedOne
+  - player
+  - heartPower
   layers:
   - Default
   - TransparentFX

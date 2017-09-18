@@ -12,7 +12,7 @@ public class AiPatrolling : MonoBehaviour {
 	public float raylength;
 	public bool mimic;
 	[HideInInspector]
-	public bool isMoving;
+	public bool isMoving, isMimic; //in order to differentiate neutralized mimics from other patrolling AIs;
 
 	//Privates
 	private bool isGrounded, isBlocked, shootRays, transforming, canTransform;
@@ -36,7 +36,11 @@ public class AiPatrolling : MonoBehaviour {
 	//For resetting
 	private Vector3 startPosition;
 	private Quaternion startRotation;
-	private AiDirection startDirection;
+	public AiDirection startDirection;
+	private AiGrumpy grumpyScript;
+	private AiHandler aiHandler;
+	[HideInInspector]
+	public int startSpeed;
 
 	public enum AiDirection
 	{
@@ -52,21 +56,23 @@ public class AiPatrolling : MonoBehaviour {
 		startPosition = transform.position;
 		startRotation = transform.rotation;
 		startDirection = aiDirection;
+		startSpeed = speed;
 
 		isMoving = true;
 		shootRays = true;
 		canTransform = true; 
-
+		isMimic = (mimic)?true:false;
 		animator = this.transform.GetComponentInChildren<Animator>();
 		myTrans = this.transform;
 		myBoxCol = this.GetComponent<BoxCollider2D>();
+		grumpyScript = (GetComponent<AiGrumpy>() == null)?null:GetComponent<AiGrumpy>();
+		aiHandler = GetComponent<AiHandler>();
 
 		InitiateAi();
 	}
 
 	void FixedUpdate ()
 	{
-
 		//Animations
 		animator.SetBool("isMoving", isMoving);
 		animator.SetBool("transforming", transforming);
@@ -247,7 +253,6 @@ public class AiPatrolling : MonoBehaviour {
 			{
 				if (aiDirection == AiDirection.Floor)
 				{
-					Debug.Log("swapped");
 					StartCoroutine(TransformAI(new Vector3(0f, -1.5f, 0f), AiDirection.Cieling, 180f, 180f));	
 				}
 				else if (aiDirection == AiDirection.Cieling)
@@ -377,6 +382,7 @@ public class AiPatrolling : MonoBehaviour {
 
 	}
 
+	//Move this to AiHandler - it makes no sense to have it in AiPatrolling.
 	public IEnumerator ResetAi()
 	{
 		if(co == null)
@@ -395,6 +401,17 @@ public class AiPatrolling : MonoBehaviour {
 		transform.position = startPosition;
 		transform.rotation = startRotation;
 		aiDirection = startDirection;
+		if (grumpyScript != null)
+		{
+			grumpyScript.grumpy = AiGrumpy.Grumpy.Relaxed;	
+		}
+		if (aiHandler.neutralised)
+		{
+			Debug.Log("Hostalize");
+			aiHandler.neutralised = false;
+			//aiHandler.behaviour = AiBehaviour.Patrol;
+			aiHandler.HostalizseAI();
+		}
 		yield return new WaitForEndOfFrame();
 
 		transforming = false;

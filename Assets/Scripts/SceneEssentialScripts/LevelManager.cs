@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour {
 	public int coinCount;
 	public List<AiPatrolling> ais;
 	public List<RevealButton> revButtons;
+	public List<HeartPower> heartPower;
 //	public List<GameObject> stateObjects;
 //	public List<PlatformController> platforms;
 //	public List<Lever> levers;
@@ -95,7 +96,10 @@ public class LevelManager : MonoBehaviour {
 	//Handles all player respawning
 	IEnumerator Respawned() 
 	{
-		lovedOne.StartCoroutine("ResetLovedOne");	//Reset LovedOne
+		if (lovedOne != null)
+		{
+			lovedOne.StartCoroutine("ResetLovedOne");	//Reset LovedOne	
+		}
 		respawning = true;
 		GameObject graphics = player.gameObject.transform.GetChild(0).gameObject;
 		ParticleSystem particleEffect = player.gameObject.transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
@@ -108,6 +112,7 @@ public class LevelManager : MonoBehaviour {
 
 		ResetAis(ais);				//Resetting AIs
 		ResetReveals(revButtons);	//Resetting Reveal Buttons
+		ResetHearts(heartPower);	//Resetting Heart Power Ups
 		particleEffect.Stop();
 		player.transform.position = currentCheckpoint.transform.position;
 //		player.tag = currentTag;
@@ -156,8 +161,7 @@ public class LevelManager : MonoBehaviour {
 			}	
 		}
 	}
-
-
+		
 	void ResetReveals(List<RevealButton> theList)
 	{
 		if (theList.Count == 0)
@@ -169,6 +173,21 @@ public class LevelManager : MonoBehaviour {
 			for (int i = 0; i < theList.Count; i++)
 			{
 				theList[i].StartCoroutine("ResetRevealButton");
+			}	
+		}
+	}
+
+	void ResetHearts(List<HeartPower> theList)
+	{
+		if (theList.Count == 0)
+		{
+			return;
+		}
+		else 
+		{
+			for (int i = 0; i < theList.Count; i++)
+			{
+				theList[i].ResetHeart();
 			}	
 		}
 	}
@@ -269,19 +288,6 @@ public class LevelManager : MonoBehaviour {
 //		}
 //	}
 
-	GameObject[] FindGameObjectsWithTags(params string[] tags)
-	{
-		var all = new List<GameObject>() ;
-
-		foreach(string tag in tags)
-		{
-			var temp = GameObject.FindGameObjectsWithTag(tag).ToList() ;
-			all = all.Concat(temp).ToList() ;
-		}
-
-		return all.ToArray() ;
-	}
-
 	void FillLists() {
 
 		foreach(GameObject aiObject in GameObject.FindGameObjectsWithTag("ai"))
@@ -293,6 +299,11 @@ public class LevelManager : MonoBehaviour {
 		{
 			RevealButton revBut = reObject.GetComponent<RevealButton>();
 			revButtons.Add(revBut);
+		}
+		foreach(GameObject heObject in GameObject.FindGameObjectsWithTag("heartPower"))
+		{
+			HeartPower hPow = heObject.GetComponent<HeartPower>();
+			heartPower.Add(hPow);
 		}
 //		foreach(GameObject oObject in GameObject.FindGameObjectsWithTag("orb")) 
 //		{

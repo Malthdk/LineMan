@@ -22,7 +22,7 @@ public class IntoLine : MonoBehaviour {
 	private Player player;
 	private Controller2D controller;
 	private Animator animator;
-	public bool cannotTransform;
+	public static bool cannotTransform;
 	[HideInInspector]
 
 	public static IntoLine _instance;
@@ -179,21 +179,6 @@ public class IntoLine : MonoBehaviour {
 	public void ResetDirection(Direction directionState)
 	{
 		direction = directionState;
-	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "deadZone")
-		{
-			cannotTransform = true;
-		}
-	}
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if (other.tag == "deadZone")
-		{
-			cannotTransform = false;
-		}
 	}
 
 	public IEnumerator TransformPlayer(Vector3 transformation, Direction directionState)

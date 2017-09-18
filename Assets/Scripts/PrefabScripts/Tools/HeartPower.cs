@@ -59,4 +59,10 @@ public class HeartPower : MonoBehaviour {
 			particleEffect.Play();
 		}
 	}
+
+	public void ResetHeart()
+	{
+		sRenderer.enabled = true;
+		bCollider.enabled = true;
+	}
 }

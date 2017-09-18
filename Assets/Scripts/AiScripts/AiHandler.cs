@@ -23,6 +23,7 @@ public class AiHandler : MonoBehaviour {
 	public AiPatrolling patrollingScript;
 	public AiGrumpy grumpyScript;
 	public AiTurncoat turncoatScript;
+	private Color startColor;
 
 	void Awake () 
 	{
@@ -54,6 +55,11 @@ public class AiHandler : MonoBehaviour {
 			grumpyScript = gameObject.GetComponent<AiGrumpy>();
 		}
 
+	}
+
+	void Start()
+	{
+		startColor = sRenderer.color;	
 	}
 	
 
@@ -90,28 +96,51 @@ public class AiHandler : MonoBehaviour {
 		sRenderer.color = Color.white;
 		graphics.tag = "Untagged";
 
-		Debug.Log("Numnber of neutralised AIs");
-
 		if (patrollingScript.mimic == true)
 		{
 			patrollingScript.mimic = false;
 		}
-		if (grumpyScript == null) 
+
+		if (grumpyScript != null)
 		{
-			Debug.Log("Number of AIs with no GrumpyScript");
-		}
-		else  if (grumpyScript != null)
-		{
-			Debug.Log("Number of AIs with GrumpyScript");
 			grumpyScript.enabled = false;
 		}
-
-		if (turncoatScript == null) 
-		{
-		}
-		else 
+			
+		if (turncoatScript != null)
 		{
 			turncoatScript.enabled = false;
 		}
+	}
+
+	public void HostalizseAI()
+	{
+		if (behaviour != AiBehaviour.Patrol)
+		{
+			Debug.Log("changing to patrol");
+			behaviour = AiBehaviour.Patrol;	
+		}
+
+		patrollingScript.speed = patrollingScript.startSpeed;
+		sRenderer.color = startColor;
+
+		if (patrollingScript.isMimic == true)
+		{
+			patrollingScript.mimic = true;
+			graphics.tag = "killTag";
+		}
+
+		if (grumpyScript != null)
+		{
+			grumpyScript.enabled = true;
+			grumpyScript.canSee = true;
+			grumpyScript.relaxing = false;
+			grumpyScript.isSpooked = false;
+		}
+
+		if (turncoatScript != null)
+		{
+			turncoatScript.enabled = true;
+		}
+
 	}
 }
