@@ -66,6 +66,15 @@ EditorBuildSettings:
     path: Assets/Scenes/InitialLevels/Act2/Level2.5.unity
     guid: 1aaeaafc1e12e4e82aeaede3f8e2cf5b
   - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.6.unity
+    guid: 2418f0cc9da2d407dbba80d6bfc8dc8e
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.7.unity
+    guid: 1c972d540566b4b2db78c9ec5c603b21
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act2/Level2.8.unity
+    guid: 2e95ba9967d4944dd81c7f8d58b1ab22
+  - enabled: 1
     path: Assets/Scenes/InitialLevels/Act3/Act3Intro.unity
     guid: 8913ca5b425244dfeb14d3324bf059c1
   - enabled: 1
@@ -73,10 +82,16 @@ EditorBuildSettings:
     guid: a2151ff2cc8224a0bb9f3cd484d246d6
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act3/Level3.2.unity
-    guid: a27fc6382d23a4d91872021e1af073f4
+    guid: 305f24ea729f748908fc4c82b3baa2aa
   - enabled: 1
     path: Assets/Scenes/InitialLevels/Act3/Level3.3.unity
-    guid: 305f24ea729f748908fc4c82b3baa2aa
+    guid: 5ecec3bc8494d48a1a1ac93ba684178d
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act3/Level3.4.unity
+    guid: a27fc6382d23a4d91872021e1af073f4
+  - enabled: 1
+    path: Assets/Scenes/InitialLevels/Act3/Level3.5.unity
+    guid: c0af91f7ea10841b2a88c3cf0420a726
   - enabled: 1
     path: Assets/Scenes/InitialLevels/_MainMenu/LevelSelectAct1.unity
     guid: b5c53ed7ecdfc401ca09957abf031e11
