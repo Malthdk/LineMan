@@ -40,7 +40,7 @@
 			<IncludedMemoryFiles>
 				<File Id="631598015" Language="SFX">
 					<ShortName>transform.wav</ShortName>
-					<Path>SFX/transform_3775F3B2.wem</Path>
+					<Path>SFX/transform_7A1FC3BA.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -55,6 +55,20 @@
 				<File Id="374406819" Language="SFX">
 					<ShortName>ambient_electro.wav</ShortName>
 					<Path>SFX/ambient_electro_F17FB28C.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="3833651337" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Jump</ObjectPath>
+			<ShortName>Jump</ShortName>
+			<Path>Jump.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="440305206" Language="SFX">
+					<ShortName>jump.wav</ShortName>
+					<Path>SFX/jump_1C9C67B2.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

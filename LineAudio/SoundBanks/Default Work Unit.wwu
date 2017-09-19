@@ -24,6 +24,13 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
+				<SoundBank Name="Jump" ID="{201FB88B-7D69-423C-B1D2-A1B5B5C40210}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Jump" ID="{E046298A-9701-479D-AA4D-223A4E770F74}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>

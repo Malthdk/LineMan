@@ -168,6 +168,7 @@ public class Player : MonoBehaviour {
 			if (controller.collisions.below)
 			{
 				FirstJump();
+				AkSoundEngine.PostEvent ("Jump", gameObject);
 			}
 
 //			if(!controller.collisions.below)

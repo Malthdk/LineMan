@@ -4,14 +4,15 @@
 		<Banks>
 			<Language ID="393239870">
 				<File Name="Background" Hash="306152143" Timestamp="131502277340000000"/>
-				<File Name="Die" Hash="221486115" Timestamp="131502285350000000"/>
+				<File Name="Die" Hash="558338494" Timestamp="131502800470000000"/>
 				<File Name="Init" Hash="3927148487" Timestamp="131502261440000000"/>
-				<File Name="Transition" Hash="2968403579" Timestamp="131502299640000000"/>
+				<File Name="Jump" Hash="1514258039" Timestamp="131502822690000000"/>
+				<File Name="Transition" Hash="2561120127" Timestamp="131502815240000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="1773668841" Timestamp="131502299640000000"/>
+				<File Name="" Hash="3563201037" Timestamp="131502822690000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
@@ -19,14 +20,15 @@
 		<Banks>
 			<Language ID="393239870">
 				<File Name="Background" Hash="306152143" Timestamp="131502277330000000"/>
-				<File Name="Die" Hash="221486115" Timestamp="131502285350000000"/>
+				<File Name="Die" Hash="558338494" Timestamp="131502800460000000"/>
 				<File Name="Init" Hash="1650027853" Timestamp="131502261440000000"/>
-				<File Name="Transition" Hash="2968403579" Timestamp="131502299630000000"/>
+				<File Name="Jump" Hash="1514258039" Timestamp="131502822690000000"/>
+				<File Name="Transition" Hash="2561120127" Timestamp="131502815230000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="4115661319" Timestamp="131502299630000000"/>
+				<File Name="" Hash="3587153263" Timestamp="131502822690000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
