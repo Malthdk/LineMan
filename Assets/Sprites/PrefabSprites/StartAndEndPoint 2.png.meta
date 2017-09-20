@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 08e5422228bb7435a8468ef501dbd58d
-timeCreated: 1505907214
+guid: 0dc8eb21beb4f400ab4e206d4ea18a63
+timeCreated: 1505903345
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: StartAndEndPoint_0
-    21300002: StartAndEndPoint_1
-    21300004: StartAndEndPoint_2
+    21300000: StartAndEndPoint 2_0
+    21300002: StartAndEndPoint 2_1
+    21300004: StartAndEndPoint 2_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -94,11 +94,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StartAndEndPoint_0
+      name: StartAndEndPoint 2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 42
+        y: 40
         width: 534
         height: 670
       alignment: 0
@@ -108,11 +108,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: StartAndEndPoint_1
+      name: StartAndEndPoint 2_1
       rect:
         serializedVersion: 2
         x: 662
-        y: 9
+        y: 7
         width: 504
         height: 724
       alignment: 0
@@ -122,13 +122,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: StartAndEndPoint_2
+      name: StartAndEndPoint 2_2
       rect:
         serializedVersion: 2
-        x: 1250
+        x: 1251
         y: 0
-        width: 559
-        height: 705
+        width: 556
+        height: 702
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

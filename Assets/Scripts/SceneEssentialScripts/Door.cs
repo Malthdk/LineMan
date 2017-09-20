@@ -4,59 +4,74 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
-//	SpriteRenderer myRenderer;
-//	private bool isOpen = false;
-
+	//Publics
+	public bool midPoint;
+	public bool endPoint;
 	public string nextLevelName;
+	public Color openColor, closedColor;
 
-//	private Color openColor = new Color(0.2f, 0.6f, 0.15f);
-//	private Color closedColor = new Color(0.6f, 0.15f, 0.15f);
-
-	// FOR SOUND
-//	public AudioClip completeSound;
-//	private AudioSource source;
+	//Privates
+	private Door cDoor;
+	public bool open, closed;
+	private SpriteRenderer myRenderer;
+	private BoxCollider2D myCollider;
+	public ParticleSystem pSystem;
 
 	void Start () 
 	{
-//		myRenderer = gameObject.GetComponent<SpriteRenderer>();
-//		source = this.gameObject.GetComponent<AudioSource>();
+		myRenderer = transform.GetComponentInChildren<SpriteRenderer>();
+		pSystem = transform.GetComponentInChildren<ParticleSystem>();
+
+		myCollider = GetComponent<BoxCollider2D>();
+		cDoor = (GameObject.FindWithTag("cPoint") == null)?null:GameObject.FindWithTag("cPoint").GetComponent<Door>();
+
+		if (cDoor != null && cDoor.gameObject != this.gameObject)
+		{
+			midPoint = true;
+			open = true;
+		}
+		else if (cDoor != null && cDoor.gameObject == this.gameObject)
+		{
+			endPoint = true;
+			closed = true;
+		}
+		else if (cDoor == null)
+		{
+			endPoint = true;
+			open = true;
+		}
 	}
-	
 
 	void Update () 
 	{
-//		if (LevelManager.instance.numberOrbs == 0)
-//		{
-//			myRenderer.color = openColor;
-//			isOpen = true;
-//		}
-//		else
-//		{
-//			myRenderer.color = closedColor;
-//			isOpen = false;
-//		}
+		if (open)
+		{
+			myRenderer.color = openColor;
+		}
+		else if (closed)
+		{
+			myRenderer.color = closedColor;
+		}
 	}
-
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.name == "Player")
 		{
-			CompletedLevel();
-			/*if (isOpen)
+			if (endPoint && open)
 			{
-				source.PlayOneShot(completeSound, 0.8f);
-				LevelManager.instance.NextLevel();
-			}*/
+				CompletedLevel();
+			}
+			else if (midPoint && open)
+			{
+				myCollider.enabled = false;
+				cDoor.open = true;
+				pSystem.Play();
+			}
 		}
 	}
-
+		
 	void CompletedLevel() 
 	{
-//		if (isOpen)
-//		{
-//			source.PlayOneShot(completeSound, 0.8f);
-//			yield return new WaitForSeconds(completeSound.length);
 		StartCoroutine(LevelManager.instance.NextLevel(nextLevelName));	
-//		}
 	}
 }

@@ -11,6 +11,7 @@ TagManager:
   - lovedOne
   - player
   - heartPower
+  - cPoint
   layers:
   - Default
   - TransparentFX
