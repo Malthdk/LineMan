@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{01CDA8BC-683A-4288-9AA3-966B9C775560}'
-    m_lastTimePsrt1: 816479872
-    m_lastTimePart2: -1999307080
+    m_lastTimePsrt1: -9399424
+    m_lastTimePart2: -1999306955
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -38,6 +38,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: 445985469
       Guid: 014ecec09ecc044784df483d629c4153
+      maxAttenuation: 0
+    - Name: Jump
+      Path: Default Work Unit/Jump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Jump
+        ObjectType: 3
+      ID: -461315959
+      Guid: 8a2946e001979d47aa4d223a4e770f74
       maxAttenuation: 0
     - Name: Transition
       Path: Default Work Unit/Transition
@@ -91,8 +101,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}'
-    m_lastTimePsrt1: 816479872
-    m_lastTimePart2: -1999307080
+    m_lastTimePsrt1: -9399424
+    m_lastTimePart2: -1999306955
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -112,6 +122,15 @@ MonoBehaviour:
         ObjectType: 7
       ID: 445985469
       Guid: ceeaaeb22ac082429c36a849161ba8db
+    - Name: Jump
+      Path: Default Work Unit/Jump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Jump
+        ObjectType: 7
+      ID: -461315959
+      Guid: 8bb81f20697d3c42b1d2a1b5b5c40210
     - Name: Transition
       Path: Default Work Unit/Transition
       PathAndIcons:
@@ -125,9 +144,18 @@ MonoBehaviour:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1708337D-CC8F-43F0-89D4-6CCD0832E3A7}'
-    m_lastTimePsrt1: 1955102592
-    m_lastTimePart2: -1999307275
-    List: []
+    m_lastTimePsrt1: 2086952576
+    m_lastTimePart2: -1999306454
+    List:
+    - Name: Pitch
+      Path: Default Work Unit/Pitch
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Pitch
+        ObjectType: 13
+      ID: 1908158473
+      Guid: b9aba4d5cb20bd4ca9614189e918b29d
   TriggerWwu:
   - PhysicalPath: Triggers/Default Work Unit.wwu
     ParentPhysicalPath: 
@@ -137,6 +165,8 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /LineAudio
+  - /LineAudio/SoundBanks
+  - /LineAudio/SoundBanks/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

@@ -72,6 +72,11 @@
 								</ModifierInfo>
 							</ModifierList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -182,6 +187,32 @@
 							<ValueList>
 								<Value>-430</Value>
 							</ValueList>
+							<RTPCList>
+								<RTPC Name="" ID="{CA0CCD01-4190-4172-B431-16DCBBFBFF24}" ShortID="1018523497">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Pitch" ID="{D5A4ABB9-20CB-4CBD-A961-4189E918B29D}" WorkUnitID="{1708337D-CC8F-43F0-89D4-6CCD0832E3A7}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{6B87316C-2326-4B4C-8076-5FBC735CC56B}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="65537"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>-15</XPos>
+												<YPos>-590</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>15</XPos>
+												<YPos>600</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -200,6 +231,31 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="jump" ID="{68BB4BC3-7505-4481-88F6-620D1F7AE035}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="current" ID="{9F53EACA-99D6-4913-85DB-FE6512842A9C}" ShortID="133984758">
+					<PropertyList>
+						<Property Name="PositioningType" Type="int16" Value="1"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Attenuation" ID="{128E5BA2-B41C-4B92-9C45-83C59FDA1D62}" WorkUnitID="{D3D514D5-ACD1-4ABD-9C9C-CF232C4C4BD3}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FDBBC030-409F-4612-8E2F-A295AD551812}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E8BFF538-8809-493D-BC5C-CE75014682BB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="current" ID="{A285B465-F3DA-4D04-85B0-5AE5CC39BC9D}" ShortID="517993266">
+							<Language>SFX</Language>
+							<AudioFile>current.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="current" ID="{A285B465-F3DA-4D04-85B0-5AE5CC39BC9D}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
