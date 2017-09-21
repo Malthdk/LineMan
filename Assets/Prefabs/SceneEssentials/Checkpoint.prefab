@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619185496349728}
-  - component: {fileID: 58989824376181164}
   - component: {fileID: 114737591960231922}
   - component: {fileID: 212744821702223974}
   - component: {fileID: 50122653750687588}
+  - component: {fileID: 61764712792408058}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1422962708196420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.42, y: 7.18, z: 0}
+  m_LocalPosition: {x: -8.41, y: -5.6699996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964075406272800}
@@ -124,8 +124,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58989824376181164
-CircleCollider2D:
+--- !u!61 &61764712792408058
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -137,8 +137,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 1.2109718
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!114 &114737591960231922
 MonoBehaviour:
   m_ObjectHideFlags: 1
