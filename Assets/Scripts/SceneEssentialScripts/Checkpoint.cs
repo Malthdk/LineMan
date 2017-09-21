@@ -12,15 +12,15 @@ public class Checkpoint : MonoBehaviour {
 //	public List<Lever> leversToRemove;
 //	public List<FallingPlatform> fallingToRemove;
 
-	private GameObject graphics;
-	private CircleCollider2D boxCol;
+	//private GameObject graphics;
+	private BoxCollider2D boxCol;
 
 	void Start () 
 	{
-		graphics = this.gameObject.transform.GetChild(0).gameObject;
-		graphics.SetActive(false);
+		//graphics = this.gameObject.transform.GetChild(0).gameObject;
+		//graphics.SetActive(false);
 		player = FindObjectOfType<Player>();
-		boxCol = gameObject.GetComponent<CircleCollider2D>();
+		boxCol = gameObject.GetComponent<BoxCollider2D>();
 	}
 
 	void Update()
@@ -31,7 +31,7 @@ public class Checkpoint : MonoBehaviour {
 		}
 		if (LevelManager.instance.currentCheckpoint != this.gameObject)
 		{
-			graphics.SetActive(false);
+			//graphics.SetActive(false);
 		}
 	}
 		
@@ -40,9 +40,9 @@ public class Checkpoint : MonoBehaviour {
 		if(other.gameObject.name == "Player")
 		{
 			boxCol.enabled = false;
-			graphics.SetActive(true);
+			//graphics.SetActive(true);
 
-			LevelManager.instance.currentCheckpoint = gameObject;
+			LevelManager.instance.currentCheckpoint = this.gameObject;
 //			LevelManager.instance.currentTag = player.tag;
 
 //			foreach(GameObject stateObj in objectsToRemove) 
