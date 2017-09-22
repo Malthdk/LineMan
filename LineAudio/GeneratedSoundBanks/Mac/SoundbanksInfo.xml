@@ -25,6 +25,20 @@
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
+		<SoundBank Id="1054659462" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\EndLevel</ObjectPath>
+			<ShortName>EndLevel</ShortName>
+			<Path>EndLevel.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1054659462" Name="EndLevel" ObjectPath="\Events\Default Work Unit\EndLevel"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="1013320859" Language="SFX">
+					<ShortName>end.wav</ShortName>
+					<Path>SFX/end_1C9C67B2.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
@@ -41,6 +55,34 @@
 				<File Id="631598015" Language="SFX">
 					<ShortName>transform.wav</ShortName>
 					<Path>SFX/transform_7A1FC3BA.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="2037989808" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Current</ObjectPath>
+			<ShortName>Current</ShortName>
+			<Path>Current.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2037989808" Name="Current" ObjectPath="\Events\Default Work Unit\Current"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="517993266" Language="SFX">
+					<ShortName>current.wav</ShortName>
+					<Path>SFX/current_751C1673.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="2756333705" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Collect</ObjectPath>
+			<ShortName>Collect</ShortName>
+			<Path>Collect.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2756333705" Name="Collect" ObjectPath="\Events\Default Work Unit\Collect"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="562559105" Language="SFX">
+					<ShortName>collect.wav</ShortName>
+					<Path>SFX/collect_1C9C67B2.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

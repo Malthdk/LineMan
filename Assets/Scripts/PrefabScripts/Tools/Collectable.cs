@@ -12,12 +12,6 @@ public class Collectable : MonoBehaviour {
 		sRenderer = transform.GetComponentInChildren<SpriteRenderer>();
 		bCollider = transform.GetComponent<BoxCollider2D>();
 	}
-	
-
-	void Update () 
-	{
-		
-	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -25,6 +19,7 @@ public class Collectable : MonoBehaviour {
 		{
 			sRenderer.enabled = false;
 			bCollider.enabled = false;
+			AkSoundEngine.PostEvent ("Collect", gameObject);
 			ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
 			particleEffect.Play();
 		}

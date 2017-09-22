@@ -59,6 +59,48 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Current" ID="{3543F074-BB6A-4993-B79A-E13BEB89008F}">
+					<ChildrenList>
+						<Action Name="" ID="{9720B2C2-2B30-43A6-9AAF-5B5EECFA4287}" ShortID="999341550">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="current" ID="{9F53EACA-99D6-4913-85DB-FE6512842A9C}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Collect" ID="{432B8568-17E2-4053-A5E6-E89B6A243F9D}">
+					<ChildrenList>
+						<Action Name="" ID="{222DBFB9-A6E5-418E-88B2-91463762560F}" ShortID="106558814">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="collect" ID="{62777B9D-3278-4AA9-B40F-C2D82A04A8F8}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EndLevel" ID="{CBD4B424-7E7A-4794-A2CB-DBAC3EDA4DE5}">
+					<ChildrenList>
+						<Action Name="" ID="{FC23B7F3-AF8D-47D6-92BF-CBE4E1B52163}" ShortID="242583838">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="end" ID="{0DC2867A-7A47-4A0E-BBDC-B5D23A1BDA1E}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

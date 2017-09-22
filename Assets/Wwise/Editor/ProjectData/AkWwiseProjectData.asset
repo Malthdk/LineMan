@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{01CDA8BC-683A-4288-9AA3-966B9C775560}'
-    m_lastTimePsrt1: -9399424
-    m_lastTimePart2: -1999306955
+    m_lastTimePsrt1: -193632384
+    m_lastTimePart2: -1999306320
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -29,6 +29,26 @@ MonoBehaviour:
       ID: -644243327
       Guid: 37f413d129e36345ab770be4df8b91c1
       maxAttenuation: 0
+    - Name: Collect
+      Path: Default Work Unit/Collect
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Collect
+        ObjectType: 3
+      ID: -1538633591
+      Guid: 68852b43e2175340a5e6e89b6a243f9d
+      maxAttenuation: 0
+    - Name: Current
+      Path: Default Work Unit/Current
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Current
+        ObjectType: 3
+      ID: 2037989808
+      Guid: 74f043356abb9349b79ae13beb89008f
+      maxAttenuation: 0
     - Name: Die
       Path: Default Work Unit/Die
       PathAndIcons:
@@ -38,6 +58,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: 445985469
       Guid: 014ecec09ecc044784df483d629c4153
+      maxAttenuation: 0
+    - Name: EndLevel
+      Path: Default Work Unit/EndLevel
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: EndLevel
+        ObjectType: 3
+      ID: 1054659462
+      Guid: 24b4d4cb7a7e9447a2cbdbac3eda4de5
       maxAttenuation: 0
     - Name: Jump
       Path: Default Work Unit/Jump
@@ -101,8 +131,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}'
-    m_lastTimePsrt1: -9399424
-    m_lastTimePart2: -1999306955
+    m_lastTimePsrt1: -193632384
+    m_lastTimePart2: -1999306320
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -113,6 +143,24 @@ MonoBehaviour:
         ObjectType: 7
       ID: -644243327
       Guid: 315f3e33cac86a4f90a50fa8f20adad4
+    - Name: Collect
+      Path: Default Work Unit/Collect
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Collect
+        ObjectType: 7
+      ID: -1538633591
+      Guid: 5526d29eeff8d94a92cf1029fc3259ce
+    - Name: Current
+      Path: Default Work Unit/Current
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Current
+        ObjectType: 7
+      ID: 2037989808
+      Guid: fedaa994de0807419ffd1b73f5a9cbc1
     - Name: Die
       Path: Default Work Unit/Die
       PathAndIcons:
@@ -122,6 +170,15 @@ MonoBehaviour:
         ObjectType: 7
       ID: 445985469
       Guid: ceeaaeb22ac082429c36a849161ba8db
+    - Name: EndLevel
+      Path: Default Work Unit/EndLevel
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: EndLevel
+        ObjectType: 7
+      ID: 1054659462
+      Guid: f661ac78f07a2b4d96dca646d171f5ee
     - Name: Jump
       Path: Default Work Unit/Jump
       PathAndIcons:
@@ -144,8 +201,8 @@ MonoBehaviour:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1708337D-CC8F-43F0-89D4-6CCD0832E3A7}'
-    m_lastTimePsrt1: 2086952576
-    m_lastTimePart2: -1999306454
+    m_lastTimePsrt1: 251985280
+    m_lastTimePart2: -1999306453
     List:
     - Name: Pitch
       Path: Default Work Unit/Pitch
@@ -165,6 +222,8 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /LineAudio
+  - /LineAudio/Events
+  - /LineAudio/Events/Default Work Unit
   - /LineAudio/SoundBanks
   - /LineAudio/SoundBanks/Default Work Unit
   m_lastPopulateTimePsrt1: 0

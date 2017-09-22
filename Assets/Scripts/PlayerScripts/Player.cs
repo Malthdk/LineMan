@@ -159,7 +159,7 @@ public class Player : MonoBehaviour {
 			if (velocity.y > minJumpVelocity) 
 			{
 				velocity.y = minJumpVelocity;									//When space is released set velocity y to minimum jump velocity
-				AkSoundEngine.SetRTPCValue ("Pitch", 15);
+				AkSoundEngine.SetRTPCValue ("Pitch", 10);
 			}
 		}
 	if (movementUnlocked == true)

@@ -235,6 +235,7 @@
 				</Sound>
 				<Sound Name="current" ID="{9F53EACA-99D6-4913-85DB-FE6512842A9C}" ShortID="133984758">
 					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="PositioningType" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
@@ -250,12 +251,133 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="current" ID="{A285B465-F3DA-4D04-85B0-5AE5CC39BC9D}" ShortID="517993266">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.148804664723032"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="4.20244897959184"/>
+								<Property Name="LoopBegin" Type="Real64" Value="0.0667055393586006"/>
+								<Property Name="LoopEnd" Type="Real64" Value="2.21667638483965"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>current.wav</AudioFile>
 						</AudioFileSource>
 					</ChildrenList>
+					<PositioningInfo>
+						<Position Name="" ID="{3E3877BA-C9F1-47E5-AAB9-5071623ADCBA}"/>
+					</PositioningInfo>
 					<ActiveSourceList>
 						<ActiveSource Name="current" ID="{A285B465-F3DA-4D04-85B0-5AE5CC39BC9D}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="achievement01" ID="{CB4B560A-6F9E-4F0C-939A-A896538578AE}" ShortID="944627743">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FDBBC030-409F-4612-8E2F-A295AD551812}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E8BFF538-8809-493D-BC5C-CE75014682BB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="achievement01" ID="{289F263F-0E05-4E4E-B534-21ABB254D177}" ShortID="207209627">
+							<Language>SFX</Language>
+							<AudioFile>achievement01.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="achievement01" ID="{289F263F-0E05-4E4E-B534-21ABB254D177}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="achievement02" ID="{A2236E29-0D25-4542-A631-DD4DC7384DFA}" ShortID="190360852">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FDBBC030-409F-4612-8E2F-A295AD551812}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E8BFF538-8809-493D-BC5C-CE75014682BB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="achievement02" ID="{6495E76C-AE52-4619-BFEC-38A3A09801C9}" ShortID="165568986">
+							<Language>SFX</Language>
+							<AudioFile>achievement02.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="achievement02" ID="{6495E76C-AE52-4619-BFEC-38A3A09801C9}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="collect" ID="{62777B9D-3278-4AA9-B40F-C2D82A04A8F8}" ShortID="771962855">
+					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>35</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{13D8D5AF-7E90-44C5-875F-B4EBF34ADB83}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="40"/>
+											<Property Name="Min" Type="Real64" Value="-40"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FDBBC030-409F-4612-8E2F-A295AD551812}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E8BFF538-8809-493D-BC5C-CE75014682BB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="collect" ID="{C77C85CE-0F99-4BD4-A991-A48EF10FDB7B}" ShortID="562559105">
+							<Language>SFX</Language>
+							<AudioFile>collect.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="collect" ID="{C77C85CE-0F99-4BD4-A991-A48EF10FDB7B}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="end" ID="{0DC2867A-7A47-4A0E-BBDC-B5D23A1BDA1E}" ShortID="98836625">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{A7CFD489-8E0E-4483-93FD-BB3012AF99CE}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="30"/>
+											<Property Name="Min" Type="Real64" Value="-30"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FDBBC030-409F-4612-8E2F-A295AD551812}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E8BFF538-8809-493D-BC5C-CE75014682BB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="end" ID="{8E8C779B-8222-4D04-9834-57B3F6C279AD}" ShortID="1013320859">
+							<Language>SFX</Language>
+							<AudioFile>end.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="end" ID="{8E8C779B-8222-4D04-9834-57B3F6C279AD}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

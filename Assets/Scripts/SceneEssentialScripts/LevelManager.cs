@@ -138,6 +138,7 @@ public class LevelManager : MonoBehaviour {
 	{
 		Destroy(player.gameObject);
 		Destroy (this.gameObject);
+		AkSoundEngine.PostEvent ("EndLevel", gameObject);
 		yield return new WaitForEndOfFrame();
 
 		//fade out the level and load next
