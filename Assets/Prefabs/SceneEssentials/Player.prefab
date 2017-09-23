@@ -88,6 +88,8 @@ GameObject:
   - component: {fileID: 114824114692640464}
   - component: {fileID: 114742611625032436}
   - component: {fileID: 114706677346403440}
+  - component: {fileID: 114186429197689838}
+  - component: {fileID: 114560105977267920}
   m_Layer: 10
   m_Name: Player
   m_TagString: player
@@ -237,6 +239,39 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114186429197689838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382252347468250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b507f6a7bf79f4153b0b24e84e652e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_positionOffsetData:
+    positionOffset: {x: 0, y: 0, z: 0}
+    KeepMe: 0
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_listeners:
+    initialListenerList: []
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &114560105977267920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382252347468250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8f28d84a7664fe9b8d6781c5eb83a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 0
+  listenerId: 0
 --- !u!114 &114706677346403440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,7 +320,6 @@ MonoBehaviour:
   maxJumpHeight: 3.5
   maxJumoHeightPainting: 0
   minJumpHeight: 0.5
-  purpMinJumpVelocity: -9.3
   timeToJumpApex: 0.65
   accelerationTimeAirborn: 0.2
   accelerationTimeGrounded: 0.5
@@ -295,10 +329,6 @@ MonoBehaviour:
   paintingSpeed: 0
   input: {x: 0, y: 0}
   wallDirX: 0
-  wallSlideSpeedMax: 0.01
-  wallSliding: 0
-  wjXSmoothing: 0
-  wjYSmoothing: 0
   gravity: 0
   maxJumpVelocity: 0
   minJumpVelocity: 0
@@ -307,12 +337,6 @@ MonoBehaviour:
   gravityModifierFall: 0.5
   gravityModifierJump: 0.5
   ghostJumpingBuffer: 0.15
-  jumpSoundTakeOff: {fileID: 0}
-  jumpSoundLanding: {fileID: 0}
-  paintingSound: {fileID: 0}
-  paintingSplashSound: {fileID: 0}
-  paintingSoundSource: {fileID: 0}
-  jumpSoundSource: {fileID: 0}
   movementUnlocked: 0
   inverseControlX: 0
 --- !u!114 &114893148202668134

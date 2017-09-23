@@ -311,7 +311,7 @@
 					<PropertyList>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
-								<Value>35</Value>
+								<Value>45</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">

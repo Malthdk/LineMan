@@ -3664,7 +3664,8 @@ Prefab:
       propertyPath: m_Name
       value: KillObject (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0164a693dae754ee0ae5d17abea4a376, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &384055570
@@ -7103,85 +7104,17 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   splatDecalPool: {fileID: 1115244556}
   lvlManager: {fileID: 0}
---- !u!1 &446907000 stripped
+--- !u!1 &415577752 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1870893639661818, guid: 8d8c3fea8762c4a1da960d4c8f84a51f,
+  m_PrefabParentObject: {fileID: 1546978778444458, guid: 0164a693dae754ee0ae5d17abea4a376,
     type: 2}
-  m_PrefabInternal: {fileID: 384055570}
---- !u!114 &446907003
+  m_PrefabInternal: {fileID: 354103782}
+--- !u!114 &415577753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446907000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  valueGuid: 315f3e33cac86a4f90a50fa8f20adad4
-  bankName: Background
-  loadAsynchronous: 0
-  decodeBank: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 
---- !u!114 &446907004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446907000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e86695a88c0430194fb78cdda002d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &446907005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446907000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  valueGuid: ceeaaeb22ac082429c36a849161ba8db
-  bankName: Die
-  loadAsynchronous: 0
-  decodeBank: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 
---- !u!114 &446907006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446907000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  valueGuid: 8bb81f20697d3c42b1d2a1b5b5c40210
-  bankName: Jump
-  loadAsynchronous: 0
-  decodeBank: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
---- !u!114 &446907007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446907000}
+  m_GameObject: {fileID: 415577752}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
@@ -7191,25 +7124,6 @@ MonoBehaviour:
   useOtherObject: 0
   valueGuid: fedaa994de0807419ffd1b73f5a9cbc1
   bankName: Current
-  loadAsynchronous: 0
-  decodeBank: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
---- !u!114 &446907008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446907000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  valueGuid: 5526d29eeff8d94a92cf1029fc3259ce
-  bankName: Collect
   loadAsynchronous: 0
   decodeBank: 0
   saveDecodedBank: 0
@@ -7288,6 +7202,30 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 452015803}
+--- !u!1 &535598412 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1546978778444458, guid: 0164a693dae754ee0ae5d17abea4a376,
+    type: 2}
+  m_PrefabInternal: {fileID: 1879831631}
+--- !u!114 &535598413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535598412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: fedaa994de0807419ffd1b73f5a9cbc1
+  bankName: Current
+  loadAsynchronous: 0
+  decodeBank: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
 --- !u!1 &761964205
 GameObject:
   m_ObjectHideFlags: 0
@@ -7529,6 +7467,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53c12a5c6e6b24bc9a3f6666fd3dddcb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &930415768 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1546978778444458, guid: 0164a693dae754ee0ae5d17abea4a376,
+    type: 2}
+  m_PrefabInternal: {fileID: 1018634089}
+--- !u!114 &930415769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930415768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: fedaa994de0807419ffd1b73f5a9cbc1
+  bankName: Current
+  loadAsynchronous: 0
+  decodeBank: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
 --- !u!1001 &1018634089
 Prefab:
   m_ObjectHideFlags: 0
@@ -7580,7 +7542,8 @@ Prefab:
       propertyPath: m_Name
       value: KillObject (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0164a693dae754ee0ae5d17abea4a376, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1037585948
@@ -11431,6 +11394,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c40ea9ccf28845178d5e6059f798142, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1479554422 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1546978778444458, guid: 0164a693dae754ee0ae5d17abea4a376,
+    type: 2}
+  m_PrefabInternal: {fileID: 1873497956}
+--- !u!114 &1479554423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1479554422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: fedaa994de0807419ffd1b73f5a9cbc1
+  bankName: Current
+  loadAsynchronous: 0
+  decodeBank: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
 --- !u!1001 &1873497956
 Prefab:
   m_ObjectHideFlags: 0
@@ -11482,7 +11469,8 @@ Prefab:
       propertyPath: m_Name
       value: KillObject (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0164a693dae754ee0ae5d17abea4a376, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1878059710
@@ -11559,7 +11547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d01d47bc9707473ea831e092bc2925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePath: Audio/GeneratedSoundBanks
+  basePath: Audio/GeneratedSoundBanks/Windows
   language: English(US)
   defaultPoolSize: 4096
   lowerPoolSize: 2048
@@ -11649,7 +11637,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.519165
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0164a693dae754ee0ae5d17abea4a376, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1922281220

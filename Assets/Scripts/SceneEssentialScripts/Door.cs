@@ -59,6 +59,7 @@ public class Door : MonoBehaviour {
 		{
 			if (endPoint && open)
 			{
+				AkSoundEngine.PostEvent ("EndLevel", gameObject);
 				CompletedLevel();
 			}
 			else if (midPoint && open)
