@@ -33,14 +33,14 @@ public class AiTurncoat : MonoBehaviour {
 		}
 
 		//THIS AI DONT WANT TO SEE YOUR FEET OFF THE GROUND. HE WANTS YOU TO REMAIN GROUNDED OR HE IS JEALOUX OF YOU JUMPING.
-		if (!Controller2D.instance.collisions.below)
-		{
-			turncoat = Turncoat.Hate;
-		}
-		else
-		{
-			turncoat = Turncoat.Like;
-		}
+//		if (!Controller2D.instance.collisions.below)
+//		{
+//			turncoat = Turncoat.Hate;
+//		}
+//		else
+//		{
+//			turncoat = Turncoat.Like;
+//		}
 
 		//THIS AI WANTS YOU TO REMAIN COMPLETELY STILL IN HIS PRESENCE. PERHAPS HE IS SO VAIN THAT HE HATES YOUR ATTEMPT AT BEING AS FAST AS HIM.
 //		if (Mathf.Abs(Player.instance.velocity.x) > 2)
@@ -59,20 +59,26 @@ public class AiTurncoat : MonoBehaviour {
 
 			transform.GetChild(0).gameObject.tag = "killTag";
 			//THIS AI CHANGES HIS MOOD EVERYTIME YOU MAKE A MOVE
-//			if (IntoLine.instance.transforming && canChange)
-//			{
-//				StartCoroutine(Change(Turncoat.Hate));
-//			}
+			if (!NoEffectArea.noTransformEffect)
+			{
+				if (IntoLine.instance.transforming && canChange)
+				{
+					StartCoroutine(Change(Turncoat.Hate));
+				}	
+			}
 			break;
 
 		case Turncoat.Like:
 			sRenderer.color = Color.white;
 			pSystem.startColor = Color.white;
 			transform.GetChild(0).gameObject.tag = "Untagged";
-//			if (IntoLine.instance.transforming && canChange)
-//			{
-//				StartCoroutine(Change(Turncoat.Like));
-//			}
+			if (!NoEffectArea.noTransformEffect)
+			{
+				if (IntoLine.instance.transforming && canChange)
+				{
+					StartCoroutine(Change(Turncoat.Like));
+				}	
+			}
 			break;
 		}
 	}

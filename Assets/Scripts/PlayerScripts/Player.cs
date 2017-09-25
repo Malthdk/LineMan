@@ -41,9 +41,10 @@ public class Player : MonoBehaviour {
 	public float ghostJumpingBuffer = 0.15f;
 	private float timeSinceJump;
 
-	//ParticleSystems for dJump and tJump
-	private ParticleSystem doubleJumpParticle;
-	private ParticleSystem tripleJumpParticle;
+	//ParticleSystems for jump
+	private ParticleSystem jumpParticles;
+	//private ParticleSystem doubleJumpParticle;
+	//private ParticleSystem tripleJumpParticle;
 
 	//Can the character be moved on X or Y axis. 
 	[HideInInspector]
@@ -73,6 +74,7 @@ public class Player : MonoBehaviour {
 		controller = GetComponent<Controller2D>();
 		intoLine = GetComponent<IntoLine>();
 		animator = transform.GetComponentInChildren<Animator>();		//ANIMATION
+		jumpParticles = transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>();
 	}
 
 	void Update () 
@@ -132,6 +134,7 @@ public class Player : MonoBehaviour {
 				FirstJump();
 				AkSoundEngine.SetRTPCValue ("Pitch", 0);
 				AkSoundEngine.PostEvent ("Jump", gameObject);
+				jumpParticles.Play();						//ParticleSystem
 			}
 		}
 
@@ -148,6 +151,7 @@ public class Player : MonoBehaviour {
 		if (Mathf.Sign(velocity.y) == -1)
 		{
 			timeToJumpApex = gravityModifierFall; //55 //0.75
+			jumpParticles.Stop();		
 		}
 		else 
 		{
@@ -159,7 +163,7 @@ public class Player : MonoBehaviour {
 			if (velocity.y > minJumpVelocity) 
 			{
 				velocity.y = minJumpVelocity;									//When space is released set velocity y to minimum jump velocity
-				AkSoundEngine.SetRTPCValue ("Pitch", 10);
+				AkSoundEngine.SetRTPCValue ("Pitch", 10);	//Sound
 			}
 		}
 	if (movementUnlocked == true)
