@@ -12,6 +12,8 @@ TagManager:
   - player
   - heartPower
   - cPoint
+  - portal2
+  - portal1
   layers:
   - Default
   - TransparentFX

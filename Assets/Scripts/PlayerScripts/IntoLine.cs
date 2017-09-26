@@ -23,7 +23,12 @@ public class IntoLine : MonoBehaviour {
 	private Controller2D controller;
 	private Animator animator;
 	public static bool cannotTransform;
+
+	//For portal
 	[HideInInspector]
+	public Transform otherPortal;
+	public Direction portalDirection;
+	public Vector3 portalTransformation = new Vector3(0f, 0f, 0f);
 
 	public static IntoLine _instance;
 
@@ -198,8 +203,16 @@ public class IntoLine : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.8f);
 		particleEffect.Stop();
-		transform.Translate(transformation);
-		direction = directionState;
+
+		if (Portal.playerOnPortal)
+		{
+			PortalTransform(otherPortal); //If is on portal
+		}
+		else
+		{
+			direction = directionState;
+			transform.Translate(transformation);
+		}
 
 		yield return new WaitForSeconds(0.1f);
 		animator.SetTrigger("goUp");
@@ -212,5 +225,15 @@ public class IntoLine : MonoBehaviour {
 		inputLocked = false;
 		player.movementUnlocked = true;
 		yield return new WaitForEndOfFrame();
+	}
+
+	void PortalTransform(Transform portal)
+	{
+		if (Portal.playerOnPortal)
+		{
+			transform.position = new Vector3(portal.position.x, portal.position.y, portal.position.z);
+			direction = portalDirection;
+			transform.Translate(portalTransformation);
+		}
 	}
 }
