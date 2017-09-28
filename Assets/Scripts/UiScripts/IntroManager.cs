@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour {
 
+	//Publics
+	public float waitForChapter;
+	public float waitForTitle;
+	public float waitForText;
 	public Text actText, quoteText, personText;
 	public string nextLevel;
 
@@ -27,7 +31,7 @@ public class IntroManager : MonoBehaviour {
 	IEnumerator InitiateScene()
 	{
 
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(waitForChapter);
 
 		while (actText.color.a < 1f)
 		{
@@ -35,7 +39,7 @@ public class IntroManager : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(waitForTitle);
 
 		while (quoteText.color.a < 1f)
 		{
@@ -43,17 +47,13 @@ public class IntroManager : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 
-		yield return new WaitForSeconds(7f);
+		yield return new WaitForSeconds(waitForText);
 
 		while (personText.color.a <= 1f)
 		{
 			Fade(personText);
 			yield return new WaitForEndOfFrame();
 		}
-
-		yield return new WaitForSeconds(5f);
-
-		SceneManager.LoadScene(nextLevel);
 	}
 
 	void Fade(Text text)

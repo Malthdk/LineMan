@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d01d47bc9707473ea831e092bc2925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePath: Audio/GeneratedSoundBanks
+  basePath: Audio/GeneratedSoundBanks/Windows
   language: English(US)
   defaultPoolSize: 4096
   lowerPoolSize: 2048
@@ -463,6 +463,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d268d0ecb929b4f40b32493c54177a45, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &462260817 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4653877095585612, guid: 3192eeb167f2e451db21f97977cbf3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 254381535}
 --- !u!1001 &491573292
 Prefab:
   m_ObjectHideFlags: 0
@@ -1061,7 +1066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1603752974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1112,7 +1117,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You must learn to adapt to new situations...
+  m_Text: "\u02D9dl\u01DD\u0265 p\u01DD\u01DDu \u1D09 \u029Eu\u1D09\u0265\u0287 I
+    \u02D9ou \u0287ou op I \u02D9\u028Dou \u0287\u0265\u0183\u1D09\u0279 \u0183u\u1D09op
+    \u1D09 \u026F\u0250 \u029E\u0254n\u025F \u01DD\u0265\u0287 \u0287\u0250\u0265M"
 --- !u!222 &1603752976
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1169,6 +1176,91 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0164a693dae754ee0ae5d17abea4a376, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1890812306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1890812307}
+  - component: {fileID: 1890812309}
+  - component: {fileID: 1890812308}
+  m_Layer: 10
+  m_Name: New Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1890812307
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890812306}
+  m_LocalRotation: {x: -7.940934e-23, y: -7.099747e-29, z: 5.684342e-14, w: 1}
+  m_LocalPosition: {x: 1.17, y: 3.93, z: -6.2}
+  m_LocalScale: {x: 1, y: 1.0001199, z: 1.0001199}
+  m_Children: []
+  m_Father: {fileID: 462260817}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!102 &1890812308
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890812306}
+  m_Text: "\u02D9dl\u01DD\u0265 p\u01DD\u01DDu \u1D09 \u029Eu\u1D09\u0265\u0287 I
+    \u02D9ou \u0287ou op I \u02D9\u028Dou \u0287\u0265\u0183\u1D09\u0279 \u0183u\u1D09op
+    \u1D09 \u026F\u0250 \u029E\u0254n\u025F \u01DD\u0265\u0287 \u0287\u0250\u0265M"
+  m_OffsetZ: 0
+  m_CharacterSize: 0.2
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 1
+  m_FontSize: 50
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: df2a0121d59e8414a8dbce86ea080827, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1890812309
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890812306}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: df2a0121d59e8414a8dbce86ea080827, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1939653860
 GameObject:
   m_ObjectHideFlags: 0
