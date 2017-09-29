@@ -457,11 +457,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.3
-  m_Text: "So this is it.\n\tI\u2019m tearing up every root, leaving the warm comfort
-    of home. I\u2019m sure that great things awaits me. Now that my bonds are broken
-    I can realise all of my dreams.\n\n\tI wouldn\u2019t say that I fear the future,
-    it\u2019s the future that should fear me, because I\u2019m blazing forward - full
-    speed ahead. \n"
+  m_Text: "So, this is it.\n\tI will tear up every root, leave the warm comfort of
+    home. I\u2019m sure that great things await me. Finally, through my solitude,
+    I can realise all of those neglected and postponed dreams.\n\n\tI wouldn\u2019t
+    say that I fear the future, it\u2019s the future that should fear me, because
+    I will be dashing forward  - with neither remorse nor regret. It is my time to
+    shine. \n"
 --- !u!222 &1064358653
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -483,7 +484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 366, y: -35}
+  m_AnchoredPosition: {x: 367, y: -39.4}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1147956228
