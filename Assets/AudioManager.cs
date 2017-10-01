@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
 
-	// Use this for initialization
+	public static AudioManager _instance;
+
+	void Awake() {
+		if (!_instance) {
+			_instance = this;
+			DontDestroyOnLoad(transform.gameObject);
+		} else {
+			Destroy(gameObject);
+		}
+	
+		//AkAmbient.Destroy(GameObject.FindGameObjectWithTag("killTag"));
+	}
+
 	void Start () {
 		AkSoundEngine.PostEvent ("Background", gameObject);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

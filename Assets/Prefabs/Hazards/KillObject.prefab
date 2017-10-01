@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212443341992709536}
   - component: {fileID: 50494852196921930}
   - component: {fileID: 61193811272256572}
+  - component: {fileID: 114771585663762226}
+  - component: {fileID: 114179529875159570}
   m_Layer: 0
   m_Name: KillObject
   m_TagString: killTag
@@ -87,6 +89,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20.335001, y: 3.4999995}
   m_EdgeRadius: 0
+--- !u!114 &114179529875159570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546978778444458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874b62176fa7846e7871169575ce7e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 74f043356abb9349b79ae13beb89008f
+  eventID: 2037989808
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
+--- !u!114 &114771585663762226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546978778444458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b507f6a7bf79f4153b0b24e84e652e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_positionOffsetData:
+    positionOffset: {x: 0, y: 0, z: 0}
+    KeepMe: 0
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_listeners:
+    initialListenerList:
+    - {fileID: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!212 &212443341992709536
 SpriteRenderer:
   m_ObjectHideFlags: 1

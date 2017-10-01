@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	//Publics
-	public static LevelManager lManager;
 	public GameObject currentCheckpoint;
 //	public string currentTag;
 	public float respawnTime = 0.5f;
@@ -33,14 +32,14 @@ public class LevelManager : MonoBehaviour {
 	private Checkpoint check;
 
 	[HideInInspector]
-	public static LevelManager _instance;
+	public static LevelManager lManager;
 
 	public static LevelManager instance {	// Makes it possible to call script easily from other scripts
 		get {
-			if (_instance == null) {
-				_instance = FindObjectOfType<LevelManager>();
+			if (lManager == null) {
+				lManager = FindObjectOfType<LevelManager>();
 			}
-			return _instance;
+			return lManager;
 		}
 	}
 

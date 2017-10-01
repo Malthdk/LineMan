@@ -224,8 +224,6 @@ MonoBehaviour:
   - /LineAudio
   - /LineAudio/Events
   - /LineAudio/Events/Default Work Unit
-  - /LineAudio/SoundBanks
-  - /LineAudio/SoundBanks/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

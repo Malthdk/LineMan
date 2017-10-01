@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{D81F38D1-3D52-4D56-B061-C90DEA155765}" SchemaVersion="80" RootDocumentID="{20E01C98-C5FA-4369-898F-F2F8066E57FB}">
-	<SoundBanks>
-		<WorkUnit Name="Jump" ID="{D81F38D1-3D52-4D56-B061-C90DEA155765}" OwnerID="{20E01C98-C5FA-4369-898F-F2F8066E57FB}" PersistMode="Nested"/>
-	</SoundBanks>
-</WwiseDocument>

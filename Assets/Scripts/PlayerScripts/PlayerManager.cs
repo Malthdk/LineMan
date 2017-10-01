@@ -3,14 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
-
-	public AudioClip killSoundClip;
-
+	
 	[HideInInspector]
 	public static PlayerManager _instance;
-
-	[HideInInspector]
-	public AudioSource killSound;
 
 	public static PlayerManager instance {	// Makes it possible to call script easily from other scripts
 		get {
@@ -21,19 +16,8 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 		
-	void Start () 
-	{
-//		killSound = gameObject.transform.GetChild(10).GetComponent<AudioSource>();
-	}
-
-	void Update () 
-	{
-		
-	}
-
 	public void KillPlayer()
 	{
-//		killSound.PlayOneShot(killSoundClip, 0.8f);
 		AkSoundEngine.PostEvent ("Die", gameObject);
 		LevelManager.lManager.Respawn();
 	}

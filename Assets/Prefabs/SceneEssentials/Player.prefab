@@ -206,7 +206,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382252347468250}
   m_LocalRotation: {x: -0, y: -0, z: -0.00000089406956, w: 1}
-  m_LocalPosition: {x: -9.34, y: 15.81, z: 0}
+  m_LocalPosition: {x: -15.57, y: -4.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4911043516027170}
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8f28d84a7664fe9b8d6781c5eb83a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDefaultListener: 0
+  isDefaultListener: 1
   listenerId: 0
 --- !u!114 &114706677346403440
 MonoBehaviour:
@@ -366,6 +366,9 @@ MonoBehaviour:
   rightArrow: 0
   leftArrow: 0
   LovedOne: 0
+  otherPortal: {fileID: 0}
+  portalDirection: 0
+  portalTransformation: {x: 0, y: 0, z: 0}
 --- !u!114 &114824114692640464
 MonoBehaviour:
   m_ObjectHideFlags: 1
