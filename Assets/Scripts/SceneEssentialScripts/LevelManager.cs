@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour {
 //	public List<PickUpSecret> secrets;
 	public int numberOrbs;
 	public bool respawning;
+	public bool isRespawning = false; //Used for other stuff to know that the player is dead.
 
 	//Privates
 	private LovedOne lovedOne;
@@ -100,6 +101,7 @@ public class LevelManager : MonoBehaviour {
 			lovedOne.StartCoroutine("ResetLovedOne");	//Reset LovedOne	
 		}
 		respawning = true;
+		isRespawning = true;
 		GameObject graphics = player.gameObject.transform.GetChild(0).gameObject;
 		ParticleSystem particleEffect = player.gameObject.transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
 		BoxCollider2D boxCol = player.gameObject.GetComponent<BoxCollider2D>();
@@ -125,6 +127,7 @@ public class LevelManager : MonoBehaviour {
 		player.enabled = true;
 		graphics.SetActive(true);
 		boxCol.enabled = true;
+		isRespawning = false;
 		Debug.Log ("Respawned!");
 	}
 
