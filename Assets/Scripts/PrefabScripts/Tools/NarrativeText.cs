@@ -41,7 +41,7 @@ public class NarrativeText : MonoBehaviour {
 		transform.position = (Vector3)focusPosition + Vector3.forward * -5;	
 	}
 
-	//An idea is to make the fading and possible size increase of text proportional to playr movement. 
+	//An idea is to make the fading and possible size increase of text proportional to player movement. 
 	IEnumerator RemoveText()
 	{
 		yield return new WaitForSeconds(removeTextTime);
