@@ -9,13 +9,12 @@ public class AudioManager : MonoBehaviour {
 
 	void Awake() {
 		if (!_instance) {
+			//AkSoundEngine.UnloadBank ("Current");
 			_instance = this;
 			DontDestroyOnLoad(transform.gameObject);
 		} else {
 			Destroy(gameObject);
 		}
-	
-		//AkAmbient.Destroy(GameObject.FindGameObjectWithTag("killTag"));
 	}
 
 	void Start () {
