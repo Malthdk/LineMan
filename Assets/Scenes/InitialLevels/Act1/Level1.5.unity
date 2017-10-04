@@ -466,12 +466,12 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: "Through choices I\u2019ll be able to change path, even if life takes
-        an unexpected turn. \n"
+        an unexpected turn.\nQuite clever, if I do say so myself. \n"
       objectReference: {fileID: 0}
     - target: {fileID: 114292111581053286, guid: a425a83d56cad47aeba9e87dbf8baac4,
         type: 2}
       propertyPath: removeTextTime
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114292111581053286, guid: a425a83d56cad47aeba9e87dbf8baac4,
         type: 2}

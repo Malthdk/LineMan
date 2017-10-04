@@ -45,10 +45,9 @@ public class NarrativeText : MonoBehaviour {
 	IEnumerator RemoveText()
 	{
 		yield return new WaitForSeconds(removeTextTime);
-		Debug.Log("removeText");
+
 		while (txtColor.a > 0 || font.fontSize < 100)
 		{
-			Debug.Log("startRemoving");
 			FadeText(textMesh);
 //			SizeText(textMesh);
 			yield return new WaitForEndOfFrame();
@@ -61,7 +60,7 @@ public class NarrativeText : MonoBehaviour {
 		txtColor.a -= 0.01f;
 		txtMesh.color = txtColor;
 	}
-
+		
 //	void SizeText(TextMesh txtMesh)
 //	{
 //		var txtSize = font.fontSize;

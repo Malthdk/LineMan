@@ -22,6 +22,8 @@ public class Collectable : MonoBehaviour {
 			AkSoundEngine.PostEvent ("Collect", gameObject);
 			ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
 			particleEffect.Play();
+
+			BGParticles.instance.hasCollected = true; //Setting hascollected in Background ParticleSystem for effect.
 		}
 	}
 }

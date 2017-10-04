@@ -867,7 +867,7 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: "No matter how crooked, how twisted life might get. I\u2019ll get through
-        it \nby the skill of making choices.\n"
+        it \nby my excellent choice making skills.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 114292111581053286, guid: a425a83d56cad47aeba9e87dbf8baac4,
         type: 2}
