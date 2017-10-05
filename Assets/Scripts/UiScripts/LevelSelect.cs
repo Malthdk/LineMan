@@ -20,9 +20,9 @@ public class LevelSelect : MonoBehaviour {
 	private float gridBoxWidth = Screen.width / numColumns;
 	private float gridBoxHeight = Screen.height / numRows;
 
-	private static int numLevels = 12;
-	public static int completedLevelsAct1 = 12; //this probably have to be divided into acts
-	public static int completedLevelsAct2 = 12;
+	private static int numLevels = 15;
+	public static int completedLevelsAct1 = 15; //this probably have to be divided into acts
+	public static int completedLevelsAct2 = 15;
 
 	private string levelName;
 
