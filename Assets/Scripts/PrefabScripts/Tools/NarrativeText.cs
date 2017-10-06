@@ -38,7 +38,7 @@ public class NarrativeText : MonoBehaviour {
 
 		focusPosition.x = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref refVelocityX, smoothTimeX);
 		focusPosition.y = Mathf.SmoothDamp(transform.position.y, targetPosition.y, ref refVelocityY, smoothTimeY);
-		transform.position = (Vector3)focusPosition + Vector3.forward * -5;	
+		transform.position = (Vector3)focusPosition + Vector3.forward * -8.5f;	
 	}
 
 	//An idea is to make the fading and possible size increase of text proportional to player movement. 

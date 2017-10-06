@@ -11,6 +11,7 @@ public class HideReveal : MonoBehaviour {
 	//Privates
 	private BoxCollider2D bCollider;
 	private SpriteRenderer sRenderer;
+	private ParticleSystem pSystem;
 	private bool canSwitch = true;
 
 
@@ -24,6 +25,7 @@ public class HideReveal : MonoBehaviour {
 	{
 		bCollider = GetComponent<BoxCollider2D>();
 		sRenderer = GetComponent<SpriteRenderer>();
+		pSystem = transform.GetComponentInChildren<ParticleSystem>();
 	}
 
 	void Update () 
@@ -38,11 +40,14 @@ public class HideReveal : MonoBehaviour {
 		case OnAndOff.On:
 			bCollider.enabled = true;
 			sRenderer.color = onColor;
+			pSystem.Play();
 			break;
 
 		case OnAndOff.Off:
 			bCollider.enabled = false;
 			sRenderer.color = offColor;
+			pSystem.Stop();
+			pSystem.Clear();
 			break;
 		}
 

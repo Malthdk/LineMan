@@ -1295,14 +1295,20 @@ Prefab:
       propertyPath: m_Name
       value: Ai_Turncoat (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4533621210790364, guid: e0683b8e3e0944e20adb81e80500b190, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180.00002
-      objectReference: {fileID: 0}
-    - target: {fileID: 114925854534551266, guid: e0683b8e3e0944e20adb81e80500b190,
+    - target: {fileID: 114932704977999258, guid: e0683b8e3e0944e20adb81e80500b190,
         type: 2}
-      propertyPath: aiDirection
-      value: 1
+      propertyPath: cRed.r
+      value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114932704977999258, guid: e0683b8e3e0944e20adb81e80500b190,
+        type: 2}
+      propertyPath: cRed.g
+      value: 0.8313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 114932704977999258, guid: e0683b8e3e0944e20adb81e80500b190,
+        type: 2}
+      propertyPath: cRed.b
+      value: 0.25490198
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0683b8e3e0944e20adb81e80500b190, type: 2}

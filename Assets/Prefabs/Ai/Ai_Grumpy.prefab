@@ -113,15 +113,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1892481054306000}
-  m_LocalRotation: {x: -0, y: -0, z: 0.000000104308114, w: 1}
-  m_LocalPosition: {x: 1, y: -7.17, z: 0.1875}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071065, w: 0.7071071}
+  m_LocalPosition: {x: -0.85, y: -6, z: 0.1875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4521729853981314}
   - {fileID: 4842121729917042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
 --- !u!4 &4842121729917042
 Transform:
   m_ObjectHideFlags: 1
@@ -234,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf5f921d8d8b4982bcbc1377b83e412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiDirection: 0
-  aroundEdge: 1
+  aiDirection: 2
+  aroundEdge: 0
   flipAtStart: 0
   isPatrolling: 1
   enemyMask:
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grumpy: 2
-  deadly: {r: 0.043137256, g: 0.7490196, b: 0.10588236, a: 1}
+  deadly: {r: 0.8313726, g: 0.5058824, b: 0.25490198, a: 1}
   collisionMask:
     serializedVersion: 2
     m_Bits: 1280
@@ -3619,7 +3619,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300078, guid: d84b8b3f25dbe4711b27a0781be1c20a, type: 3}
-  m_Color: {r: 0.043137252, g: 0.7490196, b: 0.10642308, a: 1}
+  m_Color: {r: 0.8313726, g: 0.50536853, b: 0.254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

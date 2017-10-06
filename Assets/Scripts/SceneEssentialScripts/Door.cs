@@ -13,13 +13,13 @@ public class Door : MonoBehaviour {
 	//Privates
 	private Door cDoor;
 	public bool open, closed;
-	private SpriteRenderer myRenderer;
+	private TextMesh myTextMesh;
 	private BoxCollider2D myCollider;
 	public ParticleSystem pSystem;
 
 	void Start () 
 	{
-		myRenderer = transform.GetComponentInChildren<SpriteRenderer>();
+		myTextMesh = transform.GetComponentInChildren<TextMesh>();
 		pSystem = transform.GetComponentInChildren<ParticleSystem>();
 
 		myCollider = GetComponent<BoxCollider2D>();
@@ -46,11 +46,11 @@ public class Door : MonoBehaviour {
 	{
 		if (open)
 		{
-			myRenderer.color = openColor;
+			myTextMesh.color = openColor;
 		}
 		else if (closed)
 		{
-			myRenderer.color = closedColor;
+			myTextMesh.color = closedColor;
 		}
 	}
 	void OnTriggerEnter2D(Collider2D other)

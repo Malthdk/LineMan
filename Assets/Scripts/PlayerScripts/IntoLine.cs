@@ -201,7 +201,7 @@ public class IntoLine : MonoBehaviour {
 		animator.SetTrigger("goDown");
 		controller.collisions.left = controller.collisions.right = false; //Quick fix for at sørge for at den ikke fortsat tror er er collisions. Dette gjorde at man kunne transforme lige efter en transform.
 
-		yield return new WaitForSeconds(0.8f);
+		yield return new WaitForSeconds(0.6f);
 		particleEffect.Stop();
 
 		if (Portal.playerOnPortal)
@@ -217,7 +217,7 @@ public class IntoLine : MonoBehaviour {
 		yield return new WaitForSeconds(0.1f);
 		animator.SetTrigger("goUp");
 		particleEffect.Play();
-		yield return new WaitForSeconds(0.8f);
+		yield return new WaitForSeconds(0.6f);
 		particleEffect.Stop();
 		transforming = false;
 
