@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{01CDA8BC-683A-4288-9AA3-966B9C775560}'
-    m_lastTimePsrt1: 1771531136
-    m_lastTimePart2: -1999306314
+    m_lastTimePsrt1: 1250493440
+    m_lastTimePart2: -1999303288
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -131,8 +131,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}'
-    m_lastTimePsrt1: 1771531136
-    m_lastTimePart2: -1999306314
+    m_lastTimePsrt1: 1250493440
+    m_lastTimePart2: -1999303288
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -222,8 +222,6 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /LineAudio
-  - /LineAudio/Events
-  - /LineAudio/Events/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
