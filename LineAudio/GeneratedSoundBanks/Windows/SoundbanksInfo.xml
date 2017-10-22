@@ -63,7 +63,7 @@
 			<ShortName>Current</ShortName>
 			<Path>Current.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2037989808" Name="Current" ObjectPath="\Events\Default Work Unit\Current"/>
+				<Event Id="2037989808" Name="Current" ObjectPath="\Events\Default Work Unit\Current" MaxAttenuation="10.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="517993266" Language="SFX">
