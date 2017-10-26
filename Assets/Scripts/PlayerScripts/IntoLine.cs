@@ -30,6 +30,13 @@ public class IntoLine : MonoBehaviour {
 	public Direction portalDirection;
 	public Vector3 portalTransformation = new Vector3(0f, 0f, 0f);
 
+	//To check if we can transform
+	private bool transformBlocked;
+	private BoxCollider2D myCollider;
+	private float myWidth;
+	public LayerMask hitMask;
+
+
 	public static IntoLine _instance;
 
 	public static IntoLine instance {	// Makes it possible to call script easily from other scripts
@@ -53,14 +60,19 @@ public class IntoLine : MonoBehaviour {
 	{
 		player = GetComponent<Player>();
 		controller = GetComponent<Controller2D>();
-		direction = Direction.Floor;
+		//direction = Direction.Floor;
 		animator = transform.GetComponentInChildren<Animator>();
+		myCollider = gameObject.GetComponent<BoxCollider2D>();
+		myWidth = myCollider.bounds.extents.x;
 
 		inputLocked = false;
 	}
 
 	void Update () 
 	{
+		//Check if on T-section - move to when transform is about to happen.
+		CheckIfCanTransform();
+
 		//Input variables
 		downArrow = Input.GetKey(KeyCode.DownArrow);
 		upArrow = Input.GetKey(KeyCode.UpArrow);
@@ -72,7 +84,7 @@ public class IntoLine : MonoBehaviour {
 		{
 		case Direction.Floor:
 			//INPUT
-			if (inputLocked == false && cannotTransform == false)
+			if (inputLocked == false && !transformBlocked)
 			{
 				if (downArrow && controller.collisions.below)
 				{
@@ -99,7 +111,7 @@ public class IntoLine : MonoBehaviour {
 
 		case Direction.Cieling:
 			//INPUT
-			if (inputLocked == false && cannotTransform == false)
+			if (inputLocked == false && !transformBlocked)
 			{
 				if (upArrow && controller.collisions.below)
 				{
@@ -126,7 +138,7 @@ public class IntoLine : MonoBehaviour {
 
 		case Direction.Rightwall:
 			//INPUT
-			if (inputLocked == false && cannotTransform == false)
+			if (inputLocked == false && !transformBlocked)
 			{
 				if (rightArrow && controller.collisions.below)
 				{
@@ -153,7 +165,7 @@ public class IntoLine : MonoBehaviour {
 
 		case Direction.Leftwall:
 			//INPUT
-			if (inputLocked == false && cannotTransform == false)
+			if (inputLocked == false && !transformBlocked)
 			{
 				if (leftArrow && controller.collisions.below)
 				{
@@ -201,7 +213,7 @@ public class IntoLine : MonoBehaviour {
 		animator.SetTrigger("goDown");
 		controller.collisions.left = controller.collisions.right = false; //Quick fix for at sørge for at den ikke fortsat tror er er collisions. Dette gjorde at man kunne transforme lige efter en transform.
 
-		yield return new WaitForSeconds(0.6f);
+		yield return new WaitForSeconds(0.4f);
 		particleEffect.Stop();
 
 		if (Portal.playerOnPortal)
@@ -217,7 +229,7 @@ public class IntoLine : MonoBehaviour {
 		yield return new WaitForSeconds(0.1f);
 		animator.SetTrigger("goUp");
 		particleEffect.Play();
-		yield return new WaitForSeconds(0.6f);
+		yield return new WaitForSeconds(0.4f);
 		particleEffect.Stop();
 		transforming = false;
 
@@ -234,6 +246,22 @@ public class IntoLine : MonoBehaviour {
 			transform.position = new Vector3(portal.position.x, portal.position.y, portal.position.z);
 			direction = portalDirection;
 			transform.Translate(portalTransformation);
+		}
+	}
+
+	void CheckIfCanTransform()
+	{
+		if (controller.collisions.below)
+		{
+			Vector2 lineCastPos = transform.position.toVector2() - transform.right.toVector2() * myWidth + -transform.up.toVector2() * 1.2f;//-Vector2.down * 1.2f;	
+
+			transformBlocked = Physics2D.Linecast(lineCastPos, lineCastPos + transform.right.toVector2() * myWidth * 2, hitMask); //new Vector2(lineCastPos.x + myWidth * 2, lineCastPos.y)
+
+			Debug.DrawLine(lineCastPos, lineCastPos + transform.right.toVector2() * myWidth * 2, Color.green);	
+		}
+		else
+		{
+			transformBlocked = false;
 		}
 	}
 }

@@ -365,6 +365,16 @@ Prefab:
       propertyPath: onAndOff
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 5.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2042510910
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25bb1730bbe064ea0ac3152639a3932a, type: 2}
   m_IsPrefabParent: 0
@@ -568,6 +578,16 @@ Prefab:
       propertyPath: onAndOff
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1816896583
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 5.219404
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25bb1730bbe064ea0ac3152639a3932a, type: 2}
   m_IsPrefabParent: 0
@@ -622,6 +642,16 @@ Prefab:
     - target: {fileID: 1830956946936228, guid: 25bb1730bbe064ea0ac3152639a3932a, type: 2}
       propertyPath: m_Name
       value: OnAndOffKillObject (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2042510910
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25bb1730bbe064ea0ac3152639a3932a, type: 2}
@@ -715,6 +745,16 @@ Prefab:
         type: 2}
       propertyPath: onAndOff
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 5.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2042510910
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25bb1730bbe064ea0ac3152639a3932a, type: 2}
@@ -977,7 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d01d47bc9707473ea831e092bc2925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePath: Audio/GeneratedSoundBanks/Windows
+  basePath: Audio/GeneratedSoundBanks
   language: English(US)
   defaultPoolSize: 4096
   lowerPoolSize: 2048
@@ -1734,6 +1774,16 @@ Prefab:
     - target: {fileID: 1830956946936228, guid: 25bb1730bbe064ea0ac3152639a3932a, type: 2}
       propertyPath: m_Name
       value: OnAndOffKillObject (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 5.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198887751962964222, guid: 25bb1730bbe064ea0ac3152639a3932a,
+        type: 2}
+      propertyPath: randomSeed
+      value: 2042510910
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25bb1730bbe064ea0ac3152639a3932a, type: 2}

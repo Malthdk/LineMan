@@ -6,6 +6,8 @@ public class Checkpoint : MonoBehaviour {
 
 	//public string tempTag;
 	private Player player;
+	[HideInInspector]
+	public IntoLine.Direction currentDirection;
 
 //	public List<GameObject> objectsToRemove;
 //	public List<PlatformController> platformsToRemove;
@@ -43,6 +45,7 @@ public class Checkpoint : MonoBehaviour {
 			//graphics.SetActive(true);
 
 			LevelManager.instance.currentCheckpoint = this.gameObject;
+			currentDirection = IntoLine.instance.direction;
 //			LevelManager.instance.currentTag = player.tag;
 
 //			foreach(GameObject stateObj in objectsToRemove) 

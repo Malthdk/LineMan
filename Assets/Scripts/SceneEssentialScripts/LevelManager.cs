@@ -117,7 +117,7 @@ public class LevelManager : MonoBehaviour {
 		particleEffect.Stop();
 		player.transform.position = currentCheckpoint.transform.position;
 //		player.tag = currentTag;
-		intoLine.ResetDirection(IntoLine.Direction.Floor);
+		intoLine.ResetDirection(currentCheckpoint.GetComponent<Checkpoint>().currentDirection);
 //		StartCoroutine(	ColorStates.instance.ChangeColor(Color.white, 1f));
 		player.velocity.x = 0f;
 		player.velocity.y = 0f;
