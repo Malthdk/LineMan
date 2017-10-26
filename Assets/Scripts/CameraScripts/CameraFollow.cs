@@ -36,7 +36,7 @@ public class CameraFollow : MonoBehaviour {
 //	public bool findingTarget = false;
 
 	bool lookAheadStopped;
-
+	private float zOffset = -17f;
 	void Start()
 	{
 		target = GameObject.Find("Player").GetComponent<Controller2D>();
@@ -154,7 +154,7 @@ public class CameraFollow : MonoBehaviour {
 
 
 
-		transform.position = (Vector3)focusPosition + Vector3.forward * -10;	
+		transform.position = (Vector3)focusPosition + Vector3.forward * zOffset;	
 
 			//transform.position = new Vector3(rounded_x, rounded_y, -10);
 //		}
