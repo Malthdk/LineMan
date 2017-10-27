@@ -20,8 +20,7 @@ public class RaycastController : MonoBehaviour {
 
 	public virtual void Awake () 					// !!!Hed Start før og ikke Awake, hvis problemer - undersøg!!!
 	{
-		collider = GetComponent<BoxCollider2D>();	//Getting boxcollider
-						
+		collider = GetComponent<BoxCollider2D>();	//Getting boxcollider				
 	}
 
 	public virtual void Start()

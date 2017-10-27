@@ -58,12 +58,12 @@ public class Controller2D : RaycastController {
 
 	}
 
-	public void Move(Vector3 velocity, bool standingOnPlatform, bool slidingOnplatformLeft, bool slidingOnPlatformRight)		//Small overload function for the platformcontroller to use without any player input. Ergo Vector2.zero. 
+	public void Move(Vector3 velocity, bool standingOnPlatform)		//Small overload function for the platformcontroller to use without any player input. Ergo Vector2.zero. 
 	{
-		Move (velocity, Vector2.zero, standingOnPlatform, slidingOnplatformLeft, slidingOnPlatformRight);
+		Move (velocity, Vector2.zero, standingOnPlatform);
 	}
 
-	public void Move(Vector3 velocity, Vector2 input, bool standingOnPlatform = false, bool slidingOnPlatformLeft = false, bool slidingOnPlatformRight = false)		//Move function
+	public void Move(Vector3 velocity, Vector2 input, bool standingOnPlatform = false)		//Move function
 	{
 		UpdateRaycastOrigins ();
 		collisions.Reset();							//Resetting all collisions
@@ -131,16 +131,6 @@ public class Controller2D : RaycastController {
 		if (standingOnPlatform)						//Tracing collisions below player when on platform
 		{
 			collisions.below = true;
-		}
-		if (slidingOnPlatformLeft)
-		{
-			collisions.right = true;
-			collisions.below = false;
-		}
-		if (slidingOnPlatformRight)
-		{
-			collisions.left = true;
-			collisions.below = false;
 		}
 	}
 
