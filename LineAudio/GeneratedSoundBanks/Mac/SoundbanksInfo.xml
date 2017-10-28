@@ -54,7 +54,7 @@
 			<IncludedMemoryFiles>
 				<File Id="631598015" Language="SFX">
 					<ShortName>transform.wav</ShortName>
-					<Path>SFX/transform_7A1FC3BA.wem</Path>
+					<Path>SFX/transform_E8B5A214.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -94,9 +94,9 @@
 				<Event Id="3650723969" Name="Background" ObjectPath="\Events\Default Work Unit\Background"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="374406819" Language="SFX">
-					<ShortName>ambient_electro.wav</ShortName>
-					<Path>SFX/ambient_electro_F17FB28C.wem</Path>
+				<File Id="1056542757" Language="SFX">
+					<ShortName>Interstellar.wav</ShortName>
+					<Path>SFX/Interstellar_F17FB28C.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

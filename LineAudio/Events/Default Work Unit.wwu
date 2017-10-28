@@ -25,7 +25,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="ambient_electro" ID="{54EBC4B6-92F9-4905-A44B-FBB90AB08D59}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+									<ObjectRef Name="Interstellar" ID="{546B8B6F-B2C1-41EF-A233-CF11D2A59C54}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

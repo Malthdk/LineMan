@@ -74,7 +74,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>7</Value>
+								<Value>4</Value>
 							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
@@ -99,8 +99,11 @@
 					<ChildrenList>
 						<AudioFileSource Name="transform" ID="{1303D970-04B5-41EA-B69A-346AFDA0D735}" ShortID="631598015">
 							<PropertyList>
-								<Property Name="FadeInDuration" Type="Real64" Value="1.02000038749088"/>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.291841470641865"/>
 								<Property Name="FadeOutDuration" Type="Real64" Value="0.0317847146243615"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.702153241247265"/>
+								<Property Name="TrimEnd" Type="Real64" Value="2.07178548960613"/>
 							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>transform.wav</AudioFile>
@@ -149,7 +152,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>4</Value>
+								<Value>1</Value>
 							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
@@ -298,6 +301,10 @@
 							<Language>SFX</Language>
 							<AudioFile>achievement01.wav</AudioFile>
 						</AudioFileSource>
+						<AudioFileSource Name="Interstellar" ID="{267FEEBA-2A4A-4FC5-BE0C-3DC3EC663011}" ShortID="109621553">
+							<Language>SFX</Language>
+							<AudioFile>Interstellar.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="achievement01" ID="{289F263F-0E05-4E4E-B534-21ABB254D177}" Platform="Linked"/>
@@ -393,6 +400,33 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="end" ID="{8E8C779B-8222-4D04-9834-57B3F6C279AD}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Interstellar" ID="{546B8B6F-B2C1-41EF-A233-CF11D2A59C54}" ShortID="673565037">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FDBBC030-409F-4612-8E2F-A295AD551812}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E8BFF538-8809-493D-BC5C-CE75014682BB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Interstellar" ID="{AF9E1389-6091-4566-9DD9-7484D36C1595}" ShortID="1056542757">
+							<Language>SFX</Language>
+							<AudioFile>Interstellar.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Interstellar" ID="{AF9E1389-6091-4566-9DD9-7484D36C1595}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

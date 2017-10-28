@@ -3,38 +3,38 @@
 	<Platform GUID="{B9F72A4C-B737-419E-A9D2-84E94BFC7DBE}">
 		<Banks>
 			<Language ID="393239870">
-				<File Name="Background" Hash="306152143" Timestamp="131529618100000000"/>
-				<File Name="Collect" Hash="2000643022" Timestamp="131529618100000000"/>
-				<File Name="Current" Hash="1576978545" Timestamp="131529618100000000"/>
-				<File Name="Die" Hash="1585611987" Timestamp="131529618100000000"/>
-				<File Name="EndLevel" Hash="2761379343" Timestamp="131529618100000000"/>
-				<File Name="Init" Hash="3997111523" Timestamp="131529618100000000"/>
-				<File Name="Jump" Hash="1050748123" Timestamp="131529618100000000"/>
-				<File Name="Transition" Hash="2053867186" Timestamp="131529618100000000"/>
+				<File Name="Background" Hash="3149713444" Timestamp="131536153800000000"/>
+				<File Name="Collect" Hash="4159715080" Timestamp="131536153800000000"/>
+				<File Name="Current" Hash="1503430961" Timestamp="131536153800000000"/>
+				<File Name="Die" Hash="476246232" Timestamp="131536153800000000"/>
+				<File Name="EndLevel" Hash="3909247642" Timestamp="131536153800000000"/>
+				<File Name="Init" Hash="3997111523" Timestamp="131536153800000000"/>
+				<File Name="Jump" Hash="1882589450" Timestamp="131536153800000000"/>
+				<File Name="Transition" Hash="430243416" Timestamp="131536155970000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="3339137325" Timestamp="131529618100000000"/>
+				<File Name="" Hash="1464057909" Timestamp="131536155970000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
 	<Platform GUID="{62225355-717E-4E0C-B797-974A68B2209D}">
 		<Banks>
 			<Language ID="393239870">
-				<File Name="Background" Hash="306152143" Timestamp="131529618100000000"/>
-				<File Name="Collect" Hash="2000643022" Timestamp="131529618100000000"/>
-				<File Name="Current" Hash="1576978545" Timestamp="131529618100000000"/>
-				<File Name="Die" Hash="1585611987" Timestamp="131529618100000000"/>
-				<File Name="EndLevel" Hash="2761379343" Timestamp="131529618100000000"/>
-				<File Name="Init" Hash="4279406369" Timestamp="131529618100000000"/>
-				<File Name="Jump" Hash="1050748123" Timestamp="131529618100000000"/>
-				<File Name="Transition" Hash="2053867186" Timestamp="131529618100000000"/>
+				<File Name="Background" Hash="3149713444" Timestamp="131536153740000000"/>
+				<File Name="Collect" Hash="4159715080" Timestamp="131536153740000000"/>
+				<File Name="Current" Hash="1503430961" Timestamp="131536153740000000"/>
+				<File Name="Die" Hash="476246232" Timestamp="131536153750000000"/>
+				<File Name="EndLevel" Hash="3909247642" Timestamp="131536153750000000"/>
+				<File Name="Init" Hash="4279406369" Timestamp="131536153750000000"/>
+				<File Name="Jump" Hash="1882589450" Timestamp="131536153750000000"/>
+				<File Name="Transition" Hash="430243416" Timestamp="131536155960000000"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="2300242771" Timestamp="131529618100000000"/>
+				<File Name="" Hash="2539758887" Timestamp="131536155960000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
