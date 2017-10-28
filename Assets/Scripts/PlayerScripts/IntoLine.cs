@@ -78,7 +78,7 @@ public class IntoLine : MonoBehaviour {
 		upArrow = Input.GetKey(KeyCode.UpArrow);
 		rightArrow = Input.GetKey(KeyCode.RightArrow);
 		leftArrow = Input.GetKey(KeyCode.LeftArrow);
-			
+
 		//Direction states for the player
 		switch(direction)
 		{
@@ -86,6 +86,8 @@ public class IntoLine : MonoBehaviour {
 			//INPUT
 			if (inputLocked == false && !transformBlocked)
 			{
+				Debug.Log("Face Dir: " + controller.collisions.faceDir);
+
 				if (downArrow && controller.collisions.below)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Cieling));
@@ -94,9 +96,10 @@ public class IntoLine : MonoBehaviour {
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Rightwall));
 				}
-				else if (((LovedOne)?rightArrow:leftArrow)  && controller.collisions.left)
+				else if (((LovedOne)?rightArrow:leftArrow)  && (controller.collisions.left))
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0, yOffsetRightLeft, 0f), Direction.Leftwall));
+					Debug.Log("you have to transform now");
 				}
 			}
 			//TRANSFORMATIONS
@@ -205,7 +208,7 @@ public class IntoLine : MonoBehaviour {
 		AkSoundEngine.PostEvent ("Transition", gameObject);
 		transforming = true;
 		//inputLocked = true; 
-		player.movementUnlocked = false;
+		player.movementUnlocked = false; //Locks movement and stops raycasting
 		player.velocity.x = 0;
 		player.velocity.y = 0;
 		ParticleSystem particleEffect = player.gameObject.transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>();
@@ -235,7 +238,7 @@ public class IntoLine : MonoBehaviour {
 
 		yield return new WaitForEndOfFrame();
 		inputLocked = false;
-		player.movementUnlocked = true;
+		player.movementUnlocked = true;		//Unlocks movement and starts raycasting
 		yield return new WaitForEndOfFrame();
 	}
 

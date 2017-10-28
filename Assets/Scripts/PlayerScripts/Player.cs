@@ -169,8 +169,8 @@ public class Player : MonoBehaviour {
 	if (movementUnlocked == true)
 		{
 			velocity.y += gravity * Time.deltaTime;	
-			controller.Move(velocity * Time.deltaTime, input);				//Moving character
 		}
+		controller.Move((movementUnlocked)?velocity * Time.deltaTime:new Vector3(0,0,0), (movementUnlocked)?input:new Vector2(0,0));//Moving character && Checking if Movement is unlocked. If it is add small downward velocity and freeze input.
 
 
 		if (controller.collisions.above  || controller.collisions.below)		//If raycasts hit above or below, velocity on y axis stops

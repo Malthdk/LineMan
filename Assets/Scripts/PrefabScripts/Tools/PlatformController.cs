@@ -125,8 +125,6 @@ public class PlatformController : RaycastController {
 
 		float directionX = Mathf.Sign(velocity.x);
 		float directionY = Mathf.Sign(velocity.y);
-		Debug.Log("DirectionX" + directionX);
-		Debug.Log("DirectionY" + directionY);
 
 		//Vertically moving platform
 		if (velocity.y != 0)
@@ -277,7 +275,6 @@ public class PlatformController : RaycastController {
 				{
 					if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Rightwall)
 					{
-						Debug.Log("on rightwall");
 						movedPassengers.Add(hit.transform);
 						float pushX = velocity.y;
 						float pushY = -velocity.x;
@@ -363,7 +360,6 @@ public class PlatformController : RaycastController {
 		if (other.name == "Player") 
 		{	
 			elevator = false;
-			Debug.Log("player on platform");
 		}
 	}
 

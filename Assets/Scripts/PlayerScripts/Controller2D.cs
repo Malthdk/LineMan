@@ -28,6 +28,7 @@ public class Controller2D : RaycastController {
 	private GameObject paintParticleGO;
 	private bool isEmitting;
 
+	private int LayerGround;
 
 	public bool playerOnLeftWall, playerOnRightWall, playerOnground, playerOnCieling;
 
@@ -45,6 +46,8 @@ public class Controller2D : RaycastController {
 
 	public override void Start()
 	{
+		LayerGround = LayerMask.NameToLayer("MovingPlatform");
+
 		base.Start();
 		collisions.faceDir = 1;					//Face direction set to 1
 		levelmanager = FindObjectOfType<LevelManager>();
@@ -55,7 +58,6 @@ public class Controller2D : RaycastController {
 	public override void Update()
 	{
 		base.Update();
-
 	}
 
 	public void Move(Vector3 velocity, bool standingOnPlatform)		//Small overload function for the platformcontroller to use without any player input. Ergo Vector2.zero. 
@@ -76,14 +78,13 @@ public class Controller2D : RaycastController {
 
 			if (collisions.faceDir == -1 && facingRight)
 			{
-				Flip ();
+				Flip (); //only for flipping graphics
 			}
 			if (collisions.faceDir == 1 && !facingRight)
 			{
-				Flip ();
+				Flip (); //only for flipping graphics
 			}
 		}
-
 		if (velocity.y <0)							
 		{
 			DescendSlope(ref velocity);
@@ -200,15 +201,15 @@ public class Controller2D : RaycastController {
 //				}
 				if (!collisions.climbingSlope || slopeAngle > maxClimbAngle)
 				{
-					velocity.x = (hit.distance - skinWidth) * directionX;
-					rayLength = hit.distance;
+						velocity.x = (hit.distance - skinWidth) * directionX;
+						rayLength = hit.distance;
 
-//					if (collisions.climbingSlope)
-//					{
-//						velocity.y = Mathf.Tan (collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
-//					}
-					collisions.left = directionX == -1;
-					collisions.right = directionX == 1;
+						//					if (collisions.climbingSlope)
+						//					{
+						//						velocity.y = Mathf.Tan (collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
+						//					}
+						collisions.left = directionX == -1;
+						collisions.right = directionX == 1;
 				}
 				if (hit.collider.gameObject.CompareTag("killTag"))
 				{
