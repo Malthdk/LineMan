@@ -78,10 +78,21 @@
 						<Action Name="" ID="{222DBFB9-A6E5-418E-88B2-91463762560F}" ShortID="106558814">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="collect" ID="{62777B9D-3278-4AA9-B40F-C2D82A04A8F8}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{CB62AA46-8BCB-4248-869F-1108762F1966}" ShortID="166839305">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="pop" ID="{53D1219F-6921-4D14-9769-0846A71F60D4}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -54,7 +54,7 @@
 			<IncludedMemoryFiles>
 				<File Id="631598015" Language="SFX">
 					<ShortName>transform.wav</ShortName>
-					<Path>SFX/transform_E8B5A214.wem</Path>
+					<Path>SFX/transform_0107EA19.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -80,6 +80,10 @@
 				<Event Id="2756333705" Name="Collect" ObjectPath="\Events\Default Work Unit\Collect"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="164889978" Language="SFX">
+					<ShortName>pop.wav</ShortName>
+					<Path>SFX/pop_9AB438BA.wem</Path>
+				</File>
 				<File Id="562559105" Language="SFX">
 					<ShortName>collect.wav</ShortName>
 					<Path>SFX/collect_1C9C67B2.wem</Path>
