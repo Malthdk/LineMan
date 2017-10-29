@@ -48,7 +48,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: 2037989808
       Guid: 74f043356abb9349b79ae13beb89008f
-      maxAttenuation: 0
+      maxAttenuation: 10
     - Name: Die
       Path: Default Work Unit/Die
       PathAndIcons:

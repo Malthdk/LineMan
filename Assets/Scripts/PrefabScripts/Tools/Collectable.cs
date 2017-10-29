@@ -5,18 +5,18 @@ using UnityEngine;
 public class Collectable : MonoBehaviour {
 
 	SpriteRenderer sRenderer;
-	//ParticleSystem pSystem;
+	ParticleSystem pSystem;
 	//ParticleSystem.LimitVelocityOverLifetimeModule limVelModule;
 	//ParticleSystem.MainModule mainModule;
-	BoxCollider2D bCollider;
+	PolygonCollider2D pCollider;
 	GameObject textObject;
 
 	void Start () 
 	{
 		sRenderer = transform.GetComponentInChildren<SpriteRenderer>();
-		bCollider = transform.GetComponent<BoxCollider2D>();
+		pCollider = transform.GetComponent<PolygonCollider2D>();
 		textObject = transform.GetChild(2).gameObject;
-		//pSystem = transform.GetChild(3).gameObject.GetComponent<ParticleSystem>();
+		pSystem = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
 		//limVelModule = pSystem.limitVelocityOverLifetime;
 		//mainModule = pSystem.main;
 	}
@@ -29,10 +29,16 @@ public class Collectable : MonoBehaviour {
 			//limVelModule.enabled = false;
 			//mainModule.loop = false;
 
-			bCollider.enabled = false;
+			pCollider.enabled = false;
 			AkSoundEngine.PostEvent ("Collect", gameObject);
-			ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
-			particleEffect.Play();
+			pSystem.Clear();
+			pSystem.time = 0f;
+			var main = pSystem.main;
+			main.startLifetime = 5f;
+			main.duration = 5f;
+			pSystem.Play();
+			/*ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
+			particleEffect.Play();*/
 
 			BGParticles.instance.hasCollected = true; //Setting hascollected in Background ParticleSystem for effect.
 			textObject.SetActive(true);
