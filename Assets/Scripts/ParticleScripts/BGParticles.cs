@@ -125,7 +125,7 @@ public class BGParticles : MonoBehaviour {
 	//This darkens the particlesystem
 	public IEnumerator Darken()
 	{
-		while ( newColor.r > 0.137f && newColor.g > 0.137f && newColor.b > 0.137f)
+		while ( newColor.r > 0.392f && newColor.g > 0.392f && newColor.b > 0.392f)
 		{
 			newColor.r -= 0.005f;
 			newColor.g -= 0.005f;

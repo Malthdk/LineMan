@@ -10,6 +10,7 @@ public class Collectable : MonoBehaviour {
 	//ParticleSystem.MainModule mainModule;
 	PolygonCollider2D pCollider;
 	GameObject textObject;
+	Animator animator;
 
 	void Start () 
 	{
@@ -17,6 +18,7 @@ public class Collectable : MonoBehaviour {
 		pCollider = transform.GetComponent<PolygonCollider2D>();
 		textObject = transform.GetChild(2).gameObject;
 		pSystem = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
+		animator = GetComponent<Animator>();
 		//limVelModule = pSystem.limitVelocityOverLifetime;
 		//mainModule = pSystem.main;
 	}
@@ -26,6 +28,8 @@ public class Collectable : MonoBehaviour {
 		if (other.name == "Player" || other.name == "LovedOne")
 		{
 			sRenderer.enabled = false;
+			animator.enabled = false;
+			transform.localScale = new Vector3(1,1,1);
 			//limVelModule.enabled = false;
 			//mainModule.loop = false;
 

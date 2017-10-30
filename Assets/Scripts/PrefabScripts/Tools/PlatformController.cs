@@ -11,6 +11,7 @@ public class PlatformController : RaycastController {
 
 	public bool stopStart;
 	public bool elevator;
+	public bool onAndOff;
 	public float speed;
 	public bool cyclic;
 	public float waitTime;
@@ -20,42 +21,76 @@ public class PlatformController : RaycastController {
 	int fromWaypointIndex;
 	float percentBetweenWaypoints;
 	float nextMoveTime;
+	float directionX;
+	float directionY;
+
+	public static bool canSet; //used in SetHitByPlatform() to set bool once.
 
 	List<PassengerMovement> passengerMovement; //A list of our structs
 	Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>(); 
 
 	private IntoLine.Direction playerDirection;
+	private IntoLine intoLine;
+
+	public Platform platform;
+	private bool pltCanChange;
+	public enum Platform
+	{
+		Move,
+		Stop
+	}
 
 	public override void Awake () 
 	{
 		base.Awake();
-
+		canSet = true;
+		intoLine = GameObject.Find("Player").GetComponent<IntoLine>();
+			
 		globalWaypoints = new Vector3[localWaypoints.Length];
 		for (int i = 0; i < localWaypoints.Length; i++)
 		{
 			globalWaypoints[i] = localWaypoints[i] + transform.position;
 		}
 	}
-	
 
 	void Update () 
 	{
 		playerDirection = GameObject.Find("Player").GetComponent<IntoLine>().direction;
 
-		if (elevator == false)
+		if (!IntoLine.instance.transforming)
 		{
+			pltCanChange = true;
+		}
+
+		switch (platform)
+		{
+		case Platform.Move:
 			UpdateRaycastOrigins();
 			CalculateRaySpacing();
 
 			Vector3 velocity = CalculatePlatformMovement();
-
 			CalculatePassengerMovement(velocity);
-
 			MovePassengers(true);
-
 			transform.Translate(velocity);
+			MovePassengers(false);
 
-			MovePassengers(false);	
+			if (IntoLine.instance.transforming && pltCanChange)
+			{
+				StartCoroutine(StartStop(Platform.Move));
+			}	
+			break;
+
+		case Platform.Stop:
+			if (IntoLine.instance.transforming && pltCanChange)
+			{
+				StartCoroutine(StartStop(Platform.Stop));
+			}	
+			break;
+		}
+
+		if (elevator == false && !onAndOff)
+		{
+			platform = Platform.Move;
 		}
 	}
 
@@ -123,8 +158,8 @@ public class PlatformController : RaycastController {
 		HashSet<Transform> movedPassengers = new HashSet<Transform>(); //makes sure that the player is not moved by each ray he is hit by 
 		passengerMovement = new List<PassengerMovement>();
 
-		float directionX = Mathf.Sign(velocity.x);
-		float directionY = Mathf.Sign(velocity.y);
+		directionX = Mathf.Sign(velocity.x);
+		directionY = Mathf.Sign(velocity.y);
 
 		//Vertically moving platform
 		if (velocity.y != 0)
@@ -204,6 +239,8 @@ public class PlatformController : RaycastController {
 							float pushY = -skinWidth;	//small downward force so that the player knows he is grounded.
 
 							passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), false, true));
+
+							RegisterHit();
 						}
 						if (playerDirection == IntoLine.Direction.Cieling)
 						{
@@ -377,4 +414,48 @@ public class PlatformController : RaycastController {
 			}
 		}
 	}
+
+	//FOR TESTING PALTFORM THE "PICKUP" BEHAVIOIR!
+	public void RegisterHit()
+	{
+		if (canSet)
+		{
+			if (directionX == 1)
+			{
+				intoLine.pltFloorLeft = true;
+			}
+			else if (directionX == -1)
+			{
+				intoLine.pltFloorRight = true;
+			}
+			canSet = false;
+		}
+	}
+	//FOR TESTING PALTFORM THE "PICKUP" BEHAVIOIR!
+	public void SetHitByPlatform(bool newState)
+	{
+		if (canSet)
+		{
+			newState = true;
+			canSet = false;
+			Debug.Log("check");
+			Debug.Log("new State: " + intoLine.pltFloorLeft);
+		}
+	}
+
+	IEnumerator StartStop(Platform currentState)
+	{
+		pltCanChange = false;
+		yield return new WaitForEndOfFrame();
+
+		if (currentState == Platform.Move)
+		{
+			platform = Platform.Stop;
+		}
+		else if (currentState == Platform.Stop)
+		{
+			platform = Platform.Move;
+		}
+	}
+
 }

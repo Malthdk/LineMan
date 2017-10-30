@@ -26,6 +26,10 @@ public class LevelManager : MonoBehaviour {
 	public bool respawning;
 	public bool isRespawning = false; //Used for other stuff to know that the player is dead.
 
+	//For act 2 collectables
+	public int heartsCollected;
+	public bool act2WinCondition;
+
 	//Privates
 	private LovedOne lovedOne;
 	private IntoLine intoLine;
@@ -74,6 +78,14 @@ public class LevelManager : MonoBehaviour {
 
 	void Update()
 	{
+		if (act2WinCondition)
+		{
+			if (heartsCollected == 0)
+			{
+				StartCoroutine("LoadNextLevel");
+			}	
+		}
+
 		//Temporary oppotunity to get out of levels.
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -147,6 +159,16 @@ public class LevelManager : MonoBehaviour {
 		yield return new WaitForSeconds(fadeTime);
 
 		Application.LoadLevel(myLevel);
+	}
+
+	public IEnumerator LoadNextLevel()
+	{
+		Destroy(player.gameObject);
+		Destroy (this.gameObject);
+		yield return new WaitForEndOfFrame();	
+
+		float fadeTime = GameObject.Find("_GM").GetComponent<Fading>().BeginFade(1);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
 	void ResetAis(List<AiPatrolling> theList)
@@ -307,6 +329,7 @@ public class LevelManager : MonoBehaviour {
 			HeartPower hPow = heObject.GetComponent<HeartPower>();
 			heartPower.Add(hPow);
 		}
+		heartsCollected = heartPower.Count;
 //		foreach(GameObject oObject in GameObject.FindGameObjectsWithTag("orb")) 
 //		{
 //			PickUpGlobe oOrb = oObject.GetComponent<PickUpGlobe>();

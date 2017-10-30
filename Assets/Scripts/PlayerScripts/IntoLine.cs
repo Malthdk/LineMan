@@ -36,6 +36,11 @@ public class IntoLine : MonoBehaviour {
 	private float myWidth;
 	public LayerMask hitMask;
 
+	//FOR TESTING PALTFORM THE "PICKUP" BEHAVIOIR!
+	public bool pltFloorLeft, pltFloorRight;
+	public bool pltCielingLeft, pltCielingRight;
+	public bool pltLeftFloor, pltLeftCieling;
+	public bool pltRightFloor, pltRightCieling;
 
 	public static IntoLine _instance;
 
@@ -63,7 +68,16 @@ public class IntoLine : MonoBehaviour {
 		//direction = Direction.Floor;
 		animator = transform.GetComponentInChildren<Animator>();
 		myCollider = gameObject.GetComponent<BoxCollider2D>();
-		myWidth = myCollider.bounds.extents.x;
+
+		//This is for locking transitions on corners and T-sections - Width has to be calculated differently based on initial position when starting
+		if (direction == Direction.Floor || direction == Direction.Cieling)
+		{
+			myWidth = myCollider.bounds.extents.x;	
+		}
+		else if (direction == Direction.Rightwall || direction == Direction.Leftwall)
+		{
+			myWidth = myCollider.bounds.extents.y;
+		}
 
 		inputLocked = false;
 	}
@@ -86,20 +100,20 @@ public class IntoLine : MonoBehaviour {
 			//INPUT
 			if (inputLocked == false && !transformBlocked)
 			{
-				Debug.Log("Face Dir: " + controller.collisions.faceDir);
-
+				Debug.Log("pltFloorLeft " + pltFloorLeft);
 				if (downArrow && controller.collisions.below)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Cieling));
 				}
-				else if (((LovedOne)?leftArrow:rightArrow) && controller.collisions.right)
+				else if (((LovedOne)?leftArrow:rightArrow) && controller.collisions.right || pltFloorRight)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Rightwall));
+					pltFloorRight = false;
 				}
-				else if (((LovedOne)?rightArrow:leftArrow)  && (controller.collisions.left))
+				else if (((LovedOne)?rightArrow:leftArrow)  && (controller.collisions.left) || pltFloorLeft)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0, yOffsetRightLeft, 0f), Direction.Leftwall));
-					Debug.Log("you have to transform now");
+					pltFloorLeft = false;
 				}
 			}
 			//TRANSFORMATIONS
@@ -239,6 +253,7 @@ public class IntoLine : MonoBehaviour {
 		yield return new WaitForEndOfFrame();
 		inputLocked = false;
 		player.movementUnlocked = true;		//Unlocks movement and starts raycasting
+		PlatformController.canSet = true; //Makes it so platforms can pick you up again.
 		yield return new WaitForEndOfFrame();
 	}
 

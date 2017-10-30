@@ -10,12 +10,15 @@ public class HeartPower : MonoBehaviour {
 	//Privates
 	SpriteRenderer sRenderer;
 	BoxCollider2D bCollider;
-
+	ParticleSystem pickUpParticles;
+	ParticleSystem followAiParticles;
 	void Start () 
 	{
 		FillList();
 		sRenderer = transform.GetComponentInChildren<SpriteRenderer>();
 		bCollider = transform.GetComponent<BoxCollider2D>();
+		pickUpParticles = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>(); //Particle at collision
+		followAiParticles = gameObject.transform.GetChild(2).GetComponent<ParticleSystem>(); //Particle at collision
 	}
 	
 
@@ -26,11 +29,12 @@ public class HeartPower : MonoBehaviour {
 
 	void FillList()
 	{
-		foreach(GameObject aiObject in GameObject.FindGameObjectsWithTag("ai"))
-		{
-			AiHandler aiPatrol = aiObject.GetComponent<AiHandler>();
-			aiHandlers.Add(aiPatrol);
-		}
+		///THIS IS IF WE WANT TO FIND ALL AIs at START
+//		foreach(GameObject aiObject in GameObject.FindGameObjectsWithTag("ai"))
+//		{
+//			AiHandler aiPatrol = aiObject.GetComponent<AiHandler>();
+//			aiHandlers.Add(aiPatrol);
+//		}
 	}
 
 	void NeutraliseAI(List<AiHandler> theList)
@@ -52,11 +56,14 @@ public class HeartPower : MonoBehaviour {
 	{
 		if (other.name == "Player" || other.name == "LovedOne")	
 		{
-			NeutraliseAI(aiHandlers);
+			LevelManager.instance.heartsCollected --;
+
+			NeutraliseAI(aiHandlers); //Neutralises AIs
 			sRenderer.enabled = false;
 			bCollider.enabled = false;
-			ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
-			particleEffect.Play();
+
+			pickUpParticles.Play();
+			followAiParticles.Stop();
 		}
 	}
 

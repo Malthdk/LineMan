@@ -12162,6 +12162,16 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114916018424103068, guid: 2a1510134ed61486ea4b55ca39d08c33,
+        type: 2}
+      propertyPath: onAndOff
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114916018424103068, guid: 2a1510134ed61486ea4b55ca39d08c33,
+        type: 2}
+      propertyPath: platform
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1510134ed61486ea4b55ca39d08c33, type: 2}
   m_IsPrefabParent: 0
@@ -12460,7 +12470,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4939320670995380, guid: 29a751bee121148fa8357c667b4db6ac, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 17.91
+      value: 10.22
       objectReference: {fileID: 0}
     - target: {fileID: 4939320670995380, guid: 29a751bee121148fa8357c667b4db6ac, type: 2}
       propertyPath: m_LocalRotation.x
@@ -12569,6 +12579,14 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 256
+  pltFloorLeft: 0
+  pltFloorRight: 0
+  pltCielingLeft: 0
+  pltCielingRight: 0
+  pltLeftFloor: 0
+  pltLeftCieling: 0
+  pltRightFloor: 0
+  pltRightCieling: 0
 --- !u!114 &2047798840
 MonoBehaviour:
   m_ObjectHideFlags: 0
