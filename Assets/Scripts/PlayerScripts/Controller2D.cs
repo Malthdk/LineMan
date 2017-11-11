@@ -44,15 +44,16 @@ public class Controller2D : RaycastController {
 		}
 	}
 
+
+
 	public override void Start()
 	{
-		LayerGround = LayerMask.NameToLayer("MovingPlatform");
-
 		base.Start();
+		LayerGround = LayerMask.NameToLayer("MovingPlatform");
 		collisions.faceDir = 1;					//Face direction set to 1
 		levelmanager = FindObjectOfType<LevelManager>();
 		checkpoint = FindObjectOfType<Checkpoint>();
-		graphicsTransform = gameObject.transform.Find("Graphics").GetComponent<Transform>();
+		graphicsTransform = transform.GetChild(0).GetComponent<Transform>();
 	}
 
 	public override void Update()
@@ -358,10 +359,7 @@ public class Controller2D : RaycastController {
 		Vector3 theScale = graphicsTransform.localScale;
 		theScale.x *= -1;
 		graphicsTransform.localScale = theScale;
-		//Flip the paint particle aswell
-//		Vector3 particleScale = paintParticleGO.transform.localPosition;
-//		particleScale.x *= -1;
-//		paintParticleGO.transform.localPosition = particleScale;
+		Debug.Log(theScale);
 	}
 
 

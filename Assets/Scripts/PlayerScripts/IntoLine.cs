@@ -100,7 +100,7 @@ public class IntoLine : MonoBehaviour {
 			//INPUT
 			if (inputLocked == false && !transformBlocked)
 			{
-				Debug.Log("pltFloorLeft " + pltFloorLeft);
+//				Debug.Log("pltFloorLeft " + pltFloorLeft);
 				if (downArrow && controller.collisions.below)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Cieling));

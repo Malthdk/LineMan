@@ -131,10 +131,8 @@ public class Player : MonoBehaviour {
 		{
 			if (controller.collisions.below)
 			{
-				FirstJump();
-				AkSoundEngine.SetRTPCValue ("Pitch", 0);
-				AkSoundEngine.PostEvent ("Jump", gameObject);
-				jumpParticles.Play();						//ParticleSystem
+				animator.SetBool("jumping", true);
+				StartCoroutine("Jump");
 			}
 		}
 
@@ -179,9 +177,13 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void FirstJump() 
+	IEnumerator Jump() 
 	{
+		yield return new WaitForSeconds(0.1f);
 		velocity.y = maxJumpVelocity;
-//		animator.SetBool("Ground", false);
+		AkSoundEngine.SetRTPCValue ("Pitch", 0);
+		AkSoundEngine.PostEvent ("Jump", gameObject);
+		jumpParticles.Play();						//ParticleSystem
+		animator.SetBool("jumping", false);
 	}
 }
