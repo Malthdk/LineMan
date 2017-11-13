@@ -33,13 +33,18 @@ public class Collectable : MonoBehaviour {
 			//limVelModule.enabled = false;
 			//mainModule.loop = false;
 
+			var no = pSystem.noise;
+			no.enabled = true;
+			no.strength = 1.0f;
+			no.quality = ParticleSystemNoiseQuality.High;
+
 			pCollider.enabled = false;
 			AkSoundEngine.PostEvent ("Collect", gameObject);
 			pSystem.Clear();
 			pSystem.time = 0f;
 			var main = pSystem.main;
-			main.startLifetime = 5f;
-			main.duration = 5f;
+			main.startLifetime = 8f;
+			main.duration = 8f;
 			pSystem.Play();
 			/*ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
 			particleEffect.Play();*/

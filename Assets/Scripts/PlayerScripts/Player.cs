@@ -46,6 +46,8 @@ public class Player : MonoBehaviour {
 	//private ParticleSystem doubleJumpParticle;
 	//private ParticleSystem tripleJumpParticle;
 
+	private SpriteMask spriteMask;
+
 	//Can the character be moved on X or Y axis. 
 	[HideInInspector]
 	public bool movementUnlocked;
@@ -75,6 +77,7 @@ public class Player : MonoBehaviour {
 		intoLine = GetComponent<IntoLine>();
 		animator = transform.GetComponentInChildren<Animator>();		//ANIMATION
 		jumpParticles = transform.GetChild(3).GetChild(0).GetComponent<ParticleSystem>();
+		spriteMask = transform.GetChild(4).GetComponent<SpriteMask>();
 	}
 
 	void Update () 
@@ -145,6 +148,7 @@ public class Player : MonoBehaviour {
 		{
 			moveSpeed = groundSpeed;
 			landed = true;
+			spriteMask.enabled = true;
 		}
 		if (Mathf.Sign(velocity.y) == -1)
 		{
@@ -181,6 +185,7 @@ public class Player : MonoBehaviour {
 	{
 		yield return new WaitForSeconds(0.1f);
 		velocity.y = maxJumpVelocity;
+		spriteMask.enabled = false;
 		AkSoundEngine.SetRTPCValue ("Pitch", 0);
 		AkSoundEngine.PostEvent ("Jump", gameObject);
 		jumpParticles.Play();						//ParticleSystem
