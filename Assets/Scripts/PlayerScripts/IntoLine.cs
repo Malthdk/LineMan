@@ -271,11 +271,11 @@ public class IntoLine : MonoBehaviour {
 	{
 		if (controller.collisions.below)
 		{
-			Vector2 lineCastPos = transform.position.toVector2() - transform.right.toVector2() * (myWidth -0.05f) + -transform.up.toVector2() * 1.2f;//-Vector2.down * 1.2f;	
+			Vector2 lineCastPos = transform.position.toVector2() - transform.right.toVector2() * (myWidth -0.15f) + -transform.up.toVector2() * 1.2f;//-Vector2.down * 1.2f;	
 
-			transformBlocked = Physics2D.Linecast(lineCastPos, lineCastPos + transform.right.toVector2() * (myWidth -0.05f) * 2, hitMask); //new Vector2(lineCastPos.x + myWidth * 2, lineCastPos.y)
+			transformBlocked = Physics2D.Linecast(lineCastPos, lineCastPos + transform.right.toVector2() * (myWidth -0.15f) * 2, hitMask); //new Vector2(lineCastPos.x + myWidth * 2, lineCastPos.y)
 
-			Debug.DrawLine(lineCastPos, lineCastPos + transform.right.toVector2() * (myWidth -0.05f) * 2, Color.green);	
+			Debug.DrawLine(lineCastPos, lineCastPos + transform.right.toVector2() * (myWidth -0.15f) * 2, Color.green);	
 		}
 		else
 		{

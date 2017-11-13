@@ -285,11 +285,30 @@ public class PlatformController : RaycastController {
 				Debug.DrawRay(rayOrigin, Vector2.right * rayLength * 2, Color.red);
 				if (hit)
 				{
+					//This is for when the player is standing on left of platform
 					if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Leftwall)
 					{
 						movedPassengers.Add(hit.transform);
 						float pushX = -velocity.y;
 						float pushY = velocity.x;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from Cieling direction state.
+					else if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Cieling)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = velocity.x; // we have to flip y and x  and reverse (with -)
+						float pushY = -velocity.y;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from Floor direction state.
+					else if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Floor)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = -velocity.x; // we have to flip y and x 
+						float pushY = velocity.y;
 
 						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
 					}
@@ -310,11 +329,30 @@ public class PlatformController : RaycastController {
 				Debug.DrawRay(rayOrigin, Vector2.left * rayLength * 2, Color.green);
 				if (hit)
 				{
+					//This is for when the player is standing on right of platform
 					if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Rightwall)
 					{
 						movedPassengers.Add(hit.transform);
 						float pushX = velocity.y;
 						float pushY = -velocity.x;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from Cieling direction state.
+					else if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Cieling)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = velocity.x; // we have to flip y and x
+						float pushY = -velocity.y;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from Floor direction state.
+					else if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Floor)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = -velocity.x; // we have to flip y and x  and reverse (with -)
+						float pushY = velocity.y;
 
 						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
 					}
@@ -336,11 +374,30 @@ public class PlatformController : RaycastController {
 
 				if (hit)
 				{
+					//This is for when the player is standing on the platform
 					if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Floor)
 					{
 						movedPassengers.Add(hit.transform);
 						float pushX = velocity.x;
 						float pushY = velocity.y;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from LeftWall direction state.
+					else if (!movedPassengers.Contains(hit.transform)  && playerDirection == IntoLine.Direction.Leftwall)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = velocity.y; //we have to flip y and x 
+						float pushY = velocity.x;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from RightWall direction state.
+					else if (!movedPassengers.Contains(hit.transform)  && playerDirection == IntoLine.Direction.Rightwall)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = -velocity.y; // we have to flip y and x  and reverse (with -)
+						float pushY = -velocity.x;
 
 						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
 					}
@@ -361,11 +418,30 @@ public class PlatformController : RaycastController {
 
 				if (hit)
 				{
+					//This is for when the player is standing below the platform
 					if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Cieling)
 					{
 						movedPassengers.Add(hit.transform);
 						float pushX = -velocity.x;
 						float pushY = -velocity.y;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from LeftWall direction state.
+					else if (!movedPassengers.Contains(hit.transform) && playerDirection == IntoLine.Direction.Leftwall)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = velocity.y;
+						float pushY = velocity.x;
+
+						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
+					}
+					//This is for when the player is jumping onto the platform from RightWall direction state.
+					else if (!movedPassengers.Contains(hit.transform)  && playerDirection == IntoLine.Direction.Rightwall)
+					{
+						movedPassengers.Add(hit.transform);
+						float pushX = -velocity.y; //we have to reverse y velocity
+						float pushY = -velocity.x;
 
 						passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
 					}
