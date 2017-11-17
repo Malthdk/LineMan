@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntoLine : MonoBehaviour {
+public class IntoLine : RaycastController {
 	
 	//Publics
 	public Direction direction;
@@ -36,11 +36,9 @@ public class IntoLine : MonoBehaviour {
 	private float myWidth;
 	public LayerMask hitMask;
 
-	//FOR TESTING PALTFORM THE "PICKUP" BEHAVIOIR!
-	public bool pltFloorLeft, pltFloorRight;
-	public bool pltCielingLeft, pltCielingRight;
-	public bool pltLeftFloor, pltLeftCieling;
-	public bool pltRightFloor, pltRightCieling;
+	//For checking if grounded
+	private Vector2 verticalRayOrigin;
+	RaycastHit2D snapHit;
 
 	public static IntoLine _instance;
 
@@ -61,8 +59,9 @@ public class IntoLine : MonoBehaviour {
 		Leftwall
 	}
 
-	void Start () 
+	public override void Start () 
 	{
+		base.Start();
 		player = GetComponent<Player>();
 		controller = GetComponent<Controller2D>();
 		//direction = Direction.Floor;
@@ -82,8 +81,9 @@ public class IntoLine : MonoBehaviour {
 		inputLocked = false;
 	}
 
-	void Update () 
+	public override void Update () 
 	{
+		base.Update();
 		//Check if on T-section - move to when transform is about to happen.
 		CheckIfCanTransform();
 
@@ -105,15 +105,13 @@ public class IntoLine : MonoBehaviour {
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetUpDown, 0f), Direction.Cieling));
 				}
-				else if (((LovedOne)?leftArrow:rightArrow) && controller.collisions.right || pltFloorRight)
+				else if (((LovedOne)?leftArrow:rightArrow) && controller.collisions.right)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0f, yOffsetRightLeft, 0f), Direction.Rightwall));
-					pltFloorRight = false;
 				}
-				else if (((LovedOne)?rightArrow:leftArrow)  && (controller.collisions.left) || pltFloorLeft)
+				else if (((LovedOne)?rightArrow:leftArrow)  && controller.collisions.left)
 				{
 					StartCoroutine(TransformPlayer(new Vector3(0, yOffsetRightLeft, 0f), Direction.Leftwall));
-					pltFloorLeft = false;
 				}
 			}
 			//TRANSFORMATIONS
@@ -218,10 +216,11 @@ public class IntoLine : MonoBehaviour {
 	public IEnumerator TransformPlayer(Vector3 transformation, Direction directionState)
 	{
 		inputLocked = true;
+
 		yield return new WaitForEndOfFrame();
+
 		AkSoundEngine.PostEvent ("Transition", gameObject);
 		transforming = true;
-		//inputLocked = true; 
 		player.movementUnlocked = false; //Locks movement and stops raycasting
 		player.velocity.x = 0;
 		player.velocity.y = 0;
@@ -231,8 +230,8 @@ public class IntoLine : MonoBehaviour {
 		controller.collisions.left = controller.collisions.right = false; //Quick fix for at sørge for at den ikke fortsat tror er er collisions. Dette gjorde at man kunne transforme lige efter en transform.
 
 		yield return new WaitForSeconds(0.4f);
-		particleEffect.Stop();
 
+		particleEffect.Stop();
 		if (Portal.playerOnPortal)
 		{
 			PortalTransform(otherPortal); //If is on portal
@@ -244,16 +243,21 @@ public class IntoLine : MonoBehaviour {
 		}
 
 		yield return new WaitForSeconds(0.1f);
+
+		CheckIfOnGround(); //Shoot a ray downwards to check if we are on ground, if we are not then make sure that we are. 
 		animator.SetTrigger("goUp");
 		particleEffect.Play();
+
 		yield return new WaitForSeconds(0.4f);
+
 		particleEffect.Stop();
 		transforming = false;
 
 		yield return new WaitForEndOfFrame();
+
 		inputLocked = false;
 		player.movementUnlocked = true;		//Unlocks movement and starts raycasting
-		PlatformController.canSet = true; //Makes it so platforms can pick you up again.
+
 		yield return new WaitForEndOfFrame();
 	}
 
@@ -280,6 +284,44 @@ public class IntoLine : MonoBehaviour {
 		else
 		{
 			transformBlocked = false;
+		}
+	}
+
+	//This function shoots rays downwards and moves the player with the distance of the rays (used for snapping after transformation)
+	void CheckIfOnGround()
+	{
+		//we have to shoot different rays based on the players current Direction state
+		for (int i = 0; i < verticalRayCount; i ++)
+		{
+			if (controller.playerOnLeftWall)
+			{
+				verticalRayOrigin = raycastOrigins.bottomLeft;
+				verticalRayOrigin += Vector2.up * (horizontalRaySpacing * i);	
+			}
+			else if (controller.playerOnRightWall)
+			{
+				verticalRayOrigin = raycastOrigins.bottomRight;
+				verticalRayOrigin += Vector2.up * (horizontalRaySpacing * i);	
+			}
+			else if (controller.playerOnCieling)
+			{
+				verticalRayOrigin = raycastOrigins.topLeft;
+				verticalRayOrigin += Vector2.right * (verticalRaySpacing * i);	
+			}	
+			else if (controller.playerOnground)
+			{
+				verticalRayOrigin = raycastOrigins.bottomLeft;
+				verticalRayOrigin += Vector2.right * (verticalRaySpacing * i);	
+			}
+			snapHit = Physics2D.Raycast(verticalRayOrigin, -this.transform.up, 5f, hitMask);
+			Debug.DrawRay(verticalRayOrigin, -this.transform.up * 5f, Color.green); 
+		}
+
+		//if snaphit hits then we move the player based on the distance of the ray
+		if (snapHit)
+		{
+			Debug.Log("hit distance=" + snapHit.distance);
+			transform.Translate(new Vector3(0f, -snapHit.distance, 0f));
 		}
 	}
 }

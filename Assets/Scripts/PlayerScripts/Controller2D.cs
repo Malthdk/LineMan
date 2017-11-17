@@ -359,7 +359,7 @@ public class Controller2D : RaycastController {
 		Vector3 theScale = graphicsTransform.localScale;
 		theScale.x *= -1;
 		graphicsTransform.localScale = theScale;
-		Debug.Log(theScale);
+		//Debug.Log(theScale);
 	}
 
 

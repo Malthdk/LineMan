@@ -8,10 +8,10 @@ public class PlatformDrawer : MonoBehaviour {
 
 	public float position;
 
-	private float minScale = 1.175789f;
-	private float maxScale = 5.675f;
-	private float minPlatPos = 48.19f;
-	private float maxPlatPos = 58.19f;
+	public float minScale = 1.175789f;
+	public float maxScale = 5.675f;
+	public float minPlatPos = 48.19f;
+	public float maxPlatPos = 58.19f;
 
 	void Start () 
 	{

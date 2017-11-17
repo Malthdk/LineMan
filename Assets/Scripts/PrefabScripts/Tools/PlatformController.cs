@@ -239,8 +239,6 @@ public class PlatformController : RaycastController {
 							float pushY = -skinWidth;	//small downward force so that the player knows he is grounded.
 
 							passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), false, true));
-
-							RegisterHit();
 						}
 						if (playerDirection == IntoLine.Direction.Cieling)
 						{
@@ -488,34 +486,6 @@ public class PlatformController : RaycastController {
 				Vector3 globalWaypointPos = (Application.isPlaying)?globalWaypoints[i]:localWaypoints[i] + transform.position;
 				Gizmos.DrawSphere(globalWaypointPos, size);
 			}
-		}
-	}
-
-	//FOR TESTING PALTFORM THE "PICKUP" BEHAVIOIR!
-	public void RegisterHit()
-	{
-		if (canSet)
-		{
-			if (directionX == 1)
-			{
-				intoLine.pltFloorLeft = true;
-			}
-			else if (directionX == -1)
-			{
-				intoLine.pltFloorRight = true;
-			}
-			canSet = false;
-		}
-	}
-	//FOR TESTING PALTFORM THE "PICKUP" BEHAVIOIR!
-	public void SetHitByPlatform(bool newState)
-	{
-		if (canSet)
-		{
-			newState = true;
-			canSet = false;
-			Debug.Log("check");
-			Debug.Log("new State: " + intoLine.pltFloorLeft);
 		}
 	}
 
