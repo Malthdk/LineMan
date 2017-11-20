@@ -24,8 +24,6 @@ public class PlatformController : RaycastController {
 	float directionX;
 	float directionY;
 
-	public static bool canSet; //used in SetHitByPlatform() to set bool once.
-
 	List<PassengerMovement> passengerMovement; //A list of our structs
 	Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>(); 
 
@@ -43,7 +41,6 @@ public class PlatformController : RaycastController {
 	public override void Awake () 
 	{
 		base.Awake();
-		canSet = true;
 		intoLine = GameObject.Find("Player").GetComponent<IntoLine>();
 			
 		globalWaypoints = new Vector3[localWaypoints.Length];

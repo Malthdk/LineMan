@@ -384,6 +384,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3859129600eb940f0b4f2d4b1a14e839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 4352
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
   direction: 0
   yOffsetRightLeft: 0.3
   yOffsetUpDown: -1.5
@@ -399,15 +407,7 @@ MonoBehaviour:
   portalTransformation: {x: 0, y: 0, z: 0}
   hitMask:
     serializedVersion: 2
-    m_Bits: 256
-  pltFloorLeft: 0
-  pltFloorRight: 0
-  pltCielingLeft: 0
-  pltCielingRight: 0
-  pltLeftFloor: 0
-  pltLeftCieling: 0
-  pltRightFloor: 0
-  pltRightCieling: 0
+    m_Bits: 4352
 --- !u!114 &114824114692640464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   horizontalRayCount: 8
   verticalRayCount: 8
   horizontalRaySpacing: 0

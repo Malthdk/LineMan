@@ -7,6 +7,8 @@ public class BGParticles : MonoBehaviour {
 	//Publics
 	[HideInInspector]
 	public bool hasCollected = false;
+	public Mesh mesh1;
+	public Mesh mesh2;
 
 	//Privates
 	private ParticleSystem pSystem;
@@ -17,6 +19,7 @@ public class BGParticles : MonoBehaviour {
 	private ParticleSystem.VelocityOverLifetimeModule velLifeModule;
 	private ParticleSystem.ColorOverLifetimeModule colLifeModule;
 	private ParticleSystem.RotationBySpeedModule rotSpeedModule;
+	private ParticleSystem.ShapeModule shapeModule;
 	private float startSpeedMax;
 	private float startSpeedMin;
 
@@ -37,6 +40,7 @@ public class BGParticles : MonoBehaviour {
 
 	void Start () 
 	{
+		
 		pSystem = GetComponent<ParticleSystem>();
 		noiseModule = pSystem.noise;
 		mainModule = pSystem.main;
@@ -46,6 +50,7 @@ public class BGParticles : MonoBehaviour {
 		emissionModule = pSystem.emission;
 		colLifeModule = pSystem.colorOverLifetime;
 		rotSpeedModule = pSystem.rotationBySpeed;
+
 	}
 	
 
@@ -57,38 +62,64 @@ public class BGParticles : MonoBehaviour {
 			noiseModule.frequency = 5f;
 			noiseModule.strength = 5f;
 		}
-		else
+		else if (!IntoLine.instance.transforming && !hasCollected)
 		{
-			noiseModule.frequency = 0.5f;
-			noiseModule.strength = 0.5f;
+			noiseModule.frequency = 1f;
+			noiseModule.strength = 0.2f;
 		}
 
 		//This is for when the player is dead
 		if ( LevelManager.instance.isRespawning)
 		{
+			
 			limVelModule.enabled = false;
 			velLifeModule.enabled = true;
 		}
 		else
 		{
-			mainModule.startSpeed = 0.1f;
+
+			//mainModule.startSpeed = 0.1f;
 			limVelModule.enabled = true;
 			velLifeModule.enabled = false;
-			emissionModule.rateOverTime = 20f;
-			mainModule.startLifetime = 10f;
+			//emissionModule.rateOverTime = 20f;
+			//mainModule.startLifetime = 10f;
 		}
 
 		//This is for when the player has collected a collectable
 		if (hasCollected)
 		{
-			StartCoroutine("Brighten");
-			rotSpeedModule.enabled = true;
+			var sh = pSystem.shape;
+			sh.shapeType = ParticleSystemShapeType.Mesh;
+			sh.mesh = mesh2;
+
+			StartCoroutine("DeNoise");
+			noiseModule.frequency = 1f;
+			//StartCoroutine("Brighten");
+			//rotSpeedModule.enabled = true;
+
 		}
 		else
 		{
-			StartCoroutine("Darken");
-			rotSpeedModule.enabled = false;
+			var sh = pSystem.shape;
+			sh.shapeType = ParticleSystemShapeType.Mesh;
+			sh.mesh = mesh1;
+			//StartCoroutine("Darken");
+			//rotSpeedModule.enabled = false;
 		}
+	}
+
+	public IEnumerator DeNoise()
+	{
+		while (noiseModule.strength.constant > 0f)
+		{
+			ParticleSystem.MinMaxCurve str = noiseModule.strength;
+			str.constant -= 0.001f;
+			noiseModule.strength = str;
+			//noiseModule.strength.constant -= 0.001f;
+			yield return new WaitForEndOfFrame();
+		}
+		yield return new WaitForSeconds(5f);
+		hasCollected = false;
 	}
 
 	//This brightens the particlesystem
