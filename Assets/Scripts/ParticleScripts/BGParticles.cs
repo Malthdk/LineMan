@@ -20,6 +20,8 @@ public class BGParticles : MonoBehaviour {
 	private ParticleSystem.ColorOverLifetimeModule colLifeModule;
 	private ParticleSystem.RotationBySpeedModule rotSpeedModule;
 	private ParticleSystem.ShapeModule shapeModule;
+
+	private ParticleSystem.Particle[] particles;
 	private float startSpeedMax;
 	private float startSpeedMin;
 
@@ -59,13 +61,18 @@ public class BGParticles : MonoBehaviour {
 		//This is for when the player is transforming
 		if (IntoLine.instance.transforming)
 		{
-			noiseModule.frequency = 5f;
-			noiseModule.strength = 5f;
+			//Some effect
+
+			//noiseModule.frequency = 5f;
+			//noiseModule.strength = 5f;
 		}
 		else if (!IntoLine.instance.transforming && !hasCollected)
 		{
-			noiseModule.frequency = 1f;
-			noiseModule.strength = 0.2f;
+			//Some effect
+
+
+			noiseModule.frequency = 0.5f;
+			noiseModule.strength = 0.15f;
 		}
 
 		//This is for when the player is dead
@@ -88,29 +95,45 @@ public class BGParticles : MonoBehaviour {
 		//This is for when the player has collected a collectable
 		if (hasCollected)
 		{
-			var sh = pSystem.shape;
-			sh.shapeType = ParticleSystemShapeType.Mesh;
-			sh.mesh = mesh2;
+			//For changing mesh
+			//ChangeMesh(mesh2);
 
-			StartCoroutine("DeNoise");
-			noiseModule.frequency = 1f;
+			//DeLifetime();
+			//StartCoroutine("DeNoise");
+			//noiseModule.frequency = 1f;
+
+
+
 			//StartCoroutine("Brighten");
 			//rotSpeedModule.enabled = true;
 
 		}
 		else
 		{
-			var sh = pSystem.shape;
-			sh.shapeType = ParticleSystemShapeType.Mesh;
-			sh.mesh = mesh1;
+			//ChangeMesh(mesh1);
+
 			//StartCoroutine("Darken");
 			//rotSpeedModule.enabled = false;
 		}
 	}
 
+	public void DeLifetime()
+	{
+		int numParticlesAlive = pSystem.GetParticles(particles);
+
+		// Change only the particles that are alive
+		for (int i = 0; i < numParticlesAlive; i++)
+		{
+			particles[i].startLifetime = 2f;
+			//particles[i].velocity += Vector3.up * 0.01f;
+		}
+
+		pSystem.SetParticles(particles, numParticlesAlive);
+	}
+
 	public IEnumerator DeNoise()
 	{
-		while (noiseModule.strength.constant > 0f)
+		while (noiseModule.strength.constant >= 0.001f)
 		{
 			ParticleSystem.MinMaxCurve str = noiseModule.strength;
 			str.constant -= 0.001f;
@@ -118,9 +141,17 @@ public class BGParticles : MonoBehaviour {
 			//noiseModule.strength.constant -= 0.001f;
 			yield return new WaitForEndOfFrame();
 		}
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(8f);
 		hasCollected = false;
 	}
+
+	public void ChangeMesh(Mesh newMesh)
+	{
+		var sh = pSystem.shape;
+		sh.shapeType = ParticleSystemShapeType.Mesh;
+		sh.mesh = newMesh;
+	}
+
 
 	//This brightens the particlesystem
 	public IEnumerator Brighten()
