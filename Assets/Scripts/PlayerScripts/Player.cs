@@ -43,8 +43,6 @@ public class Player : MonoBehaviour {
 
 	//ParticleSystems for jump
 	private ParticleSystem jumpParticles;
-	//private ParticleSystem doubleJumpParticle;
-	//private ParticleSystem tripleJumpParticle;
 
 	private SpriteMask spriteMask;
 
@@ -58,6 +56,13 @@ public class Player : MonoBehaviour {
 	public bool inverseControlX;
 	[HideInInspector]
 	public static Player _instance;
+
+	// The players collider
+	private BoxCollider2D boxCol;
+
+	// The starting values for the players collider
+	private Vector2 startColSize;
+
 
 	private float pitchValue;
 
@@ -73,6 +78,8 @@ public class Player : MonoBehaviour {
 	void Start () 
 	{
 		movementUnlocked = true;
+		boxCol = GetComponent<BoxCollider2D>();
+		startColSize = boxCol.size;
 		controller = GetComponent<Controller2D>();
 		intoLine = GetComponent<IntoLine>();
 		animator = transform.GetComponentInChildren<Animator>();		//ANIMATION
@@ -148,7 +155,9 @@ public class Player : MonoBehaviour {
 		{
 			moveSpeed = groundSpeed;
 			landed = true;
+			animator.SetBool("landed", true);
 			spriteMask.enabled = true;
+			boxCol.size = startColSize;
 		}
 		if (Mathf.Sign(velocity.y) == -1)
 		{
@@ -184,11 +193,13 @@ public class Player : MonoBehaviour {
 	IEnumerator Jump() 
 	{
 		yield return new WaitForSeconds(0.1f);
+		Vector2 newSize = new Vector2(1.4f, 1.41f);
+		boxCol.size = newSize;
 		velocity.y = maxJumpVelocity;
 		spriteMask.enabled = false;
 		AkSoundEngine.SetRTPCValue ("Pitch", 0);
 		AkSoundEngine.PostEvent ("Jump", gameObject);
-		jumpParticles.Play();						//ParticleSystem
+		//jumpParticles.Play();						//ParticleSystem
 		animator.SetBool("jumping", false);
 	}
 }

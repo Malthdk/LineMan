@@ -4,7 +4,7 @@
 		<Banks>
 			<Language ID="393239870">
 				<File Name="Background" Hash="1075474068" Timestamp="131537450430000000"/>
-				<File Name="Collect" Hash="619243883" Timestamp="131537451600000000"/>
+				<File Name="Collect" Hash="1274141807" Timestamp="131557727160000000"/>
 				<File Name="Current" Hash="3506015534" Timestamp="131537450430000000"/>
 				<File Name="Die" Hash="2217196269" Timestamp="131537450430000000"/>
 				<File Name="EndLevel" Hash="1691781071" Timestamp="131537450430000000"/>
@@ -15,7 +15,7 @@
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="3329804262" Timestamp="131537451600000000"/>
+				<File Name="" Hash="687999456" Timestamp="131557727170000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
@@ -23,7 +23,7 @@
 		<Banks>
 			<Language ID="393239870">
 				<File Name="Background" Hash="1075474068" Timestamp="131537450390000000"/>
-				<File Name="Collect" Hash="619243883" Timestamp="131537451590000000"/>
+				<File Name="Collect" Hash="1274141807" Timestamp="131557727140000000"/>
 				<File Name="Current" Hash="3506015534" Timestamp="131537450390000000"/>
 				<File Name="Die" Hash="2217196269" Timestamp="131537450390000000"/>
 				<File Name="EndLevel" Hash="1691781071" Timestamp="131537450390000000"/>
@@ -34,7 +34,7 @@
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="1575366252" Timestamp="131537451590000000"/>
+				<File Name="" Hash="1258343050" Timestamp="131557727140000000"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
