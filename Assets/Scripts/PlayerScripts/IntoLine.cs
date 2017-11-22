@@ -248,7 +248,7 @@ public class IntoLine : RaycastController {
 		animator.SetTrigger("goUp");
 		particleEffect.Play();
 
-		yield return new WaitForSeconds(0.4f);
+		yield return new WaitForSeconds(0.5f);
 
 		particleEffect.Stop();
 		transforming = false;
