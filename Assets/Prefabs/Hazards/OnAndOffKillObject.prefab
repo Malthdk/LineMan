@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1830956946936228
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 50276246717684324}
   - component: {fileID: 61448026630217240}
   - component: {fileID: 114139963435537302}
+  - component: {fileID: 95613509141041926}
   m_Layer: 0
   m_Name: OnAndOffKillObject
   m_TagString: killTag
@@ -55,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1830956946936228}
   m_LocalRotation: {x: 0.0023670585, y: 0.0023670555, z: -0.7071025, w: 0.70710313}
   m_LocalPosition: {x: -3.3, y: -0.1, z: 0}
-  m_LocalScale: {x: 1.8392361, y: 0.2156266, z: 1}
+  m_LocalScale: {x: 2.2300835, y: 0.102422856, z: 1}
   m_Children:
   - {fileID: 4861336742153302}
   m_Father: {fileID: 0}
@@ -120,6 +121,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20.335001, y: 3.4999995}
   m_EdgeRadius: 0
+--- !u!95 &95613509141041926
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830956946936228}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7be863d286a24598bc3f932afcc442c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114139963435537302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad917c53592534dc29b00cb84e8b7903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onAndOff: 1
+  onAndOff: 0
   offColor: {r: 0.20588237, g: 0.010596884, b: 0.010596884, a: 1}
   onColor: {r: 0.8313726, g: 0.25490198, b: 0.25490198, a: 1}
 --- !u!198 &198887751962964222
@@ -193,7 +211,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2042510910
+  randomSeed: 334788551
   InitialModule:
     serializedVersion: 3
     enabled: 1

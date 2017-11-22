@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61193811272256572}
   - component: {fileID: 114771585663762226}
   - component: {fileID: 114179529875159570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: KillObject
   m_TagString: killTag
   m_Icon: {fileID: 0}

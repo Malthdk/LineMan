@@ -78,7 +78,7 @@ public class PlatformController : RaycastController {
 			break;
 
 		case Platform.Stop:
-			if (IntoLine.instance.transforming && pltCanChange)
+			if (IntoLine.instance.transforming && pltCanChange && !elevator)
 			{
 				StartCoroutine(StartStop(Platform.Stop));
 			}	
