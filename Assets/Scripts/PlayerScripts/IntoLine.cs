@@ -231,6 +231,8 @@ public class IntoLine : RaycastController {
 
 		yield return new WaitForSeconds(0.4f);
 
+		Player.instance.spriteMask.enabled = false;
+
 		particleEffect.Stop();
 		if (Portal.playerOnPortal)
 		{
@@ -244,6 +246,7 @@ public class IntoLine : RaycastController {
 
 		yield return new WaitForSeconds(0.1f);
 
+		Player.instance.spriteMask.enabled = true;
 		CheckIfOnGround(); //Shoot a ray downwards to check if we are on ground, if we are not then make sure that we are. 
 		animator.SetTrigger("goUp");
 		particleEffect.Play();

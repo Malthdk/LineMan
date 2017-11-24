@@ -44,7 +44,7 @@ public class Player : MonoBehaviour {
 	//ParticleSystems for jump
 	private ParticleSystem jumpParticles;
 
-	private SpriteMask spriteMask;
+	public SpriteMask spriteMask;
 
 	//Can the character be moved on X or Y axis. 
 	[HideInInspector]
