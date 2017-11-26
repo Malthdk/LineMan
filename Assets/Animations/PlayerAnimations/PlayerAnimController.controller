@@ -110,9 +110,6 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: ground
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
     m_ConditionEvent: transforming
     m_EventTreshold: 0
   - m_ConditionMode: 3
@@ -524,7 +521,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c5a10c4acc68244b7bcda6efe96c3aed, type: 2}
+  m_Motion: {fileID: 7400000, guid: 07f222fbdb08e4003a73aa50fb6c6985, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -537,7 +534,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Player_Jump_Anim
-  m_Speed: 2
+  m_Speed: 7
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -549,7 +546,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9c60752d602b6448e825613b4a0da150, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2fc919fe28f014e4cb4117d8f3765719, type: 2}
   m_Tag: 
   m_SpeedParameter: speed
   m_MirrorParameter: 

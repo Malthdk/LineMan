@@ -192,7 +192,7 @@ public class Player : MonoBehaviour {
 
 	IEnumerator Jump() 
 	{
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.15f);
 		Vector2 newSize = new Vector2(1.4f, 1.41f);
 		boxCol.size = newSize;
 		velocity.y = maxJumpVelocity;
