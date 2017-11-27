@@ -923,7 +923,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2084531565
+  randomSeed: 2089077898
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4579,7 +4579,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1037428240
+  randomSeed: 1535202107
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8486,7 +8486,7 @@ Prefab:
     - target: {fileID: 198146891011842372, guid: 29a751bee121148fa8357c667b4db6ac,
         type: 2}
       propertyPath: randomSeed
-      value: 1769027463
+      value: 2121882023
       objectReference: {fileID: 0}
     - target: {fileID: 1017386887549654, guid: 29a751bee121148fa8357c667b4db6ac, type: 2}
       propertyPath: m_IsActive
@@ -8555,7 +8555,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: e1f2565bdd6364c85b3e836b1281809e, type: 2}
     - target: {fileID: 198146891011842372, guid: 29a751bee121148fa8357c667b4db6ac,
         type: 2}
       propertyPath: ColorModule.gradient.maxGradient.key1.r

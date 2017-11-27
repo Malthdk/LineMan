@@ -11,11 +11,13 @@ public class Collectable : MonoBehaviour {
 	PolygonCollider2D pCollider;
 	GameObject textObject;
 	Animator animator;
+	public GameObject[] textObjects;
 
 	void Start () 
 	{
 		sRenderer = transform.GetComponentInChildren<SpriteRenderer>();
 		pCollider = transform.GetComponent<PolygonCollider2D>();
+
 		textObject = transform.GetChild(2).gameObject;
 		pSystem = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
 		animator = GetComponent<Animator>();
@@ -49,8 +51,18 @@ public class Collectable : MonoBehaviour {
 			/*ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetComponent<ParticleSystem>();
 			particleEffect.Play();*/
 
-			BGParticles.instance.hasCollected = true; //Setting hascollected in Background ParticleSystem for effect.
-			textObject.SetActive(true);
+			//BGParticles.instance.hasCollected = true; //Setting hascollected in Background ParticleSystem for effect.
+			//textObject.SetActive(true);
+			RevealObjects(textObjects);
+
+		}
+	}
+
+	public void RevealObjects(GameObject[] array)
+	{
+		for (int i = 0; i < array.Length; i++)
+		{
+			array[i].SetActive(true);
 		}
 	}
 }
