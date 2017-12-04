@@ -108,17 +108,17 @@ public class AiPatrolling : MonoBehaviour {
 
 					}
 					//This is for the AI to go around an edge when egde
-					else if (aroundEdge && !isGrounded)
-					{
-						if(faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
-						}
-						else if (!faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
-						}
-					}
+//					else if (aroundEdge && !isGrounded)
+//					{
+//						if(faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
+//						}
+//						else if (!faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
+//						}
+//					}
 					//This flips the AI in the opposite direction - for back and forth patrolling.
 					else
 					{
@@ -149,17 +149,17 @@ public class AiPatrolling : MonoBehaviour {
 							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Leftwall, 0f, -90f));
 						}
 					}
-					else if (aroundEdge && !isGrounded)
-					{
-						if(faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
-						}
-						else if (!faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
-						}
-					}
+//					else if (aroundEdge && !isGrounded)
+//					{
+//						if(faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Leftwall, 0f, 90f));
+//						}
+//						else if (!faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Rightwall, 0f, 90f));
+//						}
+//					}
 					else 
 					{
 						Flip(false);	
@@ -189,17 +189,17 @@ public class AiPatrolling : MonoBehaviour {
 							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Floor, 0f, -90f));
 						}
 					}
-					else if (aroundEdge && !isGrounded)
-					{
-						if(faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
-						}
-						else if (!faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
-						}
-					}
+//					else if (aroundEdge && !isGrounded)
+//					{
+//						if(faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
+//						}
+//						else if (!faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
+//						}
+//					}
 					else
 					{
 						Flip(true);	
@@ -228,17 +228,17 @@ public class AiPatrolling : MonoBehaviour {
 							co = StartCoroutine(TransformAI(wallOffset, AiDirection.Cieling, 0f, -90f));
 						}
 					}
-					else if (aroundEdge && !isGrounded)
-					{
-						if(faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
-						}
-						else if (!faceingLeft)
-						{
-							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
-						}
-					}
+//					else if (aroundEdge && !isGrounded)
+//					{
+//						if(faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Cieling, 0f, 90f));
+//						}
+//						else if (!faceingLeft)
+//						{
+//							co = StartCoroutine(TransformAI(edgeOffset, AiDirection.Floor, 0f, 90f));
+//						}
+//					}
 					else
 					{
 						Flip(true);	

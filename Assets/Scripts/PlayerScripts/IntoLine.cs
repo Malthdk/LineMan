@@ -217,6 +217,18 @@ public class IntoLine : RaycastController {
 	{
 		inputLocked = true;
 
+		//If we are in air and transforming onto side we want to first rotate character before transforming, for animations sake.
+		//if (!controller.collisions.below)
+		//{
+		//	if (controller.collisions.right)
+		//	{
+		//		direction = Direction.Rightwall;
+		//	}
+		//	else if (controller.collisions.left)
+		//	{
+		//		direction = Direction.Leftwall;
+		//	}
+		//}
 		yield return new WaitForEndOfFrame();
 
 		AkSoundEngine.PostEvent ("Transition", gameObject);
@@ -228,6 +240,7 @@ public class IntoLine : RaycastController {
 		particleEffect.Play();
 		animator.SetTrigger("goDown");
 		controller.collisions.left = controller.collisions.right = false; //Quick fix for at sørge for at den ikke fortsat tror er er collisions. Dette gjorde at man kunne transforme lige efter en transform.
+
 
 		yield return new WaitForSeconds(0.4f);
 
