@@ -142,7 +142,7 @@ public class Player : MonoBehaviour {
 			if (controller.collisions.below)
 			{
 				animator.SetBool("jumping", true);
-				StartCoroutine("Jump");
+				Jump();
 			}
 		}
 
@@ -190,9 +190,8 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	IEnumerator Jump() 
+	void Jump() 
 	{
-		yield return new WaitForSeconds(0.15f);
 		Vector2 newSize = new Vector2(1.4f, 1.41f);
 		boxCol.size = newSize;
 		velocity.y = maxJumpVelocity;
